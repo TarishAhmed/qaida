@@ -21,6 +21,7 @@ import androidx.room.RoomDatabase
 )
 abstract class QaidaDatabase : RoomDatabase() {
     abstract fun contentDao(): ContentDao
+    abstract fun progressDao(): ProgressDao
 
     companion object {
         fun create(context: Context): QaidaDatabase =

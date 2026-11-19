@@ -14,11 +14,14 @@ abstract class ContentDao {
     @Query("SELECT * FROM letter ORDER BY unlockTier, ordinal")
     abstract suspend fun letters(): List<LetterEntity>
 
-    @Query("SELECT * FROM letter_audio WHERE letterId = :letterId")
-    abstract suspend fun audioFor(letterId: String): List<LetterAudioEntity>
+    @Query("SELECT * FROM letter_audio")
+    abstract suspend fun allAudio(): List<LetterAudioEntity>
 
-    @Query("SELECT otherId FROM letter_confusable WHERE letterId = :letterId ORDER BY rank")
-    abstract suspend fun confusablesFor(letterId: String): List<String>
+    @Query("SELECT * FROM letter_confusable ORDER BY letterId, rank")
+    abstract suspend fun allConfusables(): List<LetterConfusableEntity>
+
+    @Query("SELECT * FROM confusion_set_member")
+    abstract suspend fun allSetMembers(): List<ConfusionSetMemberEntity>
 
     @Query("SELECT value FROM content_meta WHERE `key` = :key")
     abstract suspend fun meta(key: String): String?

@@ -7,6 +7,8 @@ import `in`.qaida.app.data.db.LetterAudioEntity
 import `in`.qaida.app.data.db.LetterConfusableEntity
 import `in`.qaida.app.data.db.LetterEntity
 import `in`.qaida.app.data.db.MakhrajEntity
+import `in`.qaida.app.domain.AudioClip
+import `in`.qaida.app.domain.CatalogLetter
 import `in`.qaida.app.domain.ContentPack
 import java.security.MessageDigest
 
@@ -25,6 +27,24 @@ class ContentRepository(
         val pack = source.loadPack()
         write(pack, hash)
         return pack.letters.size
+    }
+
+    /** Every letter with its confusables, confusion sets and isolated clips, in teaching order. */
+    suspend fun catalog(): List<CatalogLetter> {
+        val audio = dao.allAudio().filter { it.context == AssetValidator.ISOLATED }.groupBy { it.letterId }
+        val confusables = dao.allConfusables().groupBy({ it.letterId }, { it.otherId })
+        val sets = dao.allSetMembers().groupBy({ it.letterId }, { it.setIndex })
+        return dao.letters().map { l ->
+            CatalogLetter(
+                id = l.id,
+                glyph = l.glyph,
+                unlockTier = l.unlockTier,
+                ordinal = l.ordinal,
+                confusableWith = confusables[l.id].orEmpty(),
+                confusionSets = sets[l.id].orEmpty().toSet(),
+                isolatedClips = audio[l.id].orEmpty().sortedBy { it.file }.map { AudioClip(it.file, it.voiceId) },
+            )
+        }
     }
 
     private suspend fun write(pack: ContentPack, hash: String) {

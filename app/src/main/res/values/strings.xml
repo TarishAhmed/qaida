@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Qaida</string>
-    <string name="fonttest_face_nastaleeq">Nastaleeq</string>
-    <string name="fonttest_face_naskh">Naskh</string>
-    <string name="fonttest_font_missing">Font file missing: res/font/%1$s.ttf</string>
-    <string name="fonttest_size">%1$d sp</string>
+
+    <string name="home_start">Start — %1$d seconds</string>
+
+    <string name="session_replay">Play again</string>
+    <string name="session_tap_to_continue">Tap to continue</string>
+    <string name="session_nothing_due">Nothing needs review right now.</string>
+
+    <string name="summary_correct">%1$d of %2$d correct</string>
+    <string name="summary_moved">Moved</string>
+    <string name="summary_watch">One to watch</string>
 </resources>
