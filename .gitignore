@@ -7,3 +7,8 @@ local.properties
 captures/
 .cxx/
 fonts-src/
+
+# Signing material never belongs in the repo.
+*.jks
+*.keystore
+keystore.properties

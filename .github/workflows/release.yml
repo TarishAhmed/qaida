@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Version from tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if ! [[ "$VERSION" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "Tag must be vMAJOR.MINOR.PATCH, got $GITHUB_REF_NAME" >&2; exit 1
+          fi
+          CODE=$(( BASH_REMATCH[1] * 10000 + BASH_REMATCH[2] * 100 + BASH_REMATCH[3] ))
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "VERSION_CODE=$CODE" >> "$GITHUB_ENV"
+
+      # Real content unlocks a real release. Until then the build is a preview on the stub pack,
+      # installed as a separate app (in.qaida.app.preview) and published as a pre-release.
+      - name: Choose build
+        run: |
+          if [ -f app/src/main/assets/content/letters.json ]; then
+            echo "KIND=release" >> "$GITHUB_ENV"
+          else
+            echo "KIND=preview" >> "$GITHUB_ENV"
+          fi
+
+      - name: Restore signing key
+        env:
+          QAIDA_KEYSTORE_B64: ${{ secrets.QAIDA_KEYSTORE_B64 }}
+        run: |
+          if [ -z "$QAIDA_KEYSTORE_B64" ]; then echo "QAIDA_KEYSTORE_B64 secret is missing" >&2; exit 1; fi
+          echo "$QAIDA_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/qaida-release.jks"
+          echo "QAIDA_KEYSTORE=$RUNNER_TEMP/qaida-release.jks" >> "$GITHUB_ENV"
+
+      - name: Test and build
+        env:
+          QAIDA_KEYSTORE_PASSWORD: ${{ secrets.QAIDA_KEYSTORE_PASSWORD }}
+          QAIDA_KEY_ALIAS: ${{ secrets.QAIDA_KEY_ALIAS }}
+          QAIDA_KEY_PASSWORD: ${{ secrets.QAIDA_KEY_PASSWORD }}
+        run: |
+          TASK="assemble${KIND^}"
+          ./gradlew test "$TASK" -Pqaida.versionName="$VERSION" -Pqaida.versionCode="$VERSION_CODE" --console=plain
+
+      - name: Verify signature and package
+        run: |
+          APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/ | sort -V | tail -1)apksigner
+          SRC="app/build/outputs/apk/$KIND/app-$KIND.apk"
+          "$APKSIGNER" verify --print-certs "$SRC" | tee signer.txt
+          if [ "$KIND" = preview ]; then OUT="qaida-$VERSION-preview.apk"; else OUT="qaida-$VERSION.apk"; fi
+          cp "$SRC" "$OUT"
+          sha256sum "$OUT" > "$OUT.sha256"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          echo "CERT=$(grep -m1 'SHA-256' signer.txt | awk '{print $NF}')" >> "$GITHUB_ENV"
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$KIND" = preview ]; then
+            {
+              echo "**Preview build: placeholder content, not for learning.**"
+              echo
+              echo "Built on the stub content pack: every letter shows ؟ and every clip is silence. It exists to test"
+              echo "installs, updates and the session flow on real devices. It installs as a separate app"
+              echo "(\`in.qaida.app.preview\`) and will never update into the real Qaida app."
+            } > notes.md
+            PRERELEASE=--prerelease
+            TITLE="Qaida $VERSION (preview)"
+          else
+            echo "Qaida $VERSION" > notes.md
+            PRERELEASE=
+            TITLE="Qaida $VERSION"
+          fi
+          {
+            echo
+            echo "- No internet permission. Nothing leaves the device."
+            echo "- SHA-256 of the APK: \`$(cut -d' ' -f1 "$OUT.sha256")\`"
+            echo "- Signing certificate SHA-256: \`$CERT\`"
+          } >> notes.md
+          gh release create "$GITHUB_REF_NAME" "$OUT" "$OUT.sha256" --title "$TITLE" --notes-file notes.md $PRERELEASE

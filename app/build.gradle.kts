@@ -13,9 +13,23 @@ android {
         applicationId = "in.qaida.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.0.1"
+        // CI passes these from the release tag; local builds use the defaults.
+        versionCode = (findProperty("qaida.versionCode") as String?)?.toInt() ?: 1
+        versionName = (findProperty("qaida.versionName") as String?) ?: "0.0.0-dev"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // The release key lives only in CI secrets (and the owner's offline backup), never in the repo.
+    val keystore = System.getenv("QAIDA_KEYSTORE")?.let(::file)?.takeIf { it.exists() }
+    signingConfigs {
+        if (keystore != null) {
+            create("qaida") {
+                storeFile = keystore
+                storePassword = System.getenv("QAIDA_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("QAIDA_KEY_ALIAS")
+                keyPassword = System.getenv("QAIDA_KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
@@ -23,8 +37,19 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfigs.findByName("qaida")?.let { signingConfig = it }
+        }
+        // Release-like (minified, not debuggable) but built on the debug stub pack, for testing builds
+        // before real content exists. A separate application id so it can never update into, or be
+        // mistaken for, the real app.
+        create("preview") {
+            initWith(getByName("release"))
+            applicationIdSuffix = ".preview"
+            versionNameSuffix = "-preview"
+            matchingFallbacks += "release"
         }
     }
+    sourceSets["preview"].assets.srcDir("src/debug/assets")
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -44,6 +69,7 @@ android {
         unitTests.all { test ->
             test.useJUnitPlatform()
             // Asset roots in override order, mirroring how AGP merges assets for the variant under test.
+            // Preview builds use the debug stub pack, so they test like debug.
             val buildType = if (test.name.contains("Release")) "release" else "debug"
             test.systemProperty("qaida.assetRoots", listOf("src/$buildType/assets", "src/main/assets").joinToString(File.pathSeparator) { file(it).path })
             test.systemProperty("qaida.releaseRoots", listOf("src/release", "src/main").joinToString(File.pathSeparator) { file(it).path })
@@ -74,19 +100,21 @@ tasks.matching { it.name in setOf("assembleRelease", "bundleRelease", "packageRe
 
 // The app's core promise is that nothing leaves the device. A library can add permissions to the merged
 // manifest silently, so every variant's merged manifest is checked against this allowlist.
-val allowedPermissions = setOf(
-    "in.qaida.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", // androidx.core, app-private, signature-level
+fun allowedPermissions(applicationId: String) = setOf(
+    "$applicationId.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", // androidx.core, app-private, signature-level
 )
 androidComponents {
     onVariants { variant ->
         val name = variant.name.replaceFirstChar { it.uppercase() }
         val check = tasks.register("verify${name}ManifestPermissions") {
             val manifest = variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.MERGED_MANIFEST)
+            val applicationId = variant.applicationId
             inputs.file(manifest)
+            inputs.property("applicationId", applicationId)
             doLast {
                 val text = manifest.get().asFile.readText()
                 val declared = Regex("""<uses-permission(?:-sdk-23)?\s+android:name="([^"]+)"""").findAll(text).map { it.groupValues[1] }.toSet()
-                val unexpected = declared - allowedPermissions
+                val unexpected = declared - allowedPermissions(applicationId.get())
                 check(unexpected.isEmpty()) { "Unexpected permissions in the ${variant.name} merged manifest: $unexpected" }
             }
         }
