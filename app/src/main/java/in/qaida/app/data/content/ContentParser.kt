@@ -45,7 +45,8 @@ object ContentParser {
             ),
             nameEn = o.str("nameEn", at),
             nameMl = o.str("nameMl", at),
-            makhrajId = o.str("makhrajId", at),
+            // Optional: a pack may not have articulation data for a letter yet.
+            makhrajId = if (o.isNull("makhrajId")) "" else o.str("makhrajId", at),
             makhrajNoteEn = o.str("makhrajNoteEn", at),
             makhrajNoteMl = o.str("makhrajNoteMl", at),
             confusableWith = o.strings("confusableWith", at),

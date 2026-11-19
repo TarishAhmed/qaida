@@ -2,6 +2,12 @@
 
 All builds so far are previews on placeholder content (`in.qaida.app.preview`).
 
+## 0.9.0
+- Real letter pack: 29 letters from Unicode, look-alike tiers derived from the font, sound-alike sets from the spec
+- 66 letter recordings by Ruaa GHAREEB (Wikimedia Commons, CC BY-SA 4.0), not yet verified by a fluent reader
+- Settings > Check the recordings: a review screen for a fluent reader; release builds require every clip verified
+- Previews now run on the real pack; debug builds keep the generated test pack
+
 ## 0.8.0
 - Accessibility: answer tiles read as numbered options (never the letter), results announced, every control labelled; a session is completable with TalkBack alone
 - Launcher icon; light and true-dark window backgrounds

@@ -34,7 +34,8 @@ object AssetValidator {
             if (!ID.matches(l.id)) errors += "$at: id must match ${ID.pattern}"
             listOf(l.glyph, l.forms.isolated, l.forms.initial, l.forms.medial, l.forms.final, l.nameEn, l.nameMl)
                 .forEach { if (it.isBlank()) errors += "$at: glyph, forms and names must not be blank" }
-            if (l.makhrajId !in makhrajIds) errors += "$at: makhrajId '${l.makhrajId}' is not defined in makhraj.json"
+            if (l.makhrajId.isEmpty()) warnings += "$at: no makhraj yet"
+            else if (l.makhrajId !in makhrajIds) errors += "$at: makhrajId '${l.makhrajId}' is not defined in makhraj.json"
             if (l.unlockTier < 1) errors += "$at: unlockTier must be >= 1"
 
             if (l.confusableWith.isEmpty()) errors += "$at: confusableWith is empty"
@@ -97,6 +98,12 @@ object AssetValidator {
         for (type in listOf("hear_pick", "see_pick", "ab_same_diff", "form_pick", "harakah_pick", "produce")) {
             val present = listOf("en", "ml").filter { source.exists(ContentPaths.audio(ContentPaths.instruction(type, it))) }
             if (present.size == 1) warnings += "instructions: $type has only ${present.single()} audio"
+        }
+
+        if (source.exists(ContentPaths.SOURCES)) {
+            val documented = org.json.JSONArray(source.readText(ContentPaths.SOURCES)).let { a -> List(a.length()) { a.getJSONObject(it).getString("file") } }.toSet()
+            pack.letters.flatMap { it.audio.values.flatten() }.filter { it !in documented }
+                .forEach { errors += "sources.json: no source or licence recorded for audio '$it'" }
         }
 
         for (m in pack.makhraj) {

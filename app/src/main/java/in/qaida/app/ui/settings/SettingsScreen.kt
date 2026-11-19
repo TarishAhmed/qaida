@@ -27,7 +27,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TimeInput
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -52,12 +54,15 @@ import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(container: AppContainer, settings: Settings, onBack: () -> Unit) {
+fun SettingsScreen(container: AppContainer, settings: Settings, onBack: () -> Unit, onReview: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     fun update(f: (Settings) -> Settings) = scope.launch { container.settingsRepository.update(f) }
     var confirmReset by remember { mutableStateOf(false) }
     var pickTime by remember { mutableStateOf(false) }
+    var pendingReview by remember { mutableIntStateOf(0) }
+    LaunchedEffect(Unit) { pendingReview = container.contentVerification().pending.size }
+    val credits = remember { container.credits() }
 
     fun enableReminder() {
         update { it.copy(reminderEnabled = true) }
@@ -114,6 +119,16 @@ fun SettingsScreen(container: AppContainer, settings: Settings, onBack: () -> Un
                 if (settings.reminderEnabled) {
                     TextButton(onClick = { pickTime = true }) {
                         Text(stringResource(R.string.settings_reminder_time, formatTime(settings.reminderMinuteOfDay)))
+                    }
+                }
+            }
+            if (credits != null || pendingReview > 0) {
+                Section(stringResource(R.string.settings_recordings)) {
+                    credits?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
+                    if (pendingReview > 0) {
+                        OutlinedButton(onClick = onReview, modifier = Modifier.fillMaxWidth().testTag("review")) {
+                            Text(stringResource(R.string.settings_review, pendingReview))
+                        }
                     }
                 }
             }

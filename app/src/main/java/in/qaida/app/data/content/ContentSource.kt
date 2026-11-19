@@ -13,6 +13,12 @@ object ContentPaths {
     const val LETTERS = "content/letters.json"
     const val CONFUSION_SETS = "content/confusion_sets.json"
     const val MAKHRAJ = "content/makhraj.json"
+    /** Optional: where each clip came from and under what licence. */
+    const val SOURCES = "content/sources.json"
+    /** Optional: a fluent reader's verdict on each clip; release builds need every clip verified. */
+    const val VERIFICATION = "content/verification.json"
+    /** Optional: attribution text shown in Settings. */
+    const val CREDITS = "content/credits.txt"
     /** Optional: one boss line per tier. */
     const val BOSS = "content/boss.json"
     const val AUDIO_DIR = "audio"

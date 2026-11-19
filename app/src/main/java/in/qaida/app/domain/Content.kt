@@ -7,6 +7,7 @@ data class Letter(
     val forms: LetterForms,
     val nameEn: String,
     val nameMl: String,
+    /** Empty when the pack has no articulation data for this letter. */
     val makhrajId: String,
     val makhrajNoteEn: String,
     val makhrajNoteMl: String,

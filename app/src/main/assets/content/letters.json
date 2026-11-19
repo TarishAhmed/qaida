@@ -1,0 +1,795 @@
+[
+  {
+    "id": "beh",
+    "glyph": "ب",
+    "nameEn": "Beh",
+    "forms": {
+      "isolated": "ب",
+      "initial": "ب‍",
+      "medial": "‍ب‍",
+      "final": "‍ب"
+    },
+    "nameMl": "Beh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "teh",
+      "theh"
+    ],
+    "audio": {
+      "isolated": [
+        "beh_isolated_bapron.opus",
+        "beh_isolated_baaudio.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "teh",
+    "glyph": "ت",
+    "nameEn": "Teh",
+    "forms": {
+      "isolated": "ت",
+      "initial": "ت‍",
+      "medial": "‍ت‍",
+      "final": "‍ت"
+    },
+    "nameMl": "Teh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "beh",
+      "theh",
+      "tah"
+    ],
+    "audio": {
+      "isolated": [
+        "teh_isolated_tapron.opus",
+        "teh_isolated_taaudio.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "theh",
+    "glyph": "ث",
+    "nameEn": "Theh",
+    "forms": {
+      "isolated": "ث",
+      "initial": "ث‍",
+      "medial": "‍ث‍",
+      "final": "‍ث"
+    },
+    "nameMl": "Theh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "beh",
+      "teh",
+      "seen",
+      "sad"
+    ],
+    "audio": {
+      "isolated": [
+        "theh_isolated_thep.opus",
+        "theh_isolated_thaaudio.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "jeem",
+    "glyph": "ج",
+    "nameEn": "Jeem",
+    "forms": {
+      "isolated": "ج",
+      "initial": "ج‍",
+      "medial": "‍ج‍",
+      "final": "‍ج"
+    },
+    "nameMl": "Jeem",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "hah",
+      "khah",
+      "heh"
+    ],
+    "audio": {
+      "isolated": [
+        "jeem_isolated_jeemp.opus",
+        "jeem_isolated_jeemaudio.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "hah",
+    "glyph": "ح",
+    "nameEn": "Hah",
+    "forms": {
+      "isolated": "ح",
+      "initial": "ح‍",
+      "medial": "‍ح‍",
+      "final": "‍ح"
+    },
+    "nameMl": "Hah",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "jeem",
+      "khah",
+      "heh"
+    ],
+    "audio": {
+      "isolated": [
+        "hah_isolated_hap.opus",
+        "hah_isolated_haaudio.opus",
+        "hah_isolated_hpron.opus",
+        "hah_isolated_haaaudio.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "khah",
+    "glyph": "خ",
+    "nameEn": "Khah",
+    "forms": {
+      "isolated": "خ",
+      "initial": "خ‍",
+      "medial": "‍خ‍",
+      "final": "‍خ"
+    },
+    "nameMl": "Khah",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "jeem",
+      "hah",
+      "heh"
+    ],
+    "audio": {
+      "isolated": [
+        "khah_isolated_khap.opus",
+        "khah_isolated_khaaudio.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "heh",
+    "glyph": "ه",
+    "nameEn": "Heh",
+    "forms": {
+      "isolated": "ه",
+      "initial": "ه‍",
+      "medial": "‍ه‍",
+      "final": "‍ه"
+    },
+    "nameMl": "Heh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "hah",
+      "jeem",
+      "khah"
+    ],
+    "audio": {
+      "isolated": [
+        "heh_isolated_hap.opus",
+        "heh_isolated_haaudio.opus",
+        "heh_isolated_hpron.opus",
+        "heh_isolated_haaaudio.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "dal",
+    "glyph": "د",
+    "nameEn": "Dal",
+    "forms": {
+      "isolated": "د",
+      "initial": "د",
+      "medial": "‍د",
+      "final": "‍د"
+    },
+    "nameMl": "Dal",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "thal",
+      "dad",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "dal_isolated_dalp.opus",
+        "dal_isolated_dalaudio.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "thal",
+    "glyph": "ذ",
+    "nameEn": "Thal",
+    "forms": {
+      "isolated": "ذ",
+      "initial": "ذ",
+      "medial": "‍ذ",
+      "final": "‍ذ"
+    },
+    "nameMl": "Thal",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "dal",
+      "zain",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "thal_isolated_dhalp.opus",
+        "thal_isolated_dzalaudio.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "reh",
+    "glyph": "ر",
+    "nameEn": "Reh",
+    "forms": {
+      "isolated": "ر",
+      "initial": "ر",
+      "medial": "‍ر",
+      "final": "‍ر"
+    },
+    "nameMl": "Reh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "zain",
+      "dal",
+      "thal"
+    ],
+    "audio": {
+      "isolated": [
+        "reh_isolated_rapron.opus",
+        "reh_isolated_raaudio.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "zain",
+    "glyph": "ز",
+    "nameEn": "Zain",
+    "forms": {
+      "isolated": "ز",
+      "initial": "ز",
+      "medial": "‍ز",
+      "final": "‍ز"
+    },
+    "nameMl": "Zain",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "thal",
+      "reh",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "zain_isolated_zaip.opus",
+        "zain_isolated_zaiaudio.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "seen",
+    "glyph": "س",
+    "nameEn": "Seen",
+    "forms": {
+      "isolated": "س",
+      "initial": "س‍",
+      "medial": "‍س‍",
+      "final": "‍س"
+    },
+    "nameMl": "Seen",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "theh",
+      "sheen",
+      "sad"
+    ],
+    "audio": {
+      "isolated": [
+        "seen_isolated_senp.opus",
+        "seen_isolated_senaudio.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "sheen",
+    "glyph": "ش",
+    "nameEn": "Sheen",
+    "forms": {
+      "isolated": "ش",
+      "initial": "ش‍",
+      "medial": "‍ش‍",
+      "final": "‍ش"
+    },
+    "nameMl": "Sheen",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "seen",
+      "sad",
+      "dad"
+    ],
+    "audio": {
+      "isolated": [
+        "sheen_isolated_shenp.opus",
+        "sheen_isolated_shenaudio.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "sad",
+    "glyph": "ص",
+    "nameEn": "Sad",
+    "forms": {
+      "isolated": "ص",
+      "initial": "ص‍",
+      "medial": "‍ص‍",
+      "final": "‍ص"
+    },
+    "nameMl": "Sad",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "theh",
+      "seen",
+      "dad"
+    ],
+    "audio": {
+      "isolated": [
+        "sad_isolated_sadp.opus",
+        "sad_isolated_sadaudio.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "dad",
+    "glyph": "ض",
+    "nameEn": "Dad",
+    "forms": {
+      "isolated": "ض",
+      "initial": "ض‍",
+      "medial": "‍ض‍",
+      "final": "‍ض"
+    },
+    "nameMl": "Dad",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "dal",
+      "sad",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "dad_isolated_ddapro.opus",
+        "dad_isolated_ddadaudio.opus",
+        "dad_isolated_dddp.opus",
+        "dad_isolated_dddaudio.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "tah",
+    "glyph": "ط",
+    "nameEn": "Tah",
+    "forms": {
+      "isolated": "ط",
+      "initial": "ط‍",
+      "medial": "‍ط‍",
+      "final": "‍ط"
+    },
+    "nameMl": "Tah",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "teh",
+      "zah",
+      "ain"
+    ],
+    "audio": {
+      "isolated": [
+        "tah_isolated_ttapron.opus",
+        "tah_isolated_ttaaudio.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "zah",
+    "glyph": "ظ",
+    "nameEn": "Zah",
+    "forms": {
+      "isolated": "ظ",
+      "initial": "ظ‍",
+      "medial": "‍ظ‍",
+      "final": "‍ظ"
+    },
+    "nameMl": "Zah",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "dal",
+      "thal",
+      "zain",
+      "dad",
+      "tah"
+    ],
+    "audio": {
+      "isolated": [
+        "zah_isolated_ddapro.opus",
+        "zah_isolated_ddadaudio.opus",
+        "zah_isolated_dddp.opus",
+        "zah_isolated_dddaudio.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "ain",
+    "glyph": "ع",
+    "nameEn": "Ain",
+    "forms": {
+      "isolated": "ع",
+      "initial": "ع‍",
+      "medial": "‍ع‍",
+      "final": "‍ع"
+    },
+    "nameMl": "Ain",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "ghain",
+      "hamza",
+      "tah"
+    ],
+    "audio": {
+      "isolated": [
+        "ain_isolated_aap.opus",
+        "ain_isolated_aaaudio.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "ghain",
+    "glyph": "غ",
+    "nameEn": "Ghain",
+    "forms": {
+      "isolated": "غ",
+      "initial": "غ‍",
+      "medial": "‍غ‍",
+      "final": "‍غ"
+    },
+    "nameMl": "Ghain",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "ain",
+      "tah",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "ghain_isolated_ghp.opus",
+        "ghain_isolated_ghaudio.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "hamza",
+    "glyph": "ء",
+    "nameEn": "Hamza",
+    "forms": {
+      "isolated": "ء",
+      "initial": "ء",
+      "medial": "ء",
+      "final": "ء"
+    },
+    "nameMl": "Hamza",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "ain",
+      "tah",
+      "zah"
+    ],
+    "audio": {
+      "isolated": [
+        "hamza_isolated_hamzap.opus",
+        "hamza_isolated_hamzah.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "alef",
+    "glyph": "ا",
+    "nameEn": "Alef",
+    "forms": {
+      "isolated": "ا",
+      "initial": "ا",
+      "medial": "‍ا",
+      "final": "‍ا"
+    },
+    "nameMl": "Alef",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "feh",
+      "qaf",
+      "kaf"
+    ],
+    "audio": {
+      "isolated": [
+        "alef_isolated_alifp.opus",
+        "alef_isolated_alifa.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "feh",
+    "glyph": "ف",
+    "nameEn": "Feh",
+    "forms": {
+      "isolated": "ف",
+      "initial": "ف‍",
+      "medial": "‍ف‍",
+      "final": "‍ف"
+    },
+    "nameMl": "Feh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "alef",
+      "qaf",
+      "kaf"
+    ],
+    "audio": {
+      "isolated": [
+        "feh_isolated_fap.opus",
+        "feh_isolated_faaudio.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "qaf",
+    "glyph": "ق",
+    "nameEn": "Qaf",
+    "forms": {
+      "isolated": "ق",
+      "initial": "ق‍",
+      "medial": "‍ق‍",
+      "final": "‍ق"
+    },
+    "nameMl": "Qaf",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "kaf",
+      "alef",
+      "feh"
+    ],
+    "audio": {
+      "isolated": [
+        "qaf_isolated_qafp.opus",
+        "qaf_isolated_qafaudio.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "kaf",
+    "glyph": "ك",
+    "nameEn": "Kaf",
+    "forms": {
+      "isolated": "ك",
+      "initial": "ك‍",
+      "medial": "‍ك‍",
+      "final": "‍ك"
+    },
+    "nameMl": "Kaf",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "qaf",
+      "alef",
+      "feh"
+    ],
+    "audio": {
+      "isolated": [
+        "kaf_isolated_kafp.opus",
+        "kaf_isolated_kafaudio.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "lam",
+    "glyph": "ل",
+    "nameEn": "Lam",
+    "forms": {
+      "isolated": "ل",
+      "initial": "ل‍",
+      "medial": "‍ل‍",
+      "final": "‍ل"
+    },
+    "nameMl": "Lam",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "alef",
+      "feh",
+      "qaf"
+    ],
+    "audio": {
+      "isolated": [
+        "lam_isolated_lampronn.opus",
+        "lam_isolated_lamudio.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "meem",
+    "glyph": "م",
+    "nameEn": "Meem",
+    "forms": {
+      "isolated": "م",
+      "initial": "م‍",
+      "medial": "‍م‍",
+      "final": "‍م"
+    },
+    "nameMl": "Meem",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "noon",
+      "waw",
+      "yeh"
+    ],
+    "audio": {
+      "isolated": [
+        "meem_isolated_mpron.opus",
+        "meem_isolated_maudio.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "noon",
+    "glyph": "ن",
+    "nameEn": "Noon",
+    "forms": {
+      "isolated": "ن",
+      "initial": "ن‍",
+      "medial": "‍ن‍",
+      "final": "‍ن"
+    },
+    "nameMl": "Noon",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "meem",
+      "waw",
+      "yeh"
+    ],
+    "audio": {
+      "isolated": [
+        "noon_isolated_npron.opus",
+        "noon_isolated_naudio.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "waw",
+    "glyph": "و",
+    "nameEn": "Waw",
+    "forms": {
+      "isolated": "و",
+      "initial": "و",
+      "medial": "‍و",
+      "final": "‍و"
+    },
+    "nameMl": "Waw",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "meem",
+      "noon",
+      "yeh"
+    ],
+    "audio": {
+      "isolated": [
+        "waw_isolated_wapron.opus",
+        "waw_isolated_wawaudio.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "yeh",
+    "glyph": "ي",
+    "nameEn": "Yeh",
+    "forms": {
+      "isolated": "ي",
+      "initial": "ي‍",
+      "medial": "‍ي‍",
+      "final": "‍ي"
+    },
+    "nameMl": "Yeh",
+    "makhrajId": null,
+    "makhrajNoteEn": "",
+    "makhrajNoteMl": "",
+    "confusableWith": [
+      "meem",
+      "noon",
+      "waw"
+    ],
+    "audio": {
+      "isolated": [
+        "yeh_isolated_yapron.opus",
+        "yeh_isolated_yaaudio.opus"
+      ]
+    },
+    "unlockTier": 7
+  }
+]

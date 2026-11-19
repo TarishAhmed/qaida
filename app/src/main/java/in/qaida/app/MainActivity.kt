@@ -30,6 +30,7 @@ import `in`.qaida.app.ui.progress.ProgressScreen
 import `in`.qaida.app.ui.session.SessionScreen
 import `in`.qaida.app.ui.session.SessionViewModel
 import `in`.qaida.app.ui.settings.SettingsScreen
+import `in`.qaida.app.ui.review.ContentReviewScreen
 import `in`.qaida.app.ui.theme.QaidaTheme
 
 /** Home is the hub; every other screen is pushed onto and popped off this stack. */
@@ -39,6 +40,7 @@ sealed interface Screen {
     data class Letter(val letterId: String) : Screen
     data object Progress : Screen
     data object Settings : Screen
+    data object Review : Screen
 }
 
 /** Screens as strings; a running session is not restored, it simply drops off the stack. */
@@ -50,6 +52,7 @@ private val StackSaver = listSaver<SnapshotStateList<Screen>, String>(
                 is Screen.Letter -> "letter:${it.letterId}"
                 Screen.Progress -> "progress"
                 Screen.Settings -> "settings"
+                Screen.Review -> "review"
                 is Screen.Session -> null
             }
         }
@@ -61,6 +64,7 @@ private val StackSaver = listSaver<SnapshotStateList<Screen>, String>(
                 it.startsWith("letter:") -> Screen.Letter(it.removePrefix("letter:"))
                 it == "progress" -> Screen.Progress
                 it == "settings" -> Screen.Settings
+                it == "review" -> Screen.Review
                 else -> null
             }
         }.ifEmpty { listOf(Screen.Home) }.toMutableStateList()
@@ -118,7 +122,8 @@ class MainActivity : ComponentActivity() {
                     }
                     is Screen.Letter -> LetterDetailScreen(container, top.letterId, settings, onBack = pop)
                     Screen.Progress -> ProgressScreen(container, settings, onBack = pop, onLetter = { stack.add(Screen.Letter(it)) })
-                    Screen.Settings -> SettingsScreen(container, settings, onBack = pop)
+                    Screen.Settings -> SettingsScreen(container, settings, onBack = pop, onReview = { stack.add(Screen.Review) })
+                    Screen.Review -> ContentReviewScreen(container, onBack = pop)
                 }
             }
         }

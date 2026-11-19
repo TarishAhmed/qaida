@@ -1,0 +1,1 @@
+PLACEHOLDER stub pack: silent clips generated for testing.

@@ -16,6 +16,8 @@ data class HomeUiState(
     val loading: Boolean = true,
     val tiers: List<TierRow> = emptyList(),
     val lettersNeedingReview: Int = 0,
+    /** False while the bundled recordings await a fluent reader's check. */
+    val contentVerified: Boolean = true,
 )
 
 class HomeViewModel(private val c: AppContainer) : ViewModel() {
@@ -38,6 +40,7 @@ class HomeViewModel(private val c: AppContainer) : ViewModel() {
                     TierRow(tier, tier in unlocked, tier in bosses, letters)
                 },
                 lettersNeedingReview = Progression.lettersNeedingReview(statuses),
+                contentVerified = c.contentVerification().complete,
             )
         }
     }

@@ -1,0 +1,1878 @@
+[
+  {
+    "file": "placeholder_01_isolated_v1.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_isolated_v2.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_isolated_v3.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_isolated_v4.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_fatha_v1.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_fatha_v2.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_kasra_v1.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_kasra_v2.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_damma_v1.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_01_damma_v2.opus",
+    "letter": "placeholder_01",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_isolated_v1.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_isolated_v2.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_isolated_v3.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_isolated_v4.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_fatha_v1.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_fatha_v2.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_kasra_v1.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_kasra_v2.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_damma_v1.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_02_damma_v2.opus",
+    "letter": "placeholder_02",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_isolated_v1.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_isolated_v2.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_isolated_v3.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_isolated_v4.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_fatha_v1.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_fatha_v2.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_kasra_v1.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_kasra_v2.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_damma_v1.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_03_damma_v2.opus",
+    "letter": "placeholder_03",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_isolated_v1.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_isolated_v2.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_isolated_v3.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_isolated_v4.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_fatha_v1.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_fatha_v2.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_kasra_v1.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_kasra_v2.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_damma_v1.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_04_damma_v2.opus",
+    "letter": "placeholder_04",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_isolated_v1.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_isolated_v2.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_isolated_v3.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_isolated_v4.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_fatha_v1.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_fatha_v2.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_kasra_v1.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_kasra_v2.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_damma_v1.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_05_damma_v2.opus",
+    "letter": "placeholder_05",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_isolated_v1.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_isolated_v2.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_isolated_v3.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_isolated_v4.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_fatha_v1.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_fatha_v2.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_kasra_v1.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_kasra_v2.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_damma_v1.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_06_damma_v2.opus",
+    "letter": "placeholder_06",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_isolated_v1.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_fatha_v1.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_fatha_v2.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_kasra_v1.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_kasra_v2.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_damma_v1.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_07_damma_v2.opus",
+    "letter": "placeholder_07",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_isolated_v1.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_isolated_v2.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_isolated_v3.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_isolated_v4.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_fatha_v1.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_fatha_v2.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_kasra_v1.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_kasra_v2.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_damma_v1.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_08_damma_v2.opus",
+    "letter": "placeholder_08",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_isolated_v1.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_isolated_v2.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_isolated_v3.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_isolated_v4.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_fatha_v1.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_fatha_v2.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_kasra_v1.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_kasra_v2.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_damma_v1.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_09_damma_v2.opus",
+    "letter": "placeholder_09",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_isolated_v1.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_isolated_v2.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_isolated_v3.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_isolated_v4.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_fatha_v1.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_fatha_v2.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_kasra_v1.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_kasra_v2.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_damma_v1.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_10_damma_v2.opus",
+    "letter": "placeholder_10",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_isolated_v1.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_isolated_v2.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_isolated_v3.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_isolated_v4.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_fatha_v1.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_fatha_v2.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_kasra_v1.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_kasra_v2.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_damma_v1.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_11_damma_v2.opus",
+    "letter": "placeholder_11",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_isolated_v1.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_isolated_v2.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_isolated_v3.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_isolated_v4.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_fatha_v1.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_fatha_v2.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_kasra_v1.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_kasra_v2.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_damma_v1.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_12_damma_v2.opus",
+    "letter": "placeholder_12",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_isolated_v1.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_isolated_v2.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_isolated_v3.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_isolated_v4.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_fatha_v1.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_fatha_v2.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_kasra_v1.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_kasra_v2.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_damma_v1.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_13_damma_v2.opus",
+    "letter": "placeholder_13",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_isolated_v1.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_fatha_v1.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_fatha_v2.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_kasra_v1.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_kasra_v2.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_damma_v1.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_14_damma_v2.opus",
+    "letter": "placeholder_14",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_isolated_v1.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_isolated_v2.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_isolated_v3.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_isolated_v4.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_fatha_v1.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_fatha_v2.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_kasra_v1.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_kasra_v2.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_damma_v1.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_15_damma_v2.opus",
+    "letter": "placeholder_15",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_isolated_v1.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_isolated_v2.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_isolated_v3.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_isolated_v4.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_fatha_v1.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_fatha_v2.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_kasra_v1.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_kasra_v2.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_damma_v1.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_16_damma_v2.opus",
+    "letter": "placeholder_16",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_isolated_v1.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_isolated_v2.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_isolated_v3.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_isolated_v4.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_fatha_v1.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_fatha_v2.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_kasra_v1.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_kasra_v2.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_damma_v1.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_17_damma_v2.opus",
+    "letter": "placeholder_17",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_isolated_v1.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_isolated_v2.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_isolated_v3.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_isolated_v4.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_fatha_v1.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_fatha_v2.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_kasra_v1.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_kasra_v2.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_damma_v1.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_18_damma_v2.opus",
+    "letter": "placeholder_18",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_isolated_v1.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_isolated_v2.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_isolated_v3.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_isolated_v4.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_fatha_v1.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_fatha_v2.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_kasra_v1.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_kasra_v2.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_damma_v1.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_19_damma_v2.opus",
+    "letter": "placeholder_19",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_isolated_v1.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_isolated_v2.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_isolated_v3.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_isolated_v4.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_fatha_v1.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_fatha_v2.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_kasra_v1.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_kasra_v2.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_damma_v1.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_20_damma_v2.opus",
+    "letter": "placeholder_20",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_isolated_v1.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_fatha_v1.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_fatha_v2.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_kasra_v1.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_kasra_v2.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_damma_v1.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_21_damma_v2.opus",
+    "letter": "placeholder_21",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_isolated_v1.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_isolated_v2.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_isolated_v3.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_isolated_v4.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_fatha_v1.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_fatha_v2.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_kasra_v1.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_kasra_v2.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_damma_v1.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_22_damma_v2.opus",
+    "letter": "placeholder_22",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_isolated_v1.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_isolated_v2.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_isolated_v3.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_isolated_v4.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_fatha_v1.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_fatha_v2.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_kasra_v1.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_kasra_v2.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_damma_v1.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_23_damma_v2.opus",
+    "letter": "placeholder_23",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_isolated_v1.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_isolated_v2.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_isolated_v3.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_isolated_v4.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_fatha_v1.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_fatha_v2.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_kasra_v1.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_kasra_v2.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_damma_v1.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_24_damma_v2.opus",
+    "letter": "placeholder_24",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_isolated_v1.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_isolated_v2.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_isolated_v3.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_isolated_v4.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_fatha_v1.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_fatha_v2.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_kasra_v1.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_kasra_v2.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_damma_v1.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_25_damma_v2.opus",
+    "letter": "placeholder_25",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_isolated_v1.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_isolated_v2.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_isolated_v3.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_isolated_v4.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_fatha_v1.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_fatha_v2.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_kasra_v1.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_kasra_v2.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_damma_v1.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_26_damma_v2.opus",
+    "letter": "placeholder_26",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_isolated_v1.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_isolated_v2.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_isolated_v3.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_isolated_v4.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_fatha_v1.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_fatha_v2.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_kasra_v1.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_kasra_v2.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_damma_v1.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_27_damma_v2.opus",
+    "letter": "placeholder_27",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_isolated_v1.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_fatha_v1.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_fatha_v2.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_kasra_v1.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_kasra_v2.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_damma_v1.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  },
+  {
+    "file": "placeholder_28_damma_v2.opus",
+    "letter": "placeholder_28",
+    "source": "generated silence (tools/gen_stub_pack.py)",
+    "licence": "CC0-1.0",
+    "note": "PLACEHOLDER"
+  }
+]

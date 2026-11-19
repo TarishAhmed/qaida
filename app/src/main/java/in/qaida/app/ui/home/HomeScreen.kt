@@ -80,6 +80,10 @@ fun HomeScreen(
                         modifier = Modifier.testTag("review_count"),
                     )
                 }
+                if (!state.loading && !state.contentVerified) {
+                    Text(stringResource(R.string.home_unverified), style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.testTag("unverified"))
+                }
                 Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
                     androidx.compose.material3.TextButton(onClick = onProgress, modifier = Modifier.testTag("progress")) {
                         Text(stringResource(R.string.home_progress))

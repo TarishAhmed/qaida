@@ -15,8 +15,8 @@ android {
         targetSdk = 35
         // The single source of truth for the version: release tags must match it (the release workflow
         // checks), and F-Droid's update checker reads it from here. versionCode = MAJOR*10000 + MINOR*100 + PATCH.
-        versionCode = 800
-        versionName = "0.8.0"
+        versionCode = 900
+        versionName = "0.9.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -40,9 +40,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfigs.findByName("qaida")?.let { signingConfig = it }
         }
-        // Release-like (minified, not debuggable) but built on the debug stub pack, for testing builds
-        // before real content exists. A separate application id so it can never update into, or be
-        // mistaken for, the real app.
+        // Release-like (minified, not debuggable) on the real but not yet verified content pack. A separate
+        // application id so it can never update into, or be mistaken for, the real app.
         create("preview") {
             initWith(getByName("release"))
             applicationIdSuffix = ".preview"
@@ -50,7 +49,6 @@ android {
             matchingFallbacks += "release"
         }
     }
-    sourceSets["preview"].assets.srcDir("src/debug/assets")
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -75,8 +73,12 @@ android {
         unitTests.all { test ->
             test.useJUnitPlatform()
             // Asset roots in override order, mirroring how AGP merges assets for the variant under test.
-            // Preview builds use the debug stub pack, so they test like debug.
-            val buildType = if (test.name.contains("Release")) "release" else "debug"
+            // Debug overlays the generated stub pack on main; preview and release use main as is.
+            val buildType = when {
+                test.name.contains("Release") -> "release"
+                test.name.contains("Preview") -> "preview"
+                else -> "debug"
+            }
             test.systemProperty("qaida.assetRoots", listOf("src/$buildType/assets", "src/main/assets").joinToString(File.pathSeparator) { file(it).path })
             test.systemProperty("qaida.releaseRoots", listOf("src/release", "src/main").joinToString(File.pathSeparator) { file(it).path })
             // The tests read these trees from disk; declare them so a content change re-runs the tests.
@@ -91,13 +93,29 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-// The stub pack lives in src/debug and must never be what a release ships. Refuse to package a
-// release until real content has been supplied in src/main/assets/content.
+// A release ships only real content whose every recording a fluent reader has confirmed. The stub pack
+// lives in src/debug; recordings from open sources ship unverified until reviewed in the app and recorded
+// with tools/build_content_pack.py --apply-review.
 val checkReleaseContent by tasks.registering {
-    val letters = file("src/main/assets/content/letters.json")
+    val content = file("src/main/assets/content")
+    inputs.dir(content).optional()
     doLast {
-        check(letters.exists()) {
-            "No real content: $letters is missing. Release builds cannot ship the debug stub pack."
+        val letters = content.resolve("letters.json")
+        check(letters.exists()) { "No real content: $letters is missing. Release builds cannot ship the debug stub pack." }
+        @Suppress("UNCHECKED_CAST")
+        val pack = groovy.json.JsonSlurper().parse(letters) as List<Map<String, Any?>>
+        val clips = pack.flatMap { l -> ((l["audio"] as Map<String, List<String>>).values).flatten() }.toSet()
+        val noAudio = pack.filter { l -> (l["audio"] as Map<String, List<String>>)["isolated"].isNullOrEmpty() }.map { it["id"] }
+        check(noAudio.isEmpty()) { "Letters without a recording: $noAudio" }
+        val verificationFile = content.resolve("verification.json")
+        @Suppress("UNCHECKED_CAST")
+        val verified = if (verificationFile.exists())
+            ((groovy.json.JsonSlurper().parse(verificationFile) as Map<String, Any?>)["clips"] as Map<String, Boolean>).filterValues { it }.keys
+        else emptySet()
+        val pending = clips - verified
+        check(pending.isEmpty()) {
+            "${pending.size} of ${clips.size} recordings are not verified by a fluent reader. Review them in the preview " +
+                "build (Settings > Check the recordings), export, and run tools/build_content_pack.py --apply-review."
         }
     }
 }

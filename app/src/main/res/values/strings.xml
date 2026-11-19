@@ -126,4 +126,18 @@
     <string name="summary_moved">Moved</string>
     <string name="summary_watch">One to watch</string>
     <string name="summary_new_tier">New letters unlocked</string>
+    <string name="home_unverified">Preview: the recordings have not been checked yet</string>
+    <string name="settings_recordings">Recordings</string>
+    <string name="settings_review">Check the recordings (%1$d left)</string>
+    <string name="review_title">Check the recordings</string>
+    <string name="review_intro">For someone who reads the Qaida fluently. Play each recording and mark whether it is the letter shown. Some recordings were matched by file name only; where a name was unclear, the same recording appears under each possible letter. When you are done, export the file and send it to the developer.</string>
+    <string name="review_progress">%1$d of %2$d checked</string>
+    <string name="review_play">Play recording %1$d</string>
+    <string name="review_recording_n">Recording %1$d</string>
+    <string name="review_also_under">Also filed under: %1$s</string>
+    <string name="review_right">Right</string>
+    <string name="review_wrong_letter">Not this letter</string>
+    <string name="review_reviewer">Your name (optional)</string>
+    <string name="review_export">Export review</string>
+    <string name="review_exported">Review saved.</string>
 </resources>

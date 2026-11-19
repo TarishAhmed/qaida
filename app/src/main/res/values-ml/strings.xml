@@ -124,4 +124,18 @@
     <string name="summary_moved">മാറിയവ</string>
     <string name="summary_watch">ശ്രദ്ധിക്കേണ്ടത്</string>
     <string name="summary_new_tier">പുതിയ അക്ഷരങ്ങൾ തുറന്നു</string>
+    <string name="home_unverified">പ്രിവ്യൂ: റെക്കോർഡിംഗുകൾ ഇതുവരെ പരിശോധിച്ചിട്ടില്ല</string>
+    <string name="settings_recordings">റെക്കോർഡിംഗുകൾ</string>
+    <string name="settings_review">റെക്കോർഡിംഗുകൾ പരിശോധിക്കുക (%1$d ബാക്കി)</string>
+    <string name="review_title">റെക്കോർഡിംഗുകൾ പരിശോധിക്കുക</string>
+    <string name="review_intro">ഖാഇദ നന്നായി വായിക്കാൻ അറിയുന്നവർക്കുള്ളത്. ഓരോ റെക്കോർഡിംഗും കേട്ട്, കാണിച്ചിരിക്കുന്ന അക്ഷരം തന്നെയാണോ എന്ന് അടയാളപ്പെടുത്തുക. ചില റെക്കോർഡിംഗുകൾ ഫയൽ പേര് മാത്രം നോക്കിയാണ് ചേർത്തത്; പേര് വ്യക്തമല്ലാത്തിടത്ത് ഒരേ റെക്കോർഡിംഗ് സാധ്യതയുള്ള ഓരോ അക്ഷരത്തിനു കീഴിലും വരുന്നു. പൂർത്തിയായാൽ ഫയൽ എക്സ്പോർട്ട് ചെയ്ത് ഡെവലപ്പർക്ക് അയയ്ക്കുക.</string>
+    <string name="review_progress">%2$d-ൽ %1$d പരിശോധിച്ചു</string>
+    <string name="review_play">റെക്കോർഡിംഗ് %1$d കേൾക്കുക</string>
+    <string name="review_recording_n">റെക്കോർഡിംഗ് %1$d</string>
+    <string name="review_also_under">ഇതിനു കീഴിലും: %1$s</string>
+    <string name="review_right">ശരി</string>
+    <string name="review_wrong_letter">ഈ അക്ഷരമല്ല</string>
+    <string name="review_reviewer">നിങ്ങളുടെ പേര് (ഐച്ഛികം)</string>
+    <string name="review_export">പരിശോധന എക്സ്പോർട്ട് ചെയ്യുക</string>
+    <string name="review_exported">പരിശോധന സേവ് ചെയ്തു.</string>
 </resources>

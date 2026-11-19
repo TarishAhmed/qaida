@@ -10,7 +10,10 @@ import `in`.qaida.app.audio.Recorder
 import `in`.qaida.app.audio.ReferenceDecoder
 import `in`.qaida.app.audio.UiSounds
 import `in`.qaida.app.data.content.AssetContentSource
+import `in`.qaida.app.data.content.ContentPaths
 import `in`.qaida.app.data.content.ContentRepository
+import `in`.qaida.app.data.content.ContentVerification
+import `in`.qaida.app.data.content.ReviewStore
 import `in`.qaida.app.data.db.QaidaDatabase
 import `in`.qaida.app.data.progress.ProgressRepository
 import `in`.qaida.app.data.settings.SettingsRepository
@@ -45,6 +48,19 @@ class AppContainer(context: Context) {
     suspend fun localizedResources(): Resources = appContext.withLocale(settingsRepository.current().uiLanguage.tag).resources
 
     suspend fun sessionConfig() = SessionConfig(durationMs = settingsRepository.current().sessionSeconds * 1000L)
+
+    val reviewStore = ReviewStore(context)
+
+    /** Whether every bundled recording has been confirmed by a fluent reader. */
+    suspend fun contentVerification(): ContentVerification {
+        contentReady.await()
+        val clips = contentRepository.catalog().flatMap { l -> l.isolatedClips + l.harakatClips.values.flatten() }.map { it.file }.toSet()
+        val json = if (contentSource.exists(ContentPaths.VERIFICATION)) contentSource.readText(ContentPaths.VERIFICATION) else null
+        return ContentVerification.of(clips, json)
+    }
+
+    /** Attribution the content pack asks to show, if any. */
+    fun credits(): String? = if (contentSource.exists(ContentPaths.CREDITS)) contentSource.readText(ContentPaths.CREDITS).trim() else null
 
     /** Completes once the bundled content is in Room; anything reading content awaits it. */
     val contentReady = CompletableDeferred<Unit>()

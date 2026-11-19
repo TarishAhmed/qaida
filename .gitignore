@@ -12,3 +12,4 @@ fonts-src/
 *.jks
 *.keystore
 keystore.properties
+content-src/

@@ -34,11 +34,11 @@ jobs:
           fi
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
-      # Real content unlocks a real release. Until then the build is a preview on the stub pack,
-      # installed as a separate app (in.qaida.app.preview) and published as a pre-release.
+      # Only fully verified content makes a real release. Until then the build is a preview on the
+      # unverified pack, installed as a separate app (in.qaida.app.preview) and published as a pre-release.
       - name: Choose build
         run: |
-          if [ -f app/src/main/assets/content/letters.json ]; then
+          if ./gradlew -q checkReleaseContent --console=plain; then
             echo "KIND=release" >> "$GITHUB_ENV"
           else
             echo "KIND=preview" >> "$GITHUB_ENV"
@@ -78,11 +78,11 @@ jobs:
         run: |
           if [ "$KIND" = preview ]; then
             {
-              echo "**Preview build: placeholder content, not for learning.**"
+              echo "**Preview build: the recordings have not yet been checked by a fluent reader.**"
               echo
-              echo "Built on the stub content pack: every letter shows ؟ and every clip is silence. It exists to test"
-              echo "installs, updates and the session flow on real devices. It installs as a separate app"
-              echo "(\`in.qaida.app.preview\`) and will never update into the real Qaida app."
+              echo "Letter recordings come from Wikimedia Commons and are matched to letters by file name; some may be"
+              echo "filed under the wrong letter. Settings > Check the recordings lets a reader confirm each one."
+              echo "Installs as a separate app (\`in.qaida.app.preview\`) and never updates into the real Qaida app."
             } > notes.md
             PRERELEASE=--prerelease
             TITLE="Qaida $VERSION (preview)"

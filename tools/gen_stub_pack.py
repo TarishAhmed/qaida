@@ -87,6 +87,12 @@ def main() -> None:
                 for f in files:
                     shutil.copyfile(silence, OUT / "audio" / f)
 
+    # Debug builds overlay this pack on the real one in src/main, so it carries its own provenance files.
+    dump("sources.json", [{"file": f, "letter": l["id"], "source": "generated silence (tools/gen_stub_pack.py)",
+                           "licence": "CC0-1.0", "note": "PLACEHOLDER"}
+                          for l in letters for files in l["audio"].values() for f in files])
+    (OUT / "content" / "credits.txt").write_text("PLACEHOLDER stub pack: silent clips generated for testing.\n")
+
     print(f"stub pack: {len(letters)} letters, {len(tiers)} tiers, "
           f"{sum(len(f) for l in letters for f in l['audio'].values())} audio files -> {OUT}")
 

@@ -1,0 +1,662 @@
+[
+  {
+    "file": "alef_isolated_alifp.opus",
+    "letter": "alef",
+    "source": "Alifp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Alifp.wav",
+    "sha1": "86dfc5c6f3edb04e3e041d2f6bd46c89f172d76c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "alef_isolated_alifa.opus",
+    "letter": "alef",
+    "source": "Alif A.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Alif_A.wav",
+    "sha1": "ae386b3c8fcfa8b7304a09188bb0c421a15cdd68",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "beh_isolated_bapron.opus",
+    "letter": "beh",
+    "source": "Bapron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Bapron.wav",
+    "sha1": "738a2779f1433a61faffebe15961e898158c31ee",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "beh_isolated_baaudio.opus",
+    "letter": "beh",
+    "source": "Baaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Baaudio.wav",
+    "sha1": "e2d226951d63ce554b4e87049991b41506634db5",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "teh_isolated_tapron.opus",
+    "letter": "teh",
+    "source": "Tapron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Tapron.wav",
+    "sha1": "945c643238ef5d5c09c2148b697825c172cfa55f",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "teh_isolated_taaudio.opus",
+    "letter": "teh",
+    "source": "Taaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Taaudio.wav",
+    "sha1": "dba1506791f2e573c8777cbafde7359c9f5970a4",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "theh_isolated_thep.opus",
+    "letter": "theh",
+    "source": "Thep.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Thep.wav",
+    "sha1": "f08ed5540984b84ef11e5f557ef2f6ea65aeb018",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "theh_isolated_thaaudio.opus",
+    "letter": "theh",
+    "source": "Thaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Thaaudio.wav",
+    "sha1": "a7e36f7765bdedc831fe474034423b9ae794e509",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "jeem_isolated_jeemp.opus",
+    "letter": "jeem",
+    "source": "Jeemp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Jeemp.wav",
+    "sha1": "d41ed200d11bb69c9881ba03e74424eb5da096a2",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "jeem_isolated_jeemaudio.opus",
+    "letter": "jeem",
+    "source": "Jeemaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Jeemaudio.wav",
+    "sha1": "469aa015a822e5006377409b786998fede1d31d9",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "hah_isolated_hap.opus",
+    "letter": "hah",
+    "source": "Hap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hap.wav",
+    "sha1": "a44e5e7514a96cf3bef24e551dbd19b9fff3cbd2",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "hah_isolated_haaudio.opus",
+    "letter": "hah",
+    "source": "Haaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Haaudio.wav",
+    "sha1": "906a01f5196c3888bd835cb0cc1dcbbf41fcf10f",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "hah_isolated_hpron.opus",
+    "letter": "hah",
+    "source": "Hpron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hpron.wav",
+    "sha1": "66bf26ce8ce6ccc1bfddb41853a980f3b36c56db",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "hah_isolated_haaaudio.opus",
+    "letter": "hah",
+    "source": "Haaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Haaaudio.wav",
+    "sha1": "34788d9dbca9ef270826725fd29d2a6a4c801012",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "khah_isolated_khap.opus",
+    "letter": "khah",
+    "source": "Khap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Khap.wav",
+    "sha1": "3e03d616e23d79c49961aaee288596c242cf6086",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "khah_isolated_khaaudio.opus",
+    "letter": "khah",
+    "source": "Khaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Khaaudio.wav",
+    "sha1": "6e0db94d5b1ac3e61b37f4d42b85ebd42a061e01",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "dal_isolated_dalp.opus",
+    "letter": "dal",
+    "source": "Dalp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dalp.wav",
+    "sha1": "533cea825ac816504cb2f9463b84fb1b494fff7e",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "dal_isolated_dalaudio.opus",
+    "letter": "dal",
+    "source": "Dalaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dalaudio.wav",
+    "sha1": "c9998c67250c871f609de189373eae69e9aea37b",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "thal_isolated_dhalp.opus",
+    "letter": "thal",
+    "source": "Dhalp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dhalp.wav",
+    "sha1": "c131797b678f53ec26ca340f5642c8573c3abd4c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "thal_isolated_dzalaudio.opus",
+    "letter": "thal",
+    "source": "Dzalaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dzalaudio.wav",
+    "sha1": "2a4f1b1715539f664935f8ea0674a8a0acaae1e3",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "reh_isolated_rapron.opus",
+    "letter": "reh",
+    "source": "RAPRON.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:RAPRON.wav",
+    "sha1": "e16450d4da11de5ca842bbaedbf5496362b5a0bd",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "reh_isolated_raaudio.opus",
+    "letter": "reh",
+    "source": "RAAUDIO.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:RAAUDIO.wav",
+    "sha1": "c37d647e248a07bf46199a93e5e6b19b395dca4c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "zain_isolated_zaip.opus",
+    "letter": "zain",
+    "source": "Zaip.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Zaip.wav",
+    "sha1": "6b921e2b34e7902cd538e9bdef26a13b7dc33382",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "zain_isolated_zaiaudio.opus",
+    "letter": "zain",
+    "source": "ZaiAUDIO.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:ZaiAUDIO.wav",
+    "sha1": "bb0141467b0c9c996df3793c4864345934c9413c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "seen_isolated_senp.opus",
+    "letter": "seen",
+    "source": "Senp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Senp.wav",
+    "sha1": "e400636404c3daa372f22db15db629b91e3b2d81",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "seen_isolated_senaudio.opus",
+    "letter": "seen",
+    "source": "Senaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Senaudio.wav",
+    "sha1": "c43db50c30d27e31e9a3584d4840cb51e6077835",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "sheen_isolated_shenp.opus",
+    "letter": "sheen",
+    "source": "Shenp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Shenp.wav",
+    "sha1": "1b33e07a719878e586289acfd12b980a62cb7dcb",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "sheen_isolated_shenaudio.opus",
+    "letter": "sheen",
+    "source": "Shenaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Shenaudio.wav",
+    "sha1": "d4ddd15ebac4b33201500b556c1f31ee65984469",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "sad_isolated_sadp.opus",
+    "letter": "sad",
+    "source": "Sadp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Sadp.wav",
+    "sha1": "c5ca1219771e37b43cf2f3daa3b6b7bd866869a2",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "sad_isolated_sadaudio.opus",
+    "letter": "sad",
+    "source": "Sadaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Sadaudio.wav",
+    "sha1": "efb4008c8a90c116f91709d4cb04f9a4f5ba9d68",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "dad_isolated_ddapro.opus",
+    "letter": "dad",
+    "source": "Ddapro.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ddapro.wav",
+    "sha1": "29f66db361a77dd763022755767856296d456a21",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "dad_isolated_ddadaudio.opus",
+    "letter": "dad",
+    "source": "Ddadaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ddadaudio.wav",
+    "sha1": "bbde1a233c18e30b787edf0c65290d20df6c9f32",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "dad_isolated_dddp.opus",
+    "letter": "dad",
+    "source": "Dddp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dddp.wav",
+    "sha1": "516520ab6b0116e4daa8a25cf32ca9c836f0f10c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "dad_isolated_dddaudio.opus",
+    "letter": "dad",
+    "source": "Dddaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dddaudio.wav",
+    "sha1": "b202f30b2ac216f3a30cc3b34c1153a389131c07",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "tah_isolated_ttapron.opus",
+    "letter": "tah",
+    "source": "Ttapron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ttapron.wav",
+    "sha1": "89d707cdad432f977ef0f161ac14a4aeef45d945",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "tah_isolated_ttaaudio.opus",
+    "letter": "tah",
+    "source": "Ttaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ttaaudio.wav",
+    "sha1": "aaba71f6cf6eac0d6a5a4587ece7ac1727555edc",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "zah_isolated_ddapro.opus",
+    "letter": "zah",
+    "source": "Ddapro.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ddapro.wav",
+    "sha1": "29f66db361a77dd763022755767856296d456a21",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "zah_isolated_ddadaudio.opus",
+    "letter": "zah",
+    "source": "Ddadaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ddadaudio.wav",
+    "sha1": "bbde1a233c18e30b787edf0c65290d20df6c9f32",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "zah_isolated_dddp.opus",
+    "letter": "zah",
+    "source": "Dddp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dddp.wav",
+    "sha1": "516520ab6b0116e4daa8a25cf32ca9c836f0f10c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "zah_isolated_dddaudio.opus",
+    "letter": "zah",
+    "source": "Dddaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Dddaudio.wav",
+    "sha1": "b202f30b2ac216f3a30cc3b34c1153a389131c07",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "ain_isolated_aap.opus",
+    "letter": "ain",
+    "source": "Aap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Aap.wav",
+    "sha1": "11cd7d2871ce2a3a5982081264a6859adc4b4fb0",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "ain_isolated_aaaudio.opus",
+    "letter": "ain",
+    "source": "Aaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Aaaudio.wav",
+    "sha1": "8277a4739f8706d0a64abe1e6233ef2ed80d92a7",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "ghain_isolated_ghp.opus",
+    "letter": "ghain",
+    "source": "Ghp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ghp.wav",
+    "sha1": "92b3af371f1f9bd8a65ab8f85a2ec013c57de357",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "ghain_isolated_ghaudio.opus",
+    "letter": "ghain",
+    "source": "Ghaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Ghaudio.wav",
+    "sha1": "8afd31a48f754027b7f6ce30a5af64c1231720cf",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "feh_isolated_fap.opus",
+    "letter": "feh",
+    "source": "Fap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Fap.wav",
+    "sha1": "f54c5f3799eb5a2beb5e54ac03fa98f316dbc391",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "feh_isolated_faaudio.opus",
+    "letter": "feh",
+    "source": "Faaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Faaudio.wav",
+    "sha1": "32518abd38b04bb5511882c3452c6e296a7031a0",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "qaf_isolated_qafp.opus",
+    "letter": "qaf",
+    "source": "Qafp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Qafp.wav",
+    "sha1": "cd62d16ab1579dacf727dfe69fa387ca3cb73d13",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "qaf_isolated_qafaudio.opus",
+    "letter": "qaf",
+    "source": "Qafaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Qafaudio.wav",
+    "sha1": "99fb2faab754ffe04853cbff11c7c856a134cb5e",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "kaf_isolated_kafp.opus",
+    "letter": "kaf",
+    "source": "Kafp.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Kafp.wav",
+    "sha1": "3429b1eed5c407406766c38afe10cc8d7866d829",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "kaf_isolated_kafaudio.opus",
+    "letter": "kaf",
+    "source": "Kafaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Kafaudio.wav",
+    "sha1": "a42da2a6761dda3fd01f4b1c037fc712e3f1b26f",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "lam_isolated_lampronn.opus",
+    "letter": "lam",
+    "source": "Lampronn.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Lampronn.wav",
+    "sha1": "70d65c9a5c82e6a911d22649947995a3e5d9e11c",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "lam_isolated_lamudio.opus",
+    "letter": "lam",
+    "source": "Lamudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Lamudio.wav",
+    "sha1": "7f4717812cff57134085e6303947f96fa4871d32",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "meem_isolated_mpron.opus",
+    "letter": "meem",
+    "source": "Mpron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Mpron.wav",
+    "sha1": "e2698404dbbf90baf3af21ac115d84f3eba85eb1",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "meem_isolated_maudio.opus",
+    "letter": "meem",
+    "source": "Maudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Maudio.wav",
+    "sha1": "4bb7ccd368f32a8de9147f5e9d1883ec00648008",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "noon_isolated_npron.opus",
+    "letter": "noon",
+    "source": "Npron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Npron.wav",
+    "sha1": "05c51bd258bd0719407cf0d89af52075f481383f",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "noon_isolated_naudio.opus",
+    "letter": "noon",
+    "source": "Naudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Naudio.wav",
+    "sha1": "7b92375f147610dde60ebafcef7b063b461d8b8b",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "heh_isolated_hap.opus",
+    "letter": "heh",
+    "source": "Hap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hap.wav",
+    "sha1": "a44e5e7514a96cf3bef24e551dbd19b9fff3cbd2",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "heh_isolated_haaudio.opus",
+    "letter": "heh",
+    "source": "Haaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Haaudio.wav",
+    "sha1": "906a01f5196c3888bd835cb0cc1dcbbf41fcf10f",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "heh_isolated_hpron.opus",
+    "letter": "heh",
+    "source": "Hpron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hpron.wav",
+    "sha1": "66bf26ce8ce6ccc1bfddb41853a980f3b36c56db",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "heh_isolated_haaaudio.opus",
+    "letter": "heh",
+    "source": "Haaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Haaaudio.wav",
+    "sha1": "34788d9dbca9ef270826725fd29d2a6a4c801012",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": true
+  },
+  {
+    "file": "waw_isolated_wapron.opus",
+    "letter": "waw",
+    "source": "Wapron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Wapron.wav",
+    "sha1": "f5d5ec95e2dcccae7fc97f0989cb1ab472861d05",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "waw_isolated_wawaudio.opus",
+    "letter": "waw",
+    "source": "Wawaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Wawaudio.wav",
+    "sha1": "f4e5e56f8d64df49f1ba3ec7582e98b62af89605",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "yeh_isolated_yapron.opus",
+    "letter": "yeh",
+    "source": "Yapron.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Yapron.wav",
+    "sha1": "b0f6796070483710bd2e0da870f61e6ae49f0e34",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "yeh_isolated_yaaudio.opus",
+    "letter": "yeh",
+    "source": "Yaaudio.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Yaaudio.wav",
+    "sha1": "f92d9f27949745cfcadb2b5c1311ee8931a6b204",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "hamza_isolated_hamzap.opus",
+    "letter": "hamza",
+    "source": "Hamzap.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hamzap.wav",
+    "sha1": "600dff98f79abcb103c1a4a8318c9af0c2d20128",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  },
+  {
+    "file": "hamza_isolated_hamzah.opus",
+    "letter": "hamza",
+    "source": "Hamza h.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Hamza_h.wav",
+    "sha1": "07882d943b64f5a05c53d9caf13480564ebb7218",
+    "artist": "Ruaa GHAREEB",
+    "licence": "CC BY-SA 4.0",
+    "shared": false
+  }
+]

@@ -29,4 +29,16 @@ holder and a licence compatible with GPL-3.0 redistribution (e.g. OFL-1.1).
     generated from the variable font with fontTools.varLib.instancer.
     Licence: SIL Open Font License 1.1 (see LICENSE-OFL-NotoNaskhArabic.txt).
 
+Audio (assets/audio/). Every clip's source, SHA-1 and licence is listed in assets/content/sources.json.
+
+  Letter recordings by Ruaa GHAREEB, from Wikimedia Commons
+  (https://commons.wikimedia.org/wiki/User:Ruaa_GHAREEB), licensed CC BY-SA 4.0.
+  Modified: loudness-normalised to -16 LUFS and re-encoded as 16 kHz mono Opus at
+  24 kbps by tools/build_content_pack.py. Matched to letters by file name and not
+  yet verified by a fluent reader; release builds require that verification.
+
+Letter data (assets/content/letters.json): letters, names and joining forms from the
+Unicode Character Database (Unicode License v3); look-alike groups derived from the
+DigitalKhatt IndoPak font; sound-alike groups from the Qaida product specification.
+
 AndroidX / Jetpack libraries - Apache License 2.0, The Android Open Source Project.
