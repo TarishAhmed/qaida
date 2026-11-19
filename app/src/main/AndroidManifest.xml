@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- No permissions. RECORD_AUDIO is added in milestone 6 and is the only one this app may ever declare. -->
+    <!-- No network permissions of any kind. RECORD_AUDIO arrives in milestone 6 and POST_NOTIFICATIONS
+         with the optional reminder in milestone 7; app/build.gradle.kts fails the build on anything else. -->
+
+    <!-- Added by media3 for streaming bandwidth estimates; this app only plays bundled clips. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
 
     <application
         android:name=".QaidaApp"

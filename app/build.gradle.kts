@@ -72,6 +72,29 @@ val checkReleaseContent by tasks.registering {
 tasks.matching { it.name in setOf("assembleRelease", "bundleRelease", "packageRelease") }
     .configureEach { dependsOn(checkReleaseContent) }
 
+// The app's core promise is that nothing leaves the device. A library can add permissions to the merged
+// manifest silently, so every variant's merged manifest is checked against this allowlist.
+val allowedPermissions = setOf(
+    "in.qaida.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", // androidx.core, app-private, signature-level
+)
+androidComponents {
+    onVariants { variant ->
+        val name = variant.name.replaceFirstChar { it.uppercase() }
+        val check = tasks.register("verify${name}ManifestPermissions") {
+            val manifest = variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.MERGED_MANIFEST)
+            inputs.file(manifest)
+            doLast {
+                val text = manifest.get().asFile.readText()
+                val declared = Regex("""<uses-permission(?:-sdk-23)?\s+android:name="([^"]+)"""").findAll(text).map { it.groupValues[1] }.toSet()
+                val unexpected = declared - allowedPermissions
+                check(unexpected.isEmpty()) { "Unexpected permissions in the ${variant.name} merged manifest: $unexpected" }
+            }
+        }
+        tasks.matching { it.name == "assemble$name" || it.name == "bundle$name" || it.name == "check" }
+            .configureEach { dependsOn(check) }
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
