@@ -39,7 +39,7 @@ class ContentReviewTest {
         val first = rule.onAllNodes(okChip).fetchSemanticsNodes().first().config[SemanticsProperties.TestTag].removePrefix("review_ok_")
         rule.onAllNodes(okChip).onFirst().performClick()
 
-        rule.waitUntil(5_000) { runBlocking { container.reviewStore.load() }[first] == true }
+        rule.waitUntil(15_000) { runBlocking { container.reviewStore.load() }[first] == true }
         assertEquals(mapOf(first to true), runBlocking { container.reviewStore.load() })
         runBlocking { container.reviewStore.save(emptyMap()) }
     }

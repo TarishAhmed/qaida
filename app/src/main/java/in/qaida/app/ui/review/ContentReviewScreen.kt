@@ -61,9 +61,11 @@ fun ContentReviewScreen(container: AppContainer, onBack: () -> Unit) {
 
     LaunchedEffect(Unit) {
         container.contentReady.await()
-        letters = container.contentRepository.catalog()
-        container.playback.preload(letters.flatMap { l -> l.isolatedClips.map { it.file } }.distinct())
+        // Saved marks first, before anything can be tapped, so a late load never overwrites a fresh mark.
         verdicts.putAll(container.reviewStore.load())
+        val catalog = container.contentRepository.catalog()
+        letters = catalog
+        container.playback.preload(catalog.flatMap { l -> l.isolatedClips.map { it.file } }.distinct())
     }
     fun mark(file: String, ok: Boolean) {
         verdicts[file] = ok
