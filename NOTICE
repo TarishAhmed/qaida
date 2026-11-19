@@ -15,13 +15,13 @@ Fonts (res/font/). Each font must be listed here with its source, copyright
 holder and a licence compatible with GPL-3.0 redistribution (e.g. OFL-1.1).
 
   indopak_nastaleeq.ttf
-    "AlQuran IndoPak by QuranWBW", Version 2.100 (2022-11-26), unmodified.
-    Source: https://qul.tarteel.ai/resources/font/242
-            https://static-cdn.tarteel.ai/qul/fonts/nastaleeq/Hanafi/normal-v4.2.2/with-waqf-lazmi/font.ttf
-    Copyright (embedded): Al Qalam, Ghandhara, KFGQPC, Ayman Siddiqui; credits
-    Abdul Majeed Khan, Arif Karim, Shakir-ul-Qadree, Jawad. quranwbw.com
-    LICENCE: UNKNOWN. Neither QUL nor the font states one. RELEASE BLOCKER until
-    a redistribution licence is confirmed with the authors.
+    DigitalKhatt IndoPak, release v1.0.0-beta.1, based on the Quraan Al Majeed
+    13-line IndoPak Mushaf. Copyright (c) 2024-2025 Amine Anane, Copyright (c)
+    2024-2025 Tarteel Inc. Source: https://github.com/DigitalKhatt/indopakfont
+    Licence: SIL Open Font License 1.1 (see LICENSE-OFL-DigitalKhattIndoPak.txt).
+    Modified: CFF2 outlines converted to TrueType (glyf) and variation axes
+    (LTAT, RTAT) pinned at their defaults with tools/otf_to_ttf.py, so Android
+    7.x can load it. Layout tables are unchanged; no Reserved Font Name is declared.
 
   indopak_naskh.ttf
     Noto Naskh Arabic, Version 2.021, Copyright 2022 The Noto Project Authors
