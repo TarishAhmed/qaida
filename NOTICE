@@ -1,0 +1,21 @@
+Qaida
+Copyright (C) 2026 Qaida contributors
+
+Source code is licensed under the GNU General Public License, version 3
+(see LICENSE).
+
+Audio recordings and articulation (makhraj) diagrams are licensed under the
+Creative Commons Attribution-ShareAlike 4.0 International licence
+(see LICENSE-CC-BY-SA-4.0).
+
+Third-party components
+----------------------
+
+Fonts (res/font/): TO BE FILLED IN when the font files are supplied. Each font
+must be listed here with its source URL, copyright holder and licence, and the
+licence must be compatible with GPL-3.0 redistribution (e.g. OFL-1.1).
+
+  indopak_nastaleeq.ttf  - source: TBD  licence: TBD
+  indopak_naskh.ttf      - source: TBD  licence: TBD
+
+AndroidX / Jetpack libraries - Apache License 2.0, The Android Open Source Project.

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Qaida</string>
+    <string name="fonttest_face_nastaleeq">Nastaleeq</string>
+    <string name="fonttest_face_naskh">Naskh</string>
+    <string name="fonttest_font_missing">Font file missing: res/font/%1$s.ttf</string>
+    <string name="fonttest_size">%1$d sp</string>
+</resources>
