@@ -13,6 +13,7 @@ import `in`.qaida.app.domain.PlannedCard
 import `in`.qaida.app.domain.ReviewState
 import `in`.qaida.app.domain.Scheduler
 import `in`.qaida.app.domain.SessionComposer
+import `in`.qaida.app.domain.SessionConfig
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,6 +41,8 @@ sealed interface SessionUiState {
         val answered: Int,
         val moved: List<LetterMove>,
         val watch: CatalogLetter?,
+        /** A new tier of letters opened as a result of this session. */
+        val newTier: Boolean,
     ) : SessionUiState
 }
 
@@ -69,6 +72,8 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
     private var correctCount = 0
     private var answered = 0
     private var ticker: Job? = null
+    private var unlockedTiers: Set<Int> = emptySet()
+    private var config = SessionConfig()
 
     init {
         viewModelScope.launch { begin() }
@@ -82,9 +87,10 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         startStates = states.toMap()
 
         val now = c.clock()
-        // Tier unlocking arrives in milestone 4; until then tier 1 is the unlocked set.
-        val unlocked = letters.filter { it.unlockTier == 1 }
-        planned = SessionComposer.compose(unlocked, states, CARD_TYPES, now, c.random, c.sessionConfig.maxCards)
+        config = c.sessionConfig()
+        unlockedTiers = c.progressRepository.refreshUnlockedTiers(letters, states, now)
+        val unlocked = letters.filter { it.unlockTier in unlockedTiers }
+        planned = SessionComposer.compose(unlocked, states, CARD_TYPES, now, c.random, config.maxCards)
         if (planned.isEmpty()) {
             _state.value = SessionUiState.NothingDue
             return
@@ -122,7 +128,7 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
 
     private fun progressAt(index: Int): Float {
         val byCards = index.toFloat() / builtCards.size
-        val byTime = (c.clock() - startedAt).toFloat() / c.sessionConfig.durationMs
+        val byTime = (c.clock() - startedAt).toFloat() / config.durationMs
         return maxOf(byCards, byTime).coerceIn(0f, 1f)
     }
 
@@ -168,7 +174,7 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
     private fun advance() {
         val s = _state.value as? SessionUiState.Card ?: return
         val next = s.index + 1
-        val outOfTime = c.clock() - startedAt >= c.sessionConfig.durationMs
+        val outOfTime = c.clock() - startedAt >= config.durationMs
         if (next >= builtCards.size || outOfTime) finish() else show(next)
     }
 
@@ -185,7 +191,13 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
             if (from != to) LetterMove(catalog.getValue(item.letterId), from, to) else null
         }
         val watch = seen.minByOrNull { Scheduler.recall(states.getValue(it), now) }?.let { catalog.getValue(it.letterId) }
-        _state.value = SessionUiState.Summary(correctCount, answered, moved, watch)
+        _state.value = SessionUiState.Summary(correctCount, answered, moved, watch, newTier = false)
+        viewModelScope.launch {
+            val nowOpen = c.progressRepository.refreshUnlockedTiers(catalog.values.toList(), states, now)
+            if ((nowOpen - unlockedTiers).isNotEmpty()) {
+                _state.update { s -> if (s is SessionUiState.Summary) s.copy(newTier = true) else s }
+            }
+        }
     }
 
     override fun onCleared() {

@@ -35,7 +35,10 @@ class SessionFlowTest {
 
     @Test
     fun aSessionRunsFromStartToSummaryAndBackHome() {
-        val dao = (rule.activity.application as QaidaApp).container.database.progressDao()
+        val container = (rule.activity.application as QaidaApp).container
+        val dao = container.database.progressDao()
+        // Start from a cold start regardless of what other tests left behind.
+        runBlocking { container.contentReady.await(); dao.clearProgress() }
         val before = runBlocking { dao.answerCount() }
 
         rule.onNodeWithTag("start").performClick()

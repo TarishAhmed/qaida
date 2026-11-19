@@ -4,6 +4,9 @@ import `in`.qaida.app.data.db.AnswerLogEntity
 import `in`.qaida.app.data.db.ProgressDao
 import `in`.qaida.app.data.db.ReviewStateEntity
 import `in`.qaida.app.data.db.SessionEntity
+import `in`.qaida.app.data.db.TierUnlockEntity
+import `in`.qaida.app.domain.CatalogLetter
+import `in`.qaida.app.domain.Progression
 import `in`.qaida.app.domain.CardType
 import `in`.qaida.app.domain.ItemKey
 import `in`.qaida.app.domain.ReviewState
@@ -15,6 +18,16 @@ class ProgressRepository(private val dao: ProgressDao) {
             val type = CardType.entries.firstOrNull { it.name == e.cardType } ?: return@mapNotNull null
             ItemKey(e.letterId, type) to ReviewState(e.stabilityHours, e.lastReviewedAt)
         }.toMap()
+
+    /** Unlocked tiers, after opening any that the learner has just earned. Tier 1 is always included. */
+    suspend fun refreshUnlockedTiers(catalog: List<CatalogLetter>, states: Map<ItemKey, ReviewState>, now: Long): Set<Int> {
+        val stored = dao.unlockedTiers().toSet()
+        val added = Progression.newlyUnlocked(catalog, states, stored, now)
+        if (added.isNotEmpty()) dao.insertTierUnlocks(added.map { TierUnlockEntity(it, now) })
+        return stored + added + 1
+    }
+
+    suspend fun bossAttemptedTiers(): Set<Int> = dao.bossAttemptedTiers().toSet()
 
     suspend fun startSession(now: Long): Long = dao.insertSession(SessionEntity(startedAt = now, endedAt = null))
 

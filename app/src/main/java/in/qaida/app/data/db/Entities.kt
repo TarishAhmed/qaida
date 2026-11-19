@@ -91,3 +91,17 @@ data class AnswerLogEntity(
     /** Logged for later tuning, never shown in the UI. */
     val alignmentDistance: Double?,
 )
+
+/** Tiers the learner has opened. Permanent: decay never re-locks a tier. Tier 1 is implicit. */
+@Entity(tableName = "tier_unlock")
+data class TierUnlockEntity(
+    @PrimaryKey val tier: Int,
+    val unlockedAt: Long,
+)
+
+/** A tier's boss line has been attempted; the tier shows gold permanently from then on. */
+@Entity(tableName = "boss_attempt")
+data class BossAttemptEntity(
+    @PrimaryKey val tier: Int,
+    val attemptedAt: Long,
+)

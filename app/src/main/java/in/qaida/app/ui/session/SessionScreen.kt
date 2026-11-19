@@ -47,23 +47,24 @@ import `in`.qaida.app.R
 import `in`.qaida.app.domain.CatalogLetter
 import `in`.qaida.app.ui.theme.ArabicText
 import `in`.qaida.app.ui.theme.LocalStatusColors
+import `in`.qaida.app.ui.theme.ScriptFace
 import kotlinx.coroutines.delay
 
 @Composable
-fun SessionScreen(viewModel: SessionViewModel, onDone: () -> Unit) {
+fun SessionScreen(viewModel: SessionViewModel, face: ScriptFace, onDone: () -> Unit) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         when (val s = state) {
             SessionUiState.Loading -> Box(Modifier.fillMaxSize(), Alignment.Center) { CircularProgressIndicator() }
             SessionUiState.NothingDue -> NothingDue(onDone)
-            is SessionUiState.Card -> CardView(s, viewModel)
-            is SessionUiState.Summary -> SummaryView(s, onDone)
+            is SessionUiState.Card -> CardView(s, viewModel, face)
+            is SessionUiState.Summary -> SummaryView(s, face, onDone)
         }
     }
 }
 
 @Composable
-private fun CardView(s: SessionUiState.Card, vm: SessionViewModel) {
+private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptFace) {
     val incorrect = s.feedback as? Feedback.Incorrect
     // After a wrong answer a tap anywhere continues. It is a raw gesture so it adds no semantics; the
     // explicit button below is what TalkBack sees.
@@ -81,7 +82,7 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel) {
 
         // Upper 60%: the prompt. Only introduction cards show the glyph alongside the sound.
         Box(Modifier.fillMaxWidth().weight(0.6f), contentAlignment = Alignment.Center) {
-            if (s.card.isIntro) ArabicText(s.card.target.glyph, 120.sp)
+            if (s.card.isIntro) ArabicText(s.card.target.glyph, 120.sp, face = face)
         }
 
         // Lower 40%: everything the thumb touches.
@@ -102,19 +103,19 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel) {
             ) {
                 Icon(Icons.Filled.Refresh, contentDescription = stringResource(R.string.session_replay), Modifier.size(32.dp))
             }
-            OptionGrid(s, onPick = vm::answer)
+            OptionGrid(s, face, onPick = vm::answer)
         }
     }
 }
 
 @Composable
-private fun OptionGrid(s: SessionUiState.Card, onPick: (String) -> Unit) {
+private fun OptionGrid(s: SessionUiState.Card, face: ScriptFace, onPick: (String) -> Unit) {
     val rows = s.card.options.chunked(2)
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         for (row in rows) {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 for (option in row) {
-                    OptionTile(option, s, Modifier.weight(1f), onPick)
+                    OptionTile(option, s, face, Modifier.weight(1f), onPick)
                 }
                 if (row.size == 1) Spacer(Modifier.weight(1f))
             }
@@ -123,7 +124,7 @@ private fun OptionGrid(s: SessionUiState.Card, onPick: (String) -> Unit) {
 }
 
 @Composable
-private fun OptionTile(option: CatalogLetter, s: SessionUiState.Card, modifier: Modifier, onPick: (String) -> Unit) {
+private fun OptionTile(option: CatalogLetter, s: SessionUiState.Card, face: ScriptFace, modifier: Modifier, onPick: (String) -> Unit) {
     val status = LocalStatusColors.current
     val fb = s.feedback
     val isChosen = fb?.chosenId == option.id
@@ -140,13 +141,13 @@ private fun OptionTile(option: CatalogLetter, s: SessionUiState.Card, modifier: 
         modifier = modifier.height(88.dp).alpha(if (dimmed) 0.35f else 1f).testTag("option_${option.id}"),
     ) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            ArabicText(option.glyph, 40.sp, compact = true)
+            ArabicText(option.glyph, 40.sp, face = face, compact = true)
         }
     }
 }
 
 @Composable
-private fun SummaryView(s: SessionUiState.Summary, onDone: () -> Unit) {
+private fun SummaryView(s: SessionUiState.Summary, face: ScriptFace, onDone: () -> Unit) {
     LaunchedEffect(Unit) {
         delay(SessionViewModel.SUMMARY_MS)
         onDone()
@@ -159,6 +160,7 @@ private fun SummaryView(s: SessionUiState.Summary, onDone: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
     ) {
         Text(stringResource(R.string.summary_correct, s.correct, s.answered), style = MaterialTheme.typography.headlineSmall)
+        if (s.newTier) Text(stringResource(R.string.summary_new_tier), color = MaterialTheme.colorScheme.primary)
         if (s.moved.isNotEmpty()) {
             Text(stringResource(R.string.summary_moved), color = MaterialTheme.colorScheme.onSurfaceVariant)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -166,13 +168,13 @@ private fun SummaryView(s: SessionUiState.Summary, onDone: () -> Unit) {
                     Box(
                         Modifier.size(56.dp).background(status.of(m.to), RoundedCornerShape(12.dp)),
                         contentAlignment = Alignment.Center,
-                    ) { ArabicText(m.letter.glyph, 26.sp, compact = true) }
+                    ) { ArabicText(m.letter.glyph, 26.sp, face = face, compact = true) }
                 }
             }
         }
         s.watch?.let {
             Text(stringResource(R.string.summary_watch), color = MaterialTheme.colorScheme.onSurfaceVariant)
-            ArabicText(it.glyph, 56.sp)
+            ArabicText(it.glyph, 56.sp, face = face)
         }
     }
 }

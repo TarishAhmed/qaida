@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Qaida</string>
+    <string name="back">Back</string>
+    <string name="letter_title">Letter</string>
+    <string name="progress_title">Progress</string>
+    <string name="settings_title">Settings</string>
 
     <string name="home_start">Start — %1$d seconds</string>
+    <plurals name="home_letters_need_review">
+        <item quantity="one">%1$d letter needs review</item>
+        <item quantity="other">%1$d letters need review</item>
+    </plurals>
+    <string name="home_nothing_due">Nothing needs review</string>
+    <string name="home_progress">Progress</string>
+    <string name="home_settings">Settings</string>
+
+    <string name="mastery_new">Not started</string>
+    <string name="mastery_red">Weak</string>
+    <string name="mastery_amber">Building</string>
+    <string name="mastery_green">Strong</string>
+    <string name="mastery_gold">Mastered</string>
+    <string name="mastery_locked">Locked</string>
 
     <string name="session_replay">Play again</string>
     <string name="session_tap_to_continue">Tap to continue</string>
@@ -11,4 +29,5 @@
     <string name="summary_correct">%1$d of %2$d correct</string>
     <string name="summary_moved">Moved</string>
     <string name="summary_watch">One to watch</string>
+    <string name="summary_new_tier">New letters unlocked</string>
 </resources>

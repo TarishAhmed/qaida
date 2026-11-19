@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 import `in`.qaida.app.domain.Mastery
 
 // One accent colour only. Everything else is neutral.
@@ -84,8 +86,13 @@ private val LightStatus = StatusColors(
 val LocalStatusColors = staticCompositionLocalOf { DarkStatus }
 
 @Composable
-fun QaidaTheme(dark: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    androidx.compose.runtime.CompositionLocalProvider(LocalStatusColors provides if (dark) DarkStatus else LightStatus) {
+fun QaidaTheme(dark: Boolean = isSystemInDarkTheme(), textScale: Float = 1f, content: @Composable () -> Unit) {
+    val density = LocalDensity.current
+    androidx.compose.runtime.CompositionLocalProvider(
+        LocalStatusColors provides if (dark) DarkStatus else LightStatus,
+        // The in-app text size setting multiplies the system font scale rather than replacing it.
+        LocalDensity provides Density(density.density, density.fontScale * textScale),
+    ) {
         MaterialTheme(colorScheme = if (dark) DarkColors else LightColors, content = content)
     }
 }

@@ -8,6 +8,7 @@ import `in`.qaida.app.data.content.AssetContentSource
 import `in`.qaida.app.data.content.ContentRepository
 import `in`.qaida.app.data.db.QaidaDatabase
 import `in`.qaida.app.data.progress.ProgressRepository
+import `in`.qaida.app.data.settings.SettingsRepository
 import `in`.qaida.app.domain.SessionConfig
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
@@ -28,8 +29,9 @@ class AppContainer(context: Context) {
     val playback = PlaybackController(context)
     val uiSounds = UiSounds(context)
 
-    // Settings arrive in milestone 7; until then the spec's defaults.
-    val sessionConfig = SessionConfig()
+    val settingsRepository = SettingsRepository(context)
+
+    suspend fun sessionConfig() = SessionConfig(durationMs = settingsRepository.current().sessionSeconds * 1000L)
 
     /** Completes once the bundled content is in Room; anything reading content awaits it. */
     val contentReady = CompletableDeferred<Unit>()
