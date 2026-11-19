@@ -18,6 +18,9 @@ object ContentPaths {
     const val AUDIO_DIR = "audio"
 
     fun audio(file: String) = "$AUDIO_DIR/$file"
+
+    /** Optional spoken instruction for a card type, in the instruction language ("en" or "ml"). */
+    fun instruction(cardType: String, language: String) = "instr_${cardType.lowercase()}_$language.opus"
 }
 
 class AssetContentSource(private val assets: AssetManager) : ContentSource {

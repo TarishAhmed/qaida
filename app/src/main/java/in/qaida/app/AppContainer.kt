@@ -1,6 +1,9 @@
 package `in`.qaida.app
 
 import android.content.Context
+import android.content.res.Resources
+import `in`.qaida.app.data.backup.BackupRepository
+import `in`.qaida.app.ui.common.withLocale
 import android.util.Log
 import `in`.qaida.app.audio.PlaybackController
 import `in`.qaida.app.audio.Recorder
@@ -26,7 +29,8 @@ class AppContainer(context: Context) {
     val random: Random = Random.Default
 
     val database = QaidaDatabase.create(context)
-    val contentRepository = ContentRepository(AssetContentSource(context.assets), database.contentDao())
+    val contentSource = AssetContentSource(context.assets)
+    val contentRepository = ContentRepository(contentSource, database.contentDao())
     val progressRepository = ProgressRepository(database.progressDao())
     val playback = PlaybackController(context)
     val uiSounds = UiSounds(context)
@@ -34,6 +38,11 @@ class AppContainer(context: Context) {
     val referenceDecoder = ReferenceDecoder(context)
 
     val settingsRepository = SettingsRepository(context)
+    val backupRepository = BackupRepository(database.progressDao(), settingsRepository)
+    private val appContext = context.applicationContext
+
+    /** Resources in the learner's chosen UI language, for text produced outside an activity. */
+    suspend fun localizedResources(): Resources = appContext.withLocale(settingsRepository.current().uiLanguage.tag).resources
 
     suspend fun sessionConfig() = SessionConfig(durationMs = settingsRepository.current().sessionSeconds * 1000L)
 

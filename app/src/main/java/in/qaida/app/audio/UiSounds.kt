@@ -23,8 +23,10 @@ class UiSounds(context: Context) {
         .build()
     private val tick = pool.load(context, R.raw.tick, 1)
 
+    fun ringerOn() = audioManager.ringerMode == AudioManager.RINGER_MODE_NORMAL
+
     fun correct() {
-        if (audioManager.ringerMode != AudioManager.RINGER_MODE_NORMAL) return
+        if (!ringerOn()) return
         pool.play(tick, 1f, 1f, 1, 0, 1f)
     }
 }

@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Qaida</string>
+    <string name="app_name" translatable="false">Qaida</string>
     <string name="back">Back</string>
     <string name="letter_title">Letter</string>
     <string name="progress_title">Progress</string>
     <string name="settings_title">Settings</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="letter_forms">Forms</string>
+    <string name="form_isolated">Alone</string>
+    <string name="form_initial">Start</string>
+    <string name="form_medial">Middle</string>
+    <string name="form_final">End</string>
+    <string name="letter_makhraj">Where it is made</string>
+    <string name="letter_voices">Voices</string>
+    <string name="letter_voice_n">Voice %1$d</string>
+    <string name="letter_say_it">Say it</string>
+    <string name="letter_history">History</string>
+    <string name="letter_history_description">Mastery over your last %1$d answers</string>
+    <string name="face_nastaleeq">Nastaleeq</string>
+    <string name="face_naskh">Naskh</string>
+
+    <string name="progress_weakest">Weakest letters</string>
+    <plurals name="progress_total_answered">
+        <item quantity="one">%1$d card answered</item>
+        <item quantity="other">%1$d cards answered</item>
+    </plurals>
+    <string name="progress_last_30">Last 30 days</string>
+    <plurals name="progress_day_cards">
+        <item quantity="one">%1$d card</item>
+        <item quantity="other">%1$d cards</item>
+    </plurals>
+    <string name="progress_backup">Backup</string>
+    <string name="progress_export">Export</string>
+    <string name="progress_import">Import</string>
+    <string name="progress_exported">Backup saved.</string>
+    <string name="progress_imported">Progress restored from the backup.</string>
+    <string name="progress_import_invalid">That file isn\'t a Qaida backup. Nothing was changed.</string>
+
+    <string name="settings_language">App language</string>
+    <string name="settings_instruction_language">Spoken instructions</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_malayalam" translatable="false">മലയാളം</string>
+    <string name="settings_script">Script</string>
+    <string name="settings_session_length">Session length</string>
+    <string name="seconds_n">%1$d s</string>
+    <string name="settings_text_size">Text size</string>
+    <string name="text_size_normal">Normal</string>
+    <string name="text_size_large">Large</string>
+    <string name="text_size_largest">Largest</string>
+    <string name="settings_speaking">Speaking practice</string>
+    <string name="settings_speaking_on">Include speaking cards</string>
+    <string name="settings_reminder">Reminder</string>
+    <string name="settings_reminder_on">One reminder a day</string>
+    <string name="settings_reminder_time">At %1$s</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_text">Qaida has no internet permission. Nothing you do, and none of your recordings, ever leaves this phone. Recordings are kept only in the app\'s private storage, and only the latest 20.</string>
+    <string name="settings_reset">Reset progress</string>
+    <string name="settings_reset_title">Reset all progress?</string>
+    <string name="settings_reset_text">This clears every letter\'s progress, your history and your recordings. Your settings stay. Export a backup first if you might want it back.</string>
+    <string name="settings_reset_confirm">Reset</string>
+
+    <string name="reminder_channel">Daily reminder</string>
+    <plurals name="reminder_letters_due">
+        <item quantity="one">%1$d letter is due</item>
+        <item quantity="other">%1$d letters are due</item>
+    </plurals>
 
     <string name="home_start">Start — %1$d seconds</string>
     <plurals name="home_letters_need_review">

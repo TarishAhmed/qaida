@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import `in`.qaida.app.AppContainer
 import `in`.qaida.app.domain.AudioClip
+import `in`.qaida.app.domain.CardType
+import `in`.qaida.app.data.content.ContentPaths
 import `in`.qaida.app.domain.BossLine
 import `in`.qaida.app.domain.SelfRating
 import `in`.qaida.app.dsp.Confidence
@@ -98,6 +100,8 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
     private var graded = 0
     private var reached = -1
     private var pendingBoss: BossLine? = null
+    private var instructionLanguage = "en"
+    private val instructed = HashSet<CardType>()
 
     init {
         viewModelScope.launch { begin() }
@@ -114,7 +118,9 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         config = c.sessionConfig()
         unlockedTiers = c.progressRepository.refreshUnlockedTiers(letters, states, now)
         val unlocked = letters.filter { it.unlockTier in unlockedTiers }
-        val produceAllowed = !c.settingsRepository.current().micDeclined
+        val settings = c.settingsRepository.current()
+        val produceAllowed = !settings.micDeclined
+        instructionLanguage = settings.instructionLanguage.tag
         planned = SessionComposer.compose(unlocked, states, now, c.random, config.maxCards, produceAllowed)
         val attempted = c.progressRepository.bossAttemptedTiers()
         pendingBoss = c.contentRepository.bossLines().firstOrNull { line ->
@@ -130,7 +136,9 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
             CardFactory.build(p.item.cardType, target, catalog, p.isIntro, Levels.of(states[p.item], now), lastVoice[target.id], c.random)
                 .also { card -> card.revealClips.firstOrNull()?.let { lastVoice[target.id] = it.voiceId } }
         }
-        c.playback.preload(cards.flatMap { card -> card.clips.map { it.file } } + listOfNotNull(pendingBoss?.audio))
+        val instructions = cards.map { it.item.cardType }.distinct().map { ContentPaths.instruction(it.name, instructionLanguage) }
+            .filter { c.contentSource.exists(ContentPaths.audio(it)) }
+        c.playback.preload(cards.flatMap { card -> card.clips.map { it.file } } + listOfNotNull(pendingBoss?.audio) + instructions)
         sessionId = c.progressRepository.startSession(now)
         startedAt = now
         val boss = pendingBoss
@@ -158,11 +166,28 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
             playsLeft = Levels.maxPlays(card.level), selectedKey = null, spentOptions = emptySet(),
             produce = speak?.let { ProduceController(c, viewModelScope, it.reference) },
         )
-        // Level 1 plays the prompt (or, for a reading card, the letter's sound) without being asked.
+        // Level 1 plays the prompt (or, for a reading card, the letter's sound) without being asked, preceded
+        // the first time a card type appears by its spoken instruction, if the pack has one.
+        val instruction = instructionFor(card)
         when {
+            instruction != null -> {
+                val prompt = (card.prompt as? Prompt.Listen)?.clips?.map { it.file }
+                    ?: listOfNotNull((card.prompt as? Prompt.Speak)?.reference?.file ?: card.hintClip?.file)
+                c.playback.playSequence(listOf(instruction) + prompt)
+            }
             speak != null -> c.playback.play(speak.reference.file)
             Levels.autoplay(card.level) -> playPrompt()
         }
+    }
+
+    /**
+     * The spoken instruction for a level 1 card's type, once per type per session. Instructions honour the
+     * silent switch; letter audio does not, because the learner asked for it.
+     */
+    private fun instructionFor(card: SessionCard): String? {
+        if (card.level != 1 || !instructed.add(card.item.cardType) || !c.uiSounds.ringerOn()) return null
+        return ContentPaths.instruction(card.item.cardType.name, instructionLanguage)
+            .takeIf { c.contentSource.exists(ContentPaths.audio(it)) }
     }
 
     private fun progressAt(index: Int): Float {

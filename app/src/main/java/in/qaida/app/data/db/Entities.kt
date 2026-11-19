@@ -112,3 +112,6 @@ data class BossAttemptEntity(
     @PrimaryKey val tier: Int,
     val attemptedAt: Long,
 )
+
+/** Query result: cards answered on one local day (days since the epoch). */
+data class DayCount(val day: Long, val count: Int)

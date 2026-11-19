@@ -45,6 +45,42 @@ interface ProgressDao {
     @Query("SELECT COUNT(*) FROM answer_log")
     suspend fun answerCount(): Int
 
+    @Query("SELECT * FROM answer_log ORDER BY answeredAt, id")
+    suspend fun answers(): List<AnswerLogEntity>
+
+    @Query("SELECT * FROM answer_log WHERE letterId = :letterId ORDER BY answeredAt, id")
+    suspend fun answersFor(letterId: String): List<AnswerLogEntity>
+
+    /** Cards answered per local day since [sinceMs]; [offsetMs] shifts UTC to local time. */
+    @Query("SELECT (answeredAt + :offsetMs) / 86400000 AS day, COUNT(*) AS count FROM answer_log WHERE answeredAt >= :sinceMs GROUP BY day")
+    suspend fun answersPerDay(sinceMs: Long, offsetMs: Long): List<DayCount>
+
+    @Query("SELECT * FROM session ORDER BY id") suspend fun sessions(): List<SessionEntity>
+    @Query("SELECT * FROM tier_unlock ORDER BY tier") suspend fun tierUnlocks(): List<TierUnlockEntity>
+    @Query("SELECT * FROM boss_attempt ORDER BY tier") suspend fun bossAttempts(): List<BossAttemptEntity>
+
+    @Insert suspend fun insertReviewStates(rows: List<ReviewStateEntity>)
+    @Insert suspend fun insertAnswers(rows: List<AnswerLogEntity>)
+    @Insert suspend fun insertSessions(rows: List<SessionEntity>)
+    @Insert suspend fun insertBossAttempts(rows: List<BossAttemptEntity>)
+
+    /** Replaces all progress with a backup, atomically: a failed import leaves the old progress intact. */
+    @Transaction
+    suspend fun replaceProgress(
+        reviewStates: List<ReviewStateEntity>,
+        answers: List<AnswerLogEntity>,
+        sessions: List<SessionEntity>,
+        tierUnlocks: List<TierUnlockEntity>,
+        bossAttempts: List<BossAttemptEntity>,
+    ) {
+        clearProgress()
+        insertReviewStates(reviewStates)
+        insertSessions(sessions)
+        insertAnswers(answers)
+        insertTierUnlocks(tierUnlocks)
+        insertBossAttempts(bossAttempts)
+    }
+
     @Insert
     suspend fun insertSession(session: SessionEntity): Long
 

@@ -93,6 +93,12 @@ object AssetValidator {
             if (untaught.isNotEmpty()) warnings += "$at: characters not taught by this tier: ${untaught.joinToString(" ") { "U+%04X".format(it.code) }}"
         }
 
+        // Spoken instructions are optional, but a pack that has some should have both languages for each.
+        for (type in listOf("hear_pick", "see_pick", "ab_same_diff", "form_pick", "harakah_pick", "produce")) {
+            val present = listOf("en", "ml").filter { source.exists(ContentPaths.audio(ContentPaths.instruction(type, it))) }
+            if (present.size == 1) warnings += "instructions: $type has only ${present.single()} audio"
+        }
+
         for (m in pack.makhraj) {
             if (!source.exists(m.diagram)) errors += "makhraj '${m.id}': diagram missing: ${m.diagram}"
         }

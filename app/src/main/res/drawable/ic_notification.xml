@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A plain open book: the notification and launcher mark. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,6.5C10.2,5.3 7.6,4.8 4,5v13c3.6,-0.2 6.2,0.3 8,1.5c1.8,-1.2 4.4,-1.7 8,-1.5V5c-3.6,-0.2 -6.2,0.3 -8,1.5zM11,17.2c-1.7,-0.8 -3.8,-1.2 -5.5,-1.2V6.6c2,0 3.9,0.5 5.5,1.4V17.2zM18.5,16c-1.7,0 -3.8,0.4 -5.5,1.2V8c1.6,-0.9 3.5,-1.4 5.5,-1.4V16z" />
+</vector>

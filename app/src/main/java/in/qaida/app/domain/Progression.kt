@@ -92,4 +92,23 @@ object Progression {
         return tier == last && tier in unlockedTiers &&
             catalog.filter { it.unlockTier == tier }.all { ready(it.id, states, now) }
     }
+
+    /** One logged answer, enough to replay the scheduler. */
+    data class LoggedAnswer(val cardType: CardType, val at: Long, val correct: Boolean?, val selfRating: SelfRating?)
+
+    /**
+     * The letter's mastery after each graded answer, for the sparkline: recall one day ahead,
+     * 2^(-24 h / s), of its weakest reviewed graded skill. Bounded 0..1 and it grows with real learning,
+     * unlike recall at answer time, which is 1.0 after every answer.
+     */
+    fun history(answers: List<LoggedAnswer>): List<Double> {
+        val states = HashMap<CardType, ReviewState>()
+        val out = ArrayList<Double>()
+        for (a in answers.sortedBy { it.at }) {
+            if (a.cardType !in GRADED || a.correct == null) continue
+            states[a.cardType] = Scheduler.onAnswer(states[a.cardType] ?: ReviewState(), a.correct, a.at)
+            out += states.values.minOf { Math.pow(2.0, -24.0 / it.stabilityHours) }
+        }
+        return out
+    }
 }

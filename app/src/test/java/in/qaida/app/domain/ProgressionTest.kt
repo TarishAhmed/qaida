@@ -97,4 +97,18 @@ class ProgressionTest {
         val statuses = Progression.status(catalog, states, setOf(1), now)
         assertEquals(4, Progression.lettersNeedingReview(statuses))
     }
+
+    @Test
+    fun `history rises with spaced correct answers, dips on a miss, and ignores PRODUCE`() {
+        val day = 24 * hour
+        fun a(t: Long, ok: Boolean?, type: CardType = hear) = Progression.LoggedAnswer(type, now + t, ok, null)
+        val h = Progression.history(listOf(
+            a(0, true), a(day, true), a(2 * day, true), a(3 * day, false),
+            a(3 * day + hour, null, CardType.PRODUCE), a(5 * day, true),
+        ))
+        assertEquals(5, h.size)
+        assert(h[0] < h[1] && h[1] < h[2]) { "$h" }
+        assert(h[3] < h[2]) { "$h" }
+        assert(h.all { it in 0.0..1.0 })
+    }
 }

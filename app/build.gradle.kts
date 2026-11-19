@@ -103,6 +103,8 @@ tasks.matching { it.name in setOf("assembleRelease", "bundleRelease", "packageRe
 fun allowedPermissions(applicationId: String) = setOf(
     "$applicationId.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", // androidx.core, app-private, signature-level
     "android.permission.RECORD_AUDIO", // pronunciation practice; requested lazily, optional
+    "android.permission.POST_NOTIFICATIONS", // optional reminder, off by default
+    "android.permission.RECEIVE_BOOT_COMPLETED", // restores the reminder alarm after a reboot
 )
 androidComponents {
     onVariants { variant ->

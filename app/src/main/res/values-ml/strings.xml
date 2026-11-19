@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam UI strings. Machine-drafted by the developer; needs review by a native speaker before release. -->
+<resources>
+    <string name="back">തിരികെ</string>
+    <string name="letter_title">അക്ഷരം</string>
+    <string name="progress_title">പുരോഗതി</string>
+    <string name="settings_title">ക്രമീകരണങ്ങൾ</string>
+    <string name="ok">ശരി</string>
+    <string name="cancel">റദ്ദാക്കുക</string>
+
+    <string name="letter_forms">രൂപങ്ങൾ</string>
+    <string name="form_isolated">ഒറ്റയ്ക്ക്</string>
+    <string name="form_initial">തുടക്കം</string>
+    <string name="form_medial">നടുവിൽ</string>
+    <string name="form_final">അവസാനം</string>
+    <string name="letter_makhraj">ഉച്ചാരണ സ്ഥാനം</string>
+    <string name="letter_voices">ശബ്ദങ്ങൾ</string>
+    <string name="letter_voice_n">ശബ്ദം %1$d</string>
+    <string name="letter_say_it">ഉച്ചരിക്കുക</string>
+    <string name="letter_history">ചരിത്രം</string>
+    <string name="letter_history_description">നിങ്ങളുടെ അവസാന %1$d ഉത്തരങ്ങളിലെ പുരോഗതി</string>
+    <string name="face_nastaleeq">നസ്താലീഖ്</string>
+    <string name="face_naskh">നസ്ഖ്</string>
+
+    <string name="progress_weakest">ഏറ്റവും ദുർബലമായ അക്ഷരങ്ങൾ</string>
+    <plurals name="progress_total_answered">
+        <item quantity="one">%1$d കാർഡിന് ഉത്തരം നൽകി</item>
+        <item quantity="other">%1$d കാർഡുകൾക്ക് ഉത്തരം നൽകി</item>
+    </plurals>
+    <string name="progress_last_30">കഴിഞ്ഞ 30 ദിവസം</string>
+    <plurals name="progress_day_cards">
+        <item quantity="one">%1$d കാർഡ്</item>
+        <item quantity="other">%1$d കാർഡുകൾ</item>
+    </plurals>
+    <string name="progress_backup">ബാക്കപ്പ്</string>
+    <string name="progress_export">എക്സ്പോർട്ട്</string>
+    <string name="progress_import">ഇംപോർട്ട്</string>
+    <string name="progress_exported">ബാക്കപ്പ് സേവ് ചെയ്തു.</string>
+    <string name="progress_imported">ബാക്കപ്പിൽ നിന്ന് പുരോഗതി പുനഃസ്ഥാപിച്ചു.</string>
+    <string name="progress_import_invalid">ആ ഫയൽ ഒരു ഖാഇദ ബാക്കപ്പ് അല്ല. ഒന്നും മാറ്റിയിട്ടില്ല.</string>
+
+    <string name="settings_language">ആപ്പിന്റെ ഭാഷ</string>
+    <string name="settings_instruction_language">സംസാരിക്കുന്ന നിർദ്ദേശങ്ങൾ</string>
+    <string name="settings_script">ലിപി</string>
+    <string name="settings_session_length">സെഷന്റെ ദൈർഘ്യം</string>
+    <string name="seconds_n">%1$d സെ</string>
+    <string name="settings_text_size">അക്ഷരവലിപ്പം</string>
+    <string name="text_size_normal">സാധാരണ</string>
+    <string name="text_size_large">വലുത്</string>
+    <string name="text_size_largest">ഏറ്റവും വലുത്</string>
+    <string name="settings_speaking">ഉച്ചാരണ പരിശീലനം</string>
+    <string name="settings_speaking_on">സംസാരിക്കുന്ന കാർഡുകൾ ഉൾപ്പെടുത്തുക</string>
+    <string name="settings_reminder">ഓർമ്മപ്പെടുത്തൽ</string>
+    <string name="settings_reminder_on">ദിവസം ഒരു ഓർമ്മപ്പെടുത്തൽ</string>
+    <string name="settings_reminder_time">%1$s-ന്</string>
+    <string name="settings_privacy">സ്വകാര്യത</string>
+    <string name="settings_privacy_text">ഖാഇദയ്ക്ക് ഇന്റർനെറ്റ് അനുമതിയില്ല. നിങ്ങൾ ചെയ്യുന്നതൊന്നും, നിങ്ങളുടെ റെക്കോർഡിംഗുകളും, ഈ ഫോണിൽ നിന്ന് പുറത്തുപോകില്ല. റെക്കോർഡിംഗുകൾ ആപ്പിന്റെ സ്വകാര്യ സംഭരണത്തിൽ മാത്രം, ഏറ്റവും പുതിയ 20 എണ്ണം മാത്രം സൂക്ഷിക്കുന്നു.</string>
+    <string name="settings_reset">പുരോഗതി മായ്ക്കുക</string>
+    <string name="settings_reset_title">എല്ലാ പുരോഗതിയും മായ്ക്കണോ?</string>
+    <string name="settings_reset_text">ഇത് ഓരോ അക്ഷരത്തിന്റെയും പുരോഗതിയും, നിങ്ങളുടെ ചരിത്രവും റെക്കോർഡിംഗുകളും മായ്ക്കും. ക്രമീകരണങ്ങൾ നിലനിൽക്കും. പിന്നീട് തിരികെ വേണമെങ്കിൽ ആദ്യം ഒരു ബാക്കപ്പ് എക്സ്പോർട്ട് ചെയ്യുക.</string>
+    <string name="settings_reset_confirm">മായ്ക്കുക</string>
+
+    <string name="reminder_channel">ദൈനംദിന ഓർമ്മപ്പെടുത്തൽ</string>
+    <plurals name="reminder_letters_due">
+        <item quantity="one">%1$d അക്ഷരം ആവർത്തിക്കാനുണ്ട്</item>
+        <item quantity="other">%1$d അക്ഷരങ്ങൾ ആവർത്തിക്കാനുണ്ട്</item>
+    </plurals>
+
+    <string name="home_start">തുടങ്ങുക — %1$d സെക്കൻഡ്</string>
+    <plurals name="home_letters_need_review">
+        <item quantity="one">%1$d അക്ഷരം ആവർത്തിക്കണം</item>
+        <item quantity="other">%1$d അക്ഷരങ്ങൾ ആവർത്തിക്കണം</item>
+    </plurals>
+    <string name="home_nothing_due">ഇപ്പോൾ ആവർത്തിക്കാൻ ഒന്നുമില്ല</string>
+    <string name="home_progress">പുരോഗതി</string>
+    <string name="home_settings">ക്രമീകരണങ്ങൾ</string>
+
+    <string name="mastery_new">തുടങ്ങിയിട്ടില്ല</string>
+    <string name="mastery_red">ദുർബലം</string>
+    <string name="mastery_amber">വളരുന്നു</string>
+    <string name="mastery_green">ശക്തം</string>
+    <string name="mastery_gold">സ്വായത്തമാക്കി</string>
+    <string name="mastery_locked">പൂട്ടിയിരിക്കുന്നു</string>
+
+    <string name="session_replay">വീണ്ടും കേൾക്കുക</string>
+    <string name="session_choose">തിരഞ്ഞെടുക്കുക</string>
+    <string name="session_same">ഒന്നുതന്നെ</string>
+    <string name="session_different">വ്യത്യസ്തം</string>
+    <string name="session_sound_n">ശബ്ദം %1$d</string>
+
+    <string name="card_hear_pick">ഏത് അക്ഷരമാണ് നിങ്ങൾ കേൾക്കുന്നത്?</string>
+    <string name="card_see_pick">ഈ അക്ഷരത്തിന്റെ ശബ്ദം ഏതാണ്?</string>
+    <string name="card_ab_same_diff">ഒരേ അക്ഷരം രണ്ടുതവണയോ, അതോ രണ്ട് വ്യത്യസ്ത അക്ഷരങ്ങളോ?</string>
+    <string name="card_form_pick">ഇത് ഏത് അക്ഷരമാണ്?</string>
+    <string name="card_harakah_pick">ഇതിൽ ഏതാണ് നിങ്ങൾ കേൾക്കുന്നത്?</string>
+    <string name="card_produce">കേൾക്കുക, എന്നിട്ട് സ്വയം പറയുക</string>
+    <string name="session_tap_to_continue">തുടരാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="session_nothing_due">ഇപ്പോൾ ആവർത്തിക്കാൻ ഒന്നുമില്ല.</string>
+
+    <string name="produce_record">റെക്കോർഡ് ചെയ്യുക</string>
+    <string name="produce_stop">നിർത്തുക</string>
+    <string name="produce_reference">മാതൃക കേൾക്കുക</string>
+    <string name="produce_play_yours">നിങ്ങളുടേത് കേൾക്കുക</string>
+    <string name="produce_play_reference">മാതൃക കേൾക്കുക</string>
+    <string name="produce_recording">റെക്കോർഡ് ചെയ്യുന്നു… നിർത്താൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="produce_listening">കേൾക്കുന്നു…</string>
+    <string name="produce_low_confidence">അത് വ്യക്തമായി കേൾക്കാനായില്ല — കുറച്ചുകൂടി ശാന്തമായ സ്ഥലത്ത് വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="produce_held">നിങ്ങൾ ഇത് %1$s സെക്കൻഡ് നീട്ടി. മാതൃക %2$s സെക്കൻഡ് നീട്ടുന്നു.</string>
+    <string name="produce_waveforms">മുകളിൽ നിങ്ങളുടെ റെക്കോർഡിംഗ്, താഴെ മാതൃക, സമയം ഒത്തുചേർത്ത്</string>
+    <string name="produce_needs_work">ഇനിയും ശരിയാക്കണം</string>
+    <string name="produce_getting_there">അടുത്തെത്തുന്നു</string>
+    <string name="produce_sounds_right">ശരിയായി തോന്നുന്നു</string>
+    <string name="produce_skip">ഒഴിവാക്കുക</string>
+
+    <string name="boss_title">ഇപ്പോൾ നിങ്ങൾക്ക് ഇത് വായിക്കാം</string>
+    <string name="boss_done">ഞാൻ വായിച്ചു</string>
+    <string name="boss_later">പിന്നീട്</string>
+
+    <string name="summary_correct">%2$d-ൽ %1$d ശരി</string>
+    <string name="summary_moved">മാറിയവ</string>
+    <string name="summary_watch">ശ്രദ്ധിക്കേണ്ടത്</string>
+    <string name="summary_new_tier">പുതിയ അക്ഷരങ്ങൾ തുറന്നു</string>
+</resources>
