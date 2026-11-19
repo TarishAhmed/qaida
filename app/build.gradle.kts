@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -40,9 +41,36 @@ android {
         noCompress += "opus"
     }
     testOptions {
-        unitTests.all { it.useJUnitPlatform() }
+        unitTests.all { test ->
+            test.useJUnitPlatform()
+            // Asset roots in override order, mirroring how AGP merges assets for the variant under test.
+            val buildType = if (test.name.contains("Release")) "release" else "debug"
+            test.systemProperty("qaida.assetRoots", listOf("src/$buildType/assets", "src/main/assets").joinToString(File.pathSeparator) { file(it).path })
+            test.systemProperty("qaida.releaseRoots", listOf("src/release", "src/main").joinToString(File.pathSeparator) { file(it).path })
+            // The tests read these trees from disk; declare them so a content change re-runs the tests.
+            test.inputs.files(listOf("main", "debug", "release").map { fileTree("src/$it") { include("assets/**", "res/**") } })
+                .withPropertyName("contentTrees")
+                .withPathSensitivity(PathSensitivity.RELATIVE)
+        }
     }
 }
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+// The stub pack lives in src/debug and must never be what a release ships. Refuse to package a
+// release until real content has been supplied in src/main/assets/content.
+val checkReleaseContent by tasks.registering {
+    val letters = file("src/main/assets/content/letters.json")
+    doLast {
+        check(letters.exists()) {
+            "No real content: $letters is missing. Release builds cannot ship the debug stub pack."
+        }
+    }
+}
+tasks.matching { it.name in setOf("assembleRelease", "bundleRelease", "packageRelease") }
+    .configureEach { dependsOn(checkReleaseContent) }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -52,8 +80,13 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     testImplementation(libs.junit.jupiter)
+    // android.jar only stubs org.json on the JVM; the real implementation is needed to run the content parser in unit tests.
+    testImplementation(libs.org.json)
     testRuntimeOnly(libs.junit.platform.launcher)
 }

@@ -4,6 +4,7 @@
     <!-- No permissions. RECORD_AUDIO is added in milestone 6 and is the only one this app may ever declare. -->
 
     <application
+        android:name=".QaidaApp"
         android:allowBackup="false"
         android:label="@string/app_name"
         android:supportsRtl="true"

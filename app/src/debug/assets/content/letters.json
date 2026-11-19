@@ -1,0 +1,802 @@
+[
+  {
+    "id": "placeholder_01",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 01",
+    "nameMl": "PLACEHOLDER 01",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_02",
+      "placeholder_03",
+      "placeholder_04"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_01_isolated_v1.opus",
+        "placeholder_01_isolated_v2.opus",
+        "placeholder_01_isolated_v3.opus",
+        "placeholder_01_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "placeholder_02",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 02",
+    "nameMl": "PLACEHOLDER 02",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_01",
+      "placeholder_03",
+      "placeholder_04"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_02_isolated_v1.opus",
+        "placeholder_02_isolated_v2.opus",
+        "placeholder_02_isolated_v3.opus",
+        "placeholder_02_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "placeholder_03",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 03",
+    "nameMl": "PLACEHOLDER 03",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_01",
+      "placeholder_02",
+      "placeholder_04"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_03_isolated_v1.opus",
+        "placeholder_03_isolated_v2.opus",
+        "placeholder_03_isolated_v3.opus",
+        "placeholder_03_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "placeholder_04",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 04",
+    "nameMl": "PLACEHOLDER 04",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_01",
+      "placeholder_02",
+      "placeholder_03"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_04_isolated_v1.opus",
+        "placeholder_04_isolated_v2.opus",
+        "placeholder_04_isolated_v3.opus",
+        "placeholder_04_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 1
+  },
+  {
+    "id": "placeholder_05",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 05",
+    "nameMl": "PLACEHOLDER 05",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_06",
+      "placeholder_07",
+      "placeholder_08"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_05_isolated_v1.opus",
+        "placeholder_05_isolated_v2.opus",
+        "placeholder_05_isolated_v3.opus",
+        "placeholder_05_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "placeholder_06",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 06",
+    "nameMl": "PLACEHOLDER 06",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_05",
+      "placeholder_07",
+      "placeholder_08"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_06_isolated_v1.opus",
+        "placeholder_06_isolated_v2.opus",
+        "placeholder_06_isolated_v3.opus",
+        "placeholder_06_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "placeholder_07",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 07",
+    "nameMl": "PLACEHOLDER 07",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_05",
+      "placeholder_06",
+      "placeholder_08"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_07_isolated_v1.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "placeholder_08",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 08",
+    "nameMl": "PLACEHOLDER 08",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_05",
+      "placeholder_06",
+      "placeholder_07"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_08_isolated_v1.opus",
+        "placeholder_08_isolated_v2.opus",
+        "placeholder_08_isolated_v3.opus",
+        "placeholder_08_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 2
+  },
+  {
+    "id": "placeholder_09",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 09",
+    "nameMl": "PLACEHOLDER 09",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_10",
+      "placeholder_11",
+      "placeholder_12"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_09_isolated_v1.opus",
+        "placeholder_09_isolated_v2.opus",
+        "placeholder_09_isolated_v3.opus",
+        "placeholder_09_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "placeholder_10",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 10",
+    "nameMl": "PLACEHOLDER 10",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_09",
+      "placeholder_11",
+      "placeholder_12"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_10_isolated_v1.opus",
+        "placeholder_10_isolated_v2.opus",
+        "placeholder_10_isolated_v3.opus",
+        "placeholder_10_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "placeholder_11",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 11",
+    "nameMl": "PLACEHOLDER 11",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_09",
+      "placeholder_10",
+      "placeholder_12"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_11_isolated_v1.opus",
+        "placeholder_11_isolated_v2.opus",
+        "placeholder_11_isolated_v3.opus",
+        "placeholder_11_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "placeholder_12",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 12",
+    "nameMl": "PLACEHOLDER 12",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_09",
+      "placeholder_10",
+      "placeholder_11"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_12_isolated_v1.opus",
+        "placeholder_12_isolated_v2.opus",
+        "placeholder_12_isolated_v3.opus",
+        "placeholder_12_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 3
+  },
+  {
+    "id": "placeholder_13",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 13",
+    "nameMl": "PLACEHOLDER 13",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_14",
+      "placeholder_15",
+      "placeholder_16"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_13_isolated_v1.opus",
+        "placeholder_13_isolated_v2.opus",
+        "placeholder_13_isolated_v3.opus",
+        "placeholder_13_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "placeholder_14",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 14",
+    "nameMl": "PLACEHOLDER 14",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_13",
+      "placeholder_15",
+      "placeholder_16"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_14_isolated_v1.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "placeholder_15",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 15",
+    "nameMl": "PLACEHOLDER 15",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_13",
+      "placeholder_14",
+      "placeholder_16"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_15_isolated_v1.opus",
+        "placeholder_15_isolated_v2.opus",
+        "placeholder_15_isolated_v3.opus",
+        "placeholder_15_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "placeholder_16",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 16",
+    "nameMl": "PLACEHOLDER 16",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_13",
+      "placeholder_14",
+      "placeholder_15"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_16_isolated_v1.opus",
+        "placeholder_16_isolated_v2.opus",
+        "placeholder_16_isolated_v3.opus",
+        "placeholder_16_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 4
+  },
+  {
+    "id": "placeholder_17",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 17",
+    "nameMl": "PLACEHOLDER 17",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_18",
+      "placeholder_19",
+      "placeholder_20"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_17_isolated_v1.opus",
+        "placeholder_17_isolated_v2.opus",
+        "placeholder_17_isolated_v3.opus",
+        "placeholder_17_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "placeholder_18",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 18",
+    "nameMl": "PLACEHOLDER 18",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_17",
+      "placeholder_19",
+      "placeholder_20"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_18_isolated_v1.opus",
+        "placeholder_18_isolated_v2.opus",
+        "placeholder_18_isolated_v3.opus",
+        "placeholder_18_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "placeholder_19",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 19",
+    "nameMl": "PLACEHOLDER 19",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_17",
+      "placeholder_18",
+      "placeholder_20"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_19_isolated_v1.opus",
+        "placeholder_19_isolated_v2.opus",
+        "placeholder_19_isolated_v3.opus",
+        "placeholder_19_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "placeholder_20",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 20",
+    "nameMl": "PLACEHOLDER 20",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_17",
+      "placeholder_18",
+      "placeholder_19"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_20_isolated_v1.opus",
+        "placeholder_20_isolated_v2.opus",
+        "placeholder_20_isolated_v3.opus",
+        "placeholder_20_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 5
+  },
+  {
+    "id": "placeholder_21",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 21",
+    "nameMl": "PLACEHOLDER 21",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_22",
+      "placeholder_23",
+      "placeholder_24"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_21_isolated_v1.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "placeholder_22",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 22",
+    "nameMl": "PLACEHOLDER 22",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_21",
+      "placeholder_23",
+      "placeholder_24"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_22_isolated_v1.opus",
+        "placeholder_22_isolated_v2.opus",
+        "placeholder_22_isolated_v3.opus",
+        "placeholder_22_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "placeholder_23",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 23",
+    "nameMl": "PLACEHOLDER 23",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_21",
+      "placeholder_22",
+      "placeholder_24"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_23_isolated_v1.opus",
+        "placeholder_23_isolated_v2.opus",
+        "placeholder_23_isolated_v3.opus",
+        "placeholder_23_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "placeholder_24",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 24",
+    "nameMl": "PLACEHOLDER 24",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_21",
+      "placeholder_22",
+      "placeholder_23"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_24_isolated_v1.opus",
+        "placeholder_24_isolated_v2.opus",
+        "placeholder_24_isolated_v3.opus",
+        "placeholder_24_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 6
+  },
+  {
+    "id": "placeholder_25",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 25",
+    "nameMl": "PLACEHOLDER 25",
+    "makhrajId": "placeholder_makhraj_1",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_26",
+      "placeholder_27",
+      "placeholder_28"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_25_isolated_v1.opus",
+        "placeholder_25_isolated_v2.opus",
+        "placeholder_25_isolated_v3.opus",
+        "placeholder_25_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "placeholder_26",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 26",
+    "nameMl": "PLACEHOLDER 26",
+    "makhrajId": "placeholder_makhraj_2",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_25",
+      "placeholder_27",
+      "placeholder_28"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_26_isolated_v1.opus",
+        "placeholder_26_isolated_v2.opus",
+        "placeholder_26_isolated_v3.opus",
+        "placeholder_26_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "placeholder_27",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 27",
+    "nameMl": "PLACEHOLDER 27",
+    "makhrajId": "placeholder_makhraj_3",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_25",
+      "placeholder_26",
+      "placeholder_28"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_27_isolated_v1.opus",
+        "placeholder_27_isolated_v2.opus",
+        "placeholder_27_isolated_v3.opus",
+        "placeholder_27_isolated_v4.opus"
+      ]
+    },
+    "unlockTier": 7
+  },
+  {
+    "id": "placeholder_28",
+    "glyph": "؟",
+    "forms": {
+      "isolated": "؟",
+      "initial": "؟",
+      "medial": "ـ؟",
+      "final": "ـ؟"
+    },
+    "nameEn": "PLACEHOLDER 28",
+    "nameMl": "PLACEHOLDER 28",
+    "makhrajId": "placeholder_makhraj_4",
+    "makhrajNoteEn": "PLACEHOLDER",
+    "makhrajNoteMl": "PLACEHOLDER",
+    "confusableWith": [
+      "placeholder_25",
+      "placeholder_26",
+      "placeholder_27"
+    ],
+    "audio": {
+      "isolated": [
+        "placeholder_28_isolated_v1.opus"
+      ]
+    },
+    "unlockTier": 7
+  }
+]
