@@ -40,7 +40,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -149,6 +153,7 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptF
                     Icon(Icons.Filled.Refresh, contentDescription = stringResource(R.string.session_replay), Modifier.size(32.dp))
                 }
             }
+            FeedbackAnnouncement(s)
             OptionGrid(s, face, vm)
             if (card.item.cardType == CardType.SEE_PICK) {
                 Button(
@@ -224,6 +229,22 @@ private fun BossView(s: SessionUiState.Boss, vm: SessionViewModel, face: ScriptF
     }
 }
 
+/** Speaks the result to TalkBack users; sighted learners see it in the tile colours. */
+@Composable
+private fun FeedbackAnnouncement(s: SessionUiState.Card) {
+    val fb = s.feedback
+    val correctIndex = s.card.options.indexOfFirst { it.key == s.card.correctKey } + 1
+    val message = when (fb) {
+        null -> ""
+        is Feedback.Correct -> stringResource(R.string.a11y_correct)
+        is Feedback.Incorrect -> stringResource(R.string.a11y_answer_was, correctIndex)
+    }
+    Box(Modifier.size(1.dp).semantics {
+        liveRegion = LiveRegionMode.Polite
+        if (message.isNotEmpty()) contentDescription = message
+    })
+}
+
 @Composable
 private fun OptionGrid(s: SessionUiState.Card, face: ScriptFace, vm: SessionViewModel) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -248,6 +269,9 @@ private fun OptionTile(option: AnswerOption, index: Int, s: SessionUiState.Card,
     val dimmed = fb is Feedback.Incorrect && isChosen
     val selected = fb == null && s.selectedKey == option.key
     val soundLabel = stringResource(R.string.session_sound_n, index + 1)
+    // TalkBack hears the position, never the letter: reading the glyph aloud would give the answer away.
+    val optionLabel = stringResource(R.string.session_option_n, index + 1)
+    val selectedLabel = stringResource(R.string.session_selected)
 
     Surface(
         onClick = { if (option.kind == AnswerOption.Kind.CLIP) vm.playOption(option.key) else vm.answer(option.key) },
@@ -256,11 +280,18 @@ private fun OptionTile(option: AnswerOption, index: Int, s: SessionUiState.Card,
         color = if (highlighted) status.correct else MaterialTheme.colorScheme.surfaceVariant,
         border = BorderStroke(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline),
         modifier = modifier.height(88.dp).alpha(if (dimmed) 0.35f else 1f).testTag("option_${option.key}")
-            .then(if (option.kind == AnswerOption.Kind.CLIP) Modifier.semantics { contentDescription = soundLabel } else Modifier),
+            .semantics {
+                when (option.kind) {
+                    AnswerOption.Kind.CLIP -> contentDescription = soundLabel
+                    AnswerOption.Kind.GLYPH -> contentDescription = optionLabel
+                    else -> Unit
+                }
+                if (selected) stateDescription = selectedLabel
+            },
     ) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             when (option.kind) {
-                AnswerOption.Kind.GLYPH -> ArabicText(option.text.orEmpty(), 40.sp, face = face, compact = true)
+                AnswerOption.Kind.GLYPH -> ArabicText(option.text.orEmpty(), 40.sp, face = face, compact = true, modifier = Modifier.clearAndSetSemantics {})
                 AnswerOption.Kind.CLIP -> Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Icon(Icons.Filled.PlayArrow, contentDescription = null)
                     Text("${index + 1}", style = MaterialTheme.typography.titleLarge)

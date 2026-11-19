@@ -86,6 +86,10 @@
     <string name="session_choose">തിരഞ്ഞെടുക്കുക</string>
     <string name="session_same">ഒന്നുതന്നെ</string>
     <string name="session_different">വ്യത്യസ്തം</string>
+    <string name="session_option_n">ഓപ്ഷൻ %1$d</string>
+    <string name="session_selected">തിരഞ്ഞെടുത്തു</string>
+    <string name="a11y_correct">ശരി</string>
+    <string name="a11y_answer_was">ഉത്തരം ഓപ്ഷൻ %1$d ആയിരുന്നു</string>
     <string name="session_sound_n">ശബ്ദം %1$d</string>
 
     <string name="card_hear_pick">ഏത് അക്ഷരമാണ് നിങ്ങൾ കേൾക്കുന്നത്?</string>

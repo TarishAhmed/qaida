@@ -1,0 +1,1 @@
+First feature-complete preview: listening, reading and speaking cards with fading support, spaced review, tier unlocking, letter reference pages, progress and backup, English and Malayalam. Built on placeholder content.

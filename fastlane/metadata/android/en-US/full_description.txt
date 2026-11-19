@@ -1,0 +1,13 @@
+<p>Qaida teaches a complete beginner to read Quranic Arabic in Indo-Pak script, starting from zero letter knowledge, in sessions of 90 seconds.</p>
+
+<p><b>Hearing before speaking.</b> Most of every session is listening: you hear a letter and pick it from the letters it is most easily confused with, never from random ones. Telling ذ from ز by ear is the skill that matters first, and it can be checked fairly without any speech recognition.</p>
+
+<p><b>Spaced review that does the planning.</b> Each letter fades from memory at its own rate. Qaida schedules what you see so that weak letters come back sooner and strong ones later. Support fades as you improve: the glyph hint disappears, the replay gets quieter, then you hear it only once.</p>
+
+<p><b>Speaking practice, judged by you.</b> Record yourself and compare against a reference: the app shows how long you held the sound and plays the two side by side. It never scores your recitation; you rate your own attempt.</p>
+
+<p><b>Built for short attention.</b> Ninety seconds, one tap to start. No streaks, points, leagues or nagging. The number on the home screen is how many letters need review, and it goes down only by practising.</p>
+
+<p><b>Private by construction.</b> No internet permission, no accounts, no analytics, no ads. Recordings stay in the app's private storage. Progress can be exported to a file and imported again.</p>
+
+<p>English and Malayalam interface. Indo-Pak script in DigitalKhatt IndoPak, with Noto Naskh Arabic as an alternative.</p>

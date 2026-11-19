@@ -88,6 +88,10 @@
     <string name="session_choose">Choose</string>
     <string name="session_same">Same</string>
     <string name="session_different">Different</string>
+    <string name="session_option_n">Option %1$d</string>
+    <string name="session_selected">Selected</string>
+    <string name="a11y_correct">Correct</string>
+    <string name="a11y_answer_was">The answer was option %1$d</string>
     <string name="session_sound_n">Sound %1$d</string>
 
     <string name="card_hear_pick">Which letter do you hear?</string>

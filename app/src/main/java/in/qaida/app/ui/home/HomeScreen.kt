@@ -27,6 +27,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.LayoutDirection
@@ -142,14 +145,16 @@ private fun LetterCell(
 ) {
     val status = LocalStatusColors.current
     val description = if (unlocked) masteryLabel(cell.mastery) else stringResource(R.string.mastery_locked)
+    // The grid is reference, not a quiz: TalkBack reads the letter's name in the UI language.
+    val name = if (LocalConfiguration.current.locales[0].language == "ml") cell.letter.nameMl else cell.letter.nameEn
     Surface(
         onClick = { onLetter(cell.letter.id) },
         shape = RoundedCornerShape(12.dp),
         color = if (unlocked) status.of(cell.mastery) else status.new,
-        modifier = modifier.testTag("cell_${cell.letter.id}").semantics { stateDescription = description },
+        modifier = modifier.testTag("cell_${cell.letter.id}").semantics { stateDescription = description; contentDescription = name },
     ) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            ArabicText(cell.letter.glyph, glyphSize.sp, face = face, compact = true)
+            ArabicText(cell.letter.glyph, glyphSize.sp, face = face, compact = true, modifier = Modifier.clearAndSetSemantics {})
         }
     }
 }

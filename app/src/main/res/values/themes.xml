@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Qaida" parent="android:Theme.Material.NoActionBar">
-        <item name="android:windowBackground">#121212</item>
-        <item name="android:statusBarColor">#121212</item>
-        <item name="android:navigationBarColor">#121212</item>
+    <!-- Light by default, true dark (#121212) under values-night: no flash of the wrong colour at launch. -->
+    <style name="Theme.Qaida" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
     </style>
 </resources>

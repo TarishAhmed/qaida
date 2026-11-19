@@ -42,6 +42,30 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
 
+  reproducible:
+    name: Reproducible build and network-free manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Build the unsigned preview twice from clean and compare
+        run: |
+          ./gradlew clean assemblePreview --no-build-cache --console=plain
+          sha256sum app/build/outputs/apk/preview/app-preview-unsigned.apk | tee first.sha256
+          ./gradlew clean assemblePreview --no-build-cache --console=plain
+          sha256sum -c first.sha256
+      - name: No network permission in any merged manifest
+        run: |
+          ./gradlew verifyDebugManifestPermissions verifyPreviewManifestPermissions verifyReleaseManifestPermissions --console=plain
+          if grep -rE 'android.permission.(INTERNET|ACCESS_NETWORK_STATE|ACCESS_WIFI_STATE|CHANGE_NETWORK_STATE)' app/build/intermediates/merged_manifest/; then
+            echo "network permission found in a merged manifest" >&2; exit 1
+          fi
+
   instrumented:
     name: Session flow on emulator (API 30)
     runs-on: ubuntu-latest

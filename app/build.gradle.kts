@@ -13,9 +13,10 @@ android {
         applicationId = "in.qaida.app"
         minSdk = 24
         targetSdk = 35
-        // CI passes these from the release tag; local builds use the defaults.
-        versionCode = (findProperty("qaida.versionCode") as String?)?.toInt() ?: 1
-        versionName = (findProperty("qaida.versionName") as String?) ?: "0.0.0-dev"
+        // The single source of truth for the version: release tags must match it (the release workflow
+        // checks), and F-Droid's update checker reads it from here. versionCode = MAJOR*10000 + MINOR*100 + PATCH.
+        versionCode = 800
+        versionName = "0.8.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,6 +65,11 @@ android {
     androidResources {
         // Opus clips are already compressed; keep them stored so they can be memory-mapped.
         noCompress += "opus"
+    }
+    // F-Droid and reproducible builds: no encrypted dependency-metadata block in the APK or bundle.
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
     testOptions {
         unitTests.all { test ->
