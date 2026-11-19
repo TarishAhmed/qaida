@@ -13,6 +13,10 @@ data class CatalogLetter(
     /** Indexes of the confusion sets this letter belongs to. */
     val confusionSets: Set<Int>,
     val isolatedClips: List<AudioClip>,
+    /** Positional forms from letters.json; defaults to the bare glyph for tests that do not care. */
+    val forms: LetterForms = LetterForms(glyph, glyph, glyph, glyph),
+    /** Clips per haraka context ("fatha", "kasra", "damma"); empty if the pack has none for this letter. */
+    val harakatClips: Map<String, List<AudioClip>> = emptyMap(),
 )
 
 data class AudioClip(val file: String, val voiceId: String)
@@ -32,6 +36,7 @@ data class SessionConfig(val durationMs: Long = 90_000, val maxCards: Int = 12)
  *  2. 6 cards from the remaining due items, most overdue first
  *  3. 2 cards introducing the next unlocked, never-reviewed letter (2 letters when the session would
  *     otherwise hold nothing else, so it can still interleave)
+ *  then up to 2 first cards of card types a letter has newly qualified for (see CardTypes.available)
  *  4. the remainder from reviewed items that are not yet due, closest to due first, skipping any still
  *     at recall >= 0.95. Answering an item that fresh has negative expected effect on its stability
  *     (see SchedulerTest), so this replaces the spec's "highest-stability maintenance" fill (agreed
@@ -42,16 +47,19 @@ object SessionComposer {
     const val WEAK_CARDS = 2
     const val DUE_CARDS = 6
     const val INTRO_CARDS_PER_LETTER = 2
+    const val NEW_TYPE_CARDS = 2
+
+    /** Other card types may take at most this share of a session, keeping HEAR_PICK the backbone (~60%). */
+    const val MAX_OTHER_SHARE = 0.4
 
     fun compose(
         unlocked: List<CatalogLetter>,
         states: Map<ItemKey, ReviewState>,
-        cardTypes: List<CardType>,
         now: Long,
         rng: Random,
         maxCards: Int,
     ): List<PlannedCard> {
-        val items = unlocked.flatMap { l -> cardTypes.map { ItemKey(l.id, it) } }
+        val items = unlocked.flatMap { l -> CardTypes.available(l, states).map { ItemKey(l.id, it) } }
         val reviewed = items.filter { states[it]?.lastReviewedAt != null }
         val recall = reviewed.associateWith { Scheduler.recall(states.getValue(it), now) }
 
@@ -71,13 +79,35 @@ object SessionComposer {
         val nothingElse = chosen.isEmpty() && fill.isEmpty()
         val introLetters = newLetters.take(if (reviewedLetters.size < 2 || nothingElse) 2 else 1)
         val intro = introLetters.flatMap { l ->
-            List(INTRO_CARDS_PER_LETTER) { i -> PlannedCard(ItemKey(l.id, cardTypes[i % cardTypes.size]), isIntro = true) }
+            List(INTRO_CARDS_PER_LETTER) { PlannedCard(ItemKey(l.id, CardType.HEAR_PICK), isIntro = true) }
         }
 
+        // A letter's other card types, once it qualifies for them, start here: never reviewed, so they are
+        // neither due nor fill. Introduced a couple at a time, weakest letters first.
+        val newTypes = items.filter { it.letterId in reviewedLetters && states[it]?.lastReviewedAt == null }
+            .sortedBy { recall[ItemKey(it.letterId, CardType.HEAR_PICK)] ?: 1.0 }
+            .take(NEW_TYPE_CARDS)
+
         val planned = (weak + dueRest).map { PlannedCard(it, isIntro = false) } + intro +
-            fill.map { PlannedCard(it, isIntro = false) }
+            newTypes.map { PlannedCard(it, isIntro = true) } + fill.map { PlannedCard(it, isIntro = false) }
         val setsByLetter = unlocked.associate { it.id to it.confusionSets }
-        return Interleaver.arrange(planned.take(maxCards), setsByLetter, rng)
+        return Interleaver.arrange(capOtherTypes(planned, maxCards), setsByLetter, rng)
+    }
+
+    /** Takes cards in priority order, skipping non-HEAR_PICK cards once they would exceed their share. */
+    private fun capOtherTypes(planned: List<PlannedCard>, maxCards: Int): List<PlannedCard> {
+        val maxOther = (maxCards * MAX_OTHER_SHARE).toInt()
+        var others = 0
+        val out = ArrayList<PlannedCard>(maxCards)
+        for (c in planned) {
+            if (out.size == maxCards) break
+            if (c.item.cardType != CardType.HEAR_PICK) {
+                if (others == maxOther) continue
+                others++
+            }
+            out += c
+        }
+        return out
     }
 }
 
@@ -127,39 +157,5 @@ object Interleaver {
             if (remaining.isEmpty()) return out
         }
         return null
-    }
-}
-
-/** A HEAR_PICK card ready to show: the clip to play and the glyph options, target among them. */
-data class HearPickCard(
-    val target: CatalogLetter,
-    val clip: AudioClip,
-    val options: List<CatalogLetter>,
-    val isIntro: Boolean,
-)
-
-object CardFactory {
-    const val OPTIONS = 4
-
-    /**
-     * Distractors come only from the target's confusableWith list, never random letters, so a letter
-     * with fewer than three confusables gets fewer than four options. The voice differs from
-     * [lastVoice] whenever the letter has more than one.
-     */
-    fun hearPick(
-        target: CatalogLetter,
-        catalog: Map<String, CatalogLetter>,
-        isIntro: Boolean,
-        lastVoice: String?,
-        rng: Random,
-    ): HearPickCard {
-        val distractors = target.confusableWith.distinct().mapNotNull { catalog[it] }.shuffled(rng).take(OPTIONS - 1)
-        val voices = target.isolatedClips.filter { it.voiceId != lastVoice }.ifEmpty { target.isolatedClips }
-        return HearPickCard(
-            target = target,
-            clip = voices.random(rng),
-            options = (distractors + target).shuffled(rng),
-            isIntro = isIntro,
-        )
     }
 }

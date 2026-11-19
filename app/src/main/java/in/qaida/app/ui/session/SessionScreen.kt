@@ -13,14 +13,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
@@ -39,12 +40,16 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import `in`.qaida.app.R
-import `in`.qaida.app.domain.CatalogLetter
+import `in`.qaida.app.domain.AnswerOption
+import `in`.qaida.app.domain.CardType
+import `in`.qaida.app.domain.Prompt
 import `in`.qaida.app.ui.theme.ArabicText
 import `in`.qaida.app.ui.theme.LocalStatusColors
 import `in`.qaida.app.ui.theme.ScriptFace
@@ -64,7 +69,20 @@ fun SessionScreen(viewModel: SessionViewModel, face: ScriptFace, onDone: () -> U
 }
 
 @Composable
+private fun instruction(type: CardType) = stringResource(
+    when (type) {
+        CardType.HEAR_PICK -> R.string.card_hear_pick
+        CardType.SEE_PICK -> R.string.card_see_pick
+        CardType.AB_SAME_DIFF -> R.string.card_ab_same_diff
+        CardType.FORM_PICK -> R.string.card_form_pick
+        CardType.HARAKAH_PICK -> R.string.card_harakah_pick
+        CardType.PRODUCE -> R.string.card_produce
+    },
+)
+
+@Composable
 private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptFace) {
+    val card = s.card
     val incorrect = s.feedback as? Feedback.Incorrect
     // After a wrong answer a tap anywhere continues. It is a raw gesture so it adds no semantics; the
     // explicit button below is what TalkBack sees.
@@ -80,42 +98,66 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptF
             gapSize = 0.dp,
         )
 
-        // Upper 60%: the prompt. Only introduction cards show the glyph alongside the sound.
-        Box(Modifier.fillMaxWidth().weight(0.6f), contentAlignment = Alignment.Center) {
-            if (s.card.isIntro) ArabicText(s.card.target.glyph, 120.sp, face = face)
+        // Upper area: the prompt. Nothing here is interactive.
+        Column(
+            Modifier.fillMaxWidth().weight(1f).padding(horizontal = 16.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                instruction(card.item.cardType),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.testTag("instruction"),
+            )
+            Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
+                when (val p = card.prompt) {
+                    is Prompt.Read -> ArabicText(p.text, 120.sp, face = face, modifier = Modifier.testTag("prompt_text"))
+                    is Prompt.Listen -> card.hintGlyph?.let { ArabicText(it, 120.sp, face = face, modifier = Modifier.testTag("hint")) }
+                }
+            }
         }
 
-        // Lower 40%: everything the thumb touches.
+        // Lower area: everything the thumb touches.
         Column(
-            Modifier.fillMaxWidth().weight(0.4f).padding(horizontal = 16.dp, vertical = 12.dp),
+            Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Bottom),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             if (incorrect != null) {
                 TextButton(onClick = vm::continueAfterIncorrect, modifier = Modifier.testTag("continue")) {
                     Text(stringResource(R.string.session_tap_to_continue), style = MaterialTheme.typography.bodyMedium)
                 }
             }
-            FilledTonalIconButton(
-                onClick = vm::replay,
-                modifier = Modifier.size(72.dp).testTag("replay"),
-                shape = CircleShape,
-            ) {
-                Icon(Icons.Filled.Refresh, contentDescription = stringResource(R.string.session_replay), Modifier.size(32.dp))
+            val hasPromptAudio = card.prompt is Prompt.Listen || card.hintClip != null
+            if (hasPromptAudio) {
+                FilledTonalIconButton(
+                    onClick = vm::playPrompt,
+                    enabled = s.canPlayPrompt,
+                    modifier = Modifier.size(72.dp).testTag("replay"),
+                    shape = CircleShape,
+                ) {
+                    Icon(Icons.Filled.Refresh, contentDescription = stringResource(R.string.session_replay), Modifier.size(32.dp))
+                }
             }
-            OptionGrid(s, face, onPick = vm::answer)
+            OptionGrid(s, face, vm)
+            if (card.item.cardType == CardType.SEE_PICK) {
+                Button(
+                    onClick = vm::confirmSelection,
+                    enabled = s.selectedKey != null && s.feedback == null,
+                    modifier = Modifier.fillMaxWidth().height(56.dp).testTag("confirm"),
+                ) { Text(stringResource(R.string.session_choose)) }
+            }
         }
     }
 }
 
 @Composable
-private fun OptionGrid(s: SessionUiState.Card, face: ScriptFace, onPick: (String) -> Unit) {
-    val rows = s.card.options.chunked(2)
+private fun OptionGrid(s: SessionUiState.Card, face: ScriptFace, vm: SessionViewModel) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        for (row in rows) {
+        for (row in s.card.options.withIndex().chunked(2)) {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                for (option in row) {
-                    OptionTile(option, s, face, Modifier.weight(1f), onPick)
+                for ((index, option) in row) {
+                    OptionTile(option, index, s, face, Modifier.weight(1f), vm)
                 }
                 if (row.size == 1) Spacer(Modifier.weight(1f))
             }
@@ -124,24 +166,35 @@ private fun OptionGrid(s: SessionUiState.Card, face: ScriptFace, onPick: (String
 }
 
 @Composable
-private fun OptionTile(option: CatalogLetter, s: SessionUiState.Card, face: ScriptFace, modifier: Modifier, onPick: (String) -> Unit) {
+private fun OptionTile(option: AnswerOption, index: Int, s: SessionUiState.Card, face: ScriptFace, modifier: Modifier, vm: SessionViewModel) {
     val status = LocalStatusColors.current
     val fb = s.feedback
-    val isChosen = fb?.chosenId == option.id
-    val isAnswer = fb is Feedback.Incorrect && fb.correctId == option.id
+    val isChosen = fb?.chosenKey == option.key
+    val isAnswer = fb is Feedback.Incorrect && fb.correctKey == option.key
     val highlighted = (fb is Feedback.Correct && isChosen) || isAnswer
     val dimmed = fb is Feedback.Incorrect && isChosen
+    val selected = fb == null && s.selectedKey == option.key
+    val soundLabel = stringResource(R.string.session_sound_n, index + 1)
 
     Surface(
-        onClick = { onPick(option.id) },
+        onClick = { if (option.kind == AnswerOption.Kind.CLIP) vm.playOption(option.key) else vm.answer(option.key) },
         enabled = fb == null,
         shape = RoundedCornerShape(16.dp),
         color = if (highlighted) status.correct else MaterialTheme.colorScheme.surfaceVariant,
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-        modifier = modifier.height(88.dp).alpha(if (dimmed) 0.35f else 1f).testTag("option_${option.id}"),
+        border = BorderStroke(if (selected) 3.dp else 1.dp, if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline),
+        modifier = modifier.height(88.dp).alpha(if (dimmed) 0.35f else 1f).testTag("option_${option.key}")
+            .then(if (option.kind == AnswerOption.Kind.CLIP) Modifier.semantics { contentDescription = soundLabel } else Modifier),
     ) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            ArabicText(option.glyph, 40.sp, face = face, compact = true)
+            when (option.kind) {
+                AnswerOption.Kind.GLYPH -> ArabicText(option.text.orEmpty(), 40.sp, face = face, compact = true)
+                AnswerOption.Kind.CLIP -> Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Icon(Icons.Filled.PlayArrow, contentDescription = null)
+                    Text("${index + 1}", style = MaterialTheme.typography.titleLarge)
+                }
+                AnswerOption.Kind.SAME -> Text(stringResource(R.string.session_same), style = MaterialTheme.typography.titleMedium)
+                AnswerOption.Kind.DIFFERENT -> Text(stringResource(R.string.session_different), style = MaterialTheme.typography.titleMedium)
+            }
         }
     }
 }
@@ -164,7 +217,7 @@ private fun SummaryView(s: SessionUiState.Summary, face: ScriptFace, onDone: () 
         if (s.moved.isNotEmpty()) {
             Text(stringResource(R.string.summary_moved), color = MaterialTheme.colorScheme.onSurfaceVariant)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                for (m in s.moved.distinctBy { it.letter.id }) {
+                for (m in s.moved) {
                     Box(
                         Modifier.size(56.dp).background(status.of(m.to), RoundedCornerShape(12.dp)),
                         contentAlignment = Alignment.Center,

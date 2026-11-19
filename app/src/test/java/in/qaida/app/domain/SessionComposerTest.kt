@@ -23,12 +23,12 @@ class SessionComposerTest {
         )
     }
 
-    /** A state whose recall at [now] is exactly [p]. */
-    private fun stateAt(p: Double, s: Double = 10.0) =
+    /** A state whose recall at [now] is exactly [p]. Stability stays below the 8 h that opens other card types. */
+    private fun stateAt(p: Double, s: Double = 5.0) =
         ReviewState(s, now - (-s * ln(p) / ln(2.0) * hour).toLong())
 
     private fun compose(unlocked: List<CatalogLetter>, states: Map<ItemKey, ReviewState>, seed: Int = 1) =
-        SessionComposer.compose(unlocked, states, listOf(hear), now, Random(seed), maxCards = 12)
+        SessionComposer.compose(unlocked, states, now, Random(seed), maxCards = 12)
 
     private fun assertNoConsecutiveSameLetter(cards: List<PlannedCard>) {
         cards.zipWithNext().forEach { (a, b) ->
@@ -135,5 +135,31 @@ class SessionComposerTest {
             List(2) { PlannedCard(ItemKey("l0", hear), true) }, mapOf("l0" to setOf(0)), Random(3),
         )
         assertEquals(1, cards.size)
+    }
+
+    @Test
+    fun `other card types join only once a letter's HEAR_PICK has held for 8 hours`() {
+        val ls = letters(4)
+        val young = ls.associate { ItemKey(it.id, hear) to stateAt(0.5, s = 5.0) }
+        assertTrue(compose(ls, young).all { it.item.cardType == hear })
+
+        val established = ls.associate { ItemKey(it.id, hear) to stateAt(0.5, s = 9.0) }
+        val types = compose(ls, established).map { it.item.cardType }.toSet()
+        assertTrue(types.size > 1, "expected new card types, got $types")
+    }
+
+    @Test
+    fun `HEAR_PICK keeps at least 60 percent of every full session`() {
+        val ls = letters(12)
+        repeat(300) { seed ->
+            val rng = Random(seed)
+            // Every type of every letter reviewed and due at random recall.
+            val states = ls.flatMap { l -> CardType.entries.filter { it != CardType.PRODUCE }.map { ItemKey(l.id, it) } }
+                .associateWith { stateAt(rng.nextDouble(0.05, 0.9), s = 20.0) }
+            val cards = compose(ls, states, seed)
+            val others = cards.count { it.item.cardType != hear }
+            assertTrue(others <= (12 * SessionComposer.MAX_OTHER_SHARE).toInt(), "others=$others of ${cards.size}")
+            assertNoConsecutiveSameLetter(cards)
+        }
     }
 }

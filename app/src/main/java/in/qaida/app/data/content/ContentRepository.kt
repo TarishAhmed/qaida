@@ -10,6 +10,7 @@ import `in`.qaida.app.data.db.MakhrajEntity
 import `in`.qaida.app.domain.AudioClip
 import `in`.qaida.app.domain.CatalogLetter
 import `in`.qaida.app.domain.ContentPack
+import `in`.qaida.app.domain.LetterForms
 import java.security.MessageDigest
 
 /**
@@ -31,7 +32,7 @@ class ContentRepository(
 
     /** Every letter with its confusables, confusion sets and isolated clips, in teaching order. */
     suspend fun catalog(): List<CatalogLetter> {
-        val audio = dao.allAudio().filter { it.context == AssetValidator.ISOLATED }.groupBy { it.letterId }
+        val audio = dao.allAudio().groupBy { it.letterId }
         val confusables = dao.allConfusables().groupBy({ it.letterId }, { it.otherId })
         val sets = dao.allSetMembers().groupBy({ it.letterId }, { it.setIndex })
         return dao.letters().map { l ->
@@ -42,10 +43,15 @@ class ContentRepository(
                 ordinal = l.ordinal,
                 confusableWith = confusables[l.id].orEmpty(),
                 confusionSets = sets[l.id].orEmpty().toSet(),
-                isolatedClips = audio[l.id].orEmpty().sortedBy { it.file }.map { AudioClip(it.file, it.voiceId) },
+                isolatedClips = clips(audio[l.id], AssetValidator.ISOLATED),
+                forms = LetterForms(l.formIsolated, l.formInitial, l.formMedial, l.formFinal),
+                harakatClips = AssetValidator.HARAKAT.associateWith { clips(audio[l.id], it) }.filterValues { it.isNotEmpty() },
             )
         }
     }
+
+    private fun clips(rows: List<LetterAudioEntity>?, context: String) =
+        rows.orEmpty().filter { it.context == context }.sortedBy { it.file }.map { AudioClip(it.file, it.voiceId) }
 
     private suspend fun write(pack: ContentPack, hash: String) {
         dao.replaceAll(

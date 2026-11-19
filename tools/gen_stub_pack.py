@@ -19,6 +19,8 @@ OUT = ROOT / "app" / "src" / "debug" / "assets"
 LETTERS = 28
 TIER_SIZE = 4
 VOICES = ["v1", "v2", "v3", "v4"]
+HARAKAT = ["fatha", "kasra", "damma"]
+HARAKAH_VOICES = ["v1", "v2"]
 MAKHRAJ = 4
 GLYPH = "؟"  # Arabic question mark: visibly not a letter.
 
@@ -56,7 +58,8 @@ def main() -> None:
             "makhrajNoteEn": "PLACEHOLDER",
             "makhrajNoteMl": "PLACEHOLDER",
             "confusableWith": [o for o in tiers[tier] if o != lid],
-            "audio": {"isolated": [f"{lid}_isolated_{v}.opus" for v in voices]},
+            "audio": {"isolated": [f"{lid}_isolated_{v}.opus" for v in voices],
+                      **{h: [f"{lid}_{h}_{v}.opus" for v in HARAKAH_VOICES] for h in HARAKAT}},
             "unlockTier": tier + 1,
         })
 
@@ -78,11 +81,12 @@ def main() -> None:
         silence = pathlib.Path(tmp) / "silence.opus"
         silent_opus(silence)
         for l in letters:
-            for f in l["audio"]["isolated"]:
-                shutil.copyfile(silence, OUT / "audio" / f)
+            for files in l["audio"].values():
+                for f in files:
+                    shutil.copyfile(silence, OUT / "audio" / f)
 
     print(f"stub pack: {len(letters)} letters, {len(tiers)} tiers, "
-          f"{sum(len(l['audio']['isolated']) for l in letters)} audio files -> {OUT}")
+          f"{sum(len(f) for l in letters for f in l['audio'].values())} audio files -> {OUT}")
 
 
 if __name__ == "__main__":

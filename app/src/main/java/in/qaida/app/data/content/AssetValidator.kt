@@ -14,6 +14,9 @@ object AssetValidator {
     private val ID = Regex("[a-z][a-z0-9_]*")
     private val VOICE = Regex("[a-z0-9]+")
     const val ISOLATED = "isolated"
+    /** Vowelled contexts used by HARAKAH_PICK. Further harakat are out of scope for v1. */
+    val HARAKAT = listOf("fatha", "kasra", "damma")
+    val CONTEXTS = listOf(ISOLATED) + HARAKAT
     const val MIN_VOICES = 4
 
     fun validate(pack: ContentPack, source: ContentSource): ValidationReport {
@@ -46,6 +49,11 @@ object AssetValidator {
             val isolated = l.audio[ISOLATED].orEmpty()
             if (isolated.isEmpty()) errors += "$at: no '$ISOLATED' audio"
             else if (isolated.size < MIN_VOICES) warnings += "$at: ${isolated.size} isolated voice(s), fewer than $MIN_VOICES"
+            for (context in l.audio.keys - CONTEXTS.toSet()) errors += "$at: unknown audio context '$context' (allowed: $CONTEXTS)"
+            val harakat = HARAKAT.filter { !l.audio[it].isNullOrEmpty() }
+            if (harakat.isNotEmpty() && harakat.size < HARAKAT.size) {
+                warnings += "$at: only ${harakat} harakat audio, so HARAKAH_PICK offers fewer vowel choices"
+            }
             for ((context, files) in l.audio) {
                 duplicates(files).forEach { errors += "$at: audio file '$it' listed twice" }
                 for (file in files) {

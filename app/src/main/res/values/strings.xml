@@ -23,6 +23,17 @@
     <string name="mastery_locked">Locked</string>
 
     <string name="session_replay">Play again</string>
+    <string name="session_choose">Choose</string>
+    <string name="session_same">Same</string>
+    <string name="session_different">Different</string>
+    <string name="session_sound_n">Sound %1$d</string>
+
+    <string name="card_hear_pick">Which letter do you hear?</string>
+    <string name="card_see_pick">Which sound is this letter?</string>
+    <string name="card_ab_same_diff">The same letter twice, or two different letters?</string>
+    <string name="card_form_pick">Which letter is this?</string>
+    <string name="card_harakah_pick">Which one do you hear?</string>
+    <string name="card_produce">Listen, then say it yourself</string>
     <string name="session_tap_to_continue">Tap to continue</string>
     <string name="session_nothing_due">Nothing needs review right now.</string>
 

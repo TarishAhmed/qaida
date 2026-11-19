@@ -11,6 +11,7 @@ import androidx.media3.datasource.ByteArrayDataSource
 import androidx.media3.datasource.DataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
+import androidx.media3.exoplayer.source.SilenceMediaSource
 import `in`.qaida.app.data.content.ContentPaths
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -28,18 +29,24 @@ class PlaybackController(private val context: Context) {
     private val clips = ConcurrentHashMap<String, ByteArray>()
     private var current: String? = null
 
-    private val player: ExoPlayer by lazy {
-        val dataSources = DataSource.Factory {
-            ByteArrayDataSource { uri -> clips[uri.lastPathSegment] ?: throw IOException("clip not preloaded: $uri") }
-        }
+    private val mediaSources by lazy {
+        DefaultMediaSourceFactory(
+            DataSource.Factory {
+                ByteArrayDataSource { uri -> clips[uri.lastPathSegment] ?: throw IOException("clip not preloaded: $uri") }
+            },
+        )
+    }
+
+    private val playerLazy = lazy {
         ExoPlayer.Builder(context)
-            .setMediaSourceFactory(DefaultMediaSourceFactory(dataSources))
+            .setMediaSourceFactory(mediaSources)
             .setAudioAttributes(
                 AudioAttributes.Builder().setUsage(C.USAGE_MEDIA).setContentType(C.AUDIO_CONTENT_TYPE_SPEECH).build(),
                 /* handleAudioFocus = */ true,
             )
             .build()
     }
+    private val player: ExoPlayer by playerLazy
 
     /** Loads exactly [files] into memory, dropping clips from earlier sessions. */
     suspend fun preload(files: Collection<String>) {
@@ -63,15 +70,31 @@ class PlaybackController(private val context: Context) {
     fun play(file: String, volume: Float = 1f) {
         cue(file)
         player.volume = volume
-        player.seekTo(0)
+        player.seekTo(0, 0)
+        player.play()
+    }
+
+    /** Plays [files] one after another with [gapMs] of silence between, so two clips are heard as two. */
+    fun playSequence(files: List<String>, gapMs: Long = SEQUENCE_GAP_MS, volume: Float = 1f) {
+        if (files.size == 1) return play(files.single(), volume)
+        current = null
+        val sources = files.flatMapIndexed { i, f ->
+            val clip = mediaSources.createMediaSource(MediaItem.fromUri(Uri.parse("$SCHEME:///$f")))
+            if (i == 0) listOf(clip) else listOf(SilenceMediaSource(gapMs * 1000), clip)
+        }
+        player.setMediaSources(sources)
+        player.prepare()
+        player.volume = volume
+        player.seekTo(0, 0)
         player.play()
     }
 
     fun stop() {
-        if (current != null) player.pause()
+        if (playerLazy.isInitialized()) player.pause()
     }
 
-    private companion object {
-        const val SCHEME = "qaida-clip"
+    companion object {
+        private const val SCHEME = "qaida-clip"
+        const val SEQUENCE_GAP_MS = 400L
     }
 }
