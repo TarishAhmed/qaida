@@ -4,6 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import `in`.qaida.app.AppContainer
 import `in`.qaida.app.domain.AudioClip
+import `in`.qaida.app.domain.BossLine
+import `in`.qaida.app.domain.SelfRating
+import `in`.qaida.app.dsp.Confidence
+import `in`.qaida.app.ui.produce.ProduceController
 import `in`.qaida.app.domain.CardFactory
 import `in`.qaida.app.domain.CatalogLetter
 import `in`.qaida.app.domain.ItemKey
@@ -32,6 +36,9 @@ sealed interface SessionUiState {
     /** Nothing to practise: everything unlocked is reviewed and not yet due. */
     data object NothingDue : SessionUiState
 
+    /** A completed tier's mushaf line, offered before the cards. Read aloud; never graded. */
+    data class Boss(val line: BossLine, val produce: ProduceController, val hasReference: Boolean) : SessionUiState
+
     data class Card(
         val index: Int,
         val card: SessionCard,
@@ -43,6 +50,8 @@ sealed interface SessionUiState {
         val selectedKey: String?,
         /** SEE_PICK at level 4: options already played once. */
         val spentOptions: Set<String>,
+        /** PRODUCE cards only. */
+        val produce: ProduceController? = null,
     ) : SessionUiState {
         val canPlayPrompt get() = feedback == null && (playsLeft == null || playsLeft > 0)
     }
@@ -86,6 +95,9 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
     private var ticker: Job? = null
     private var unlockedTiers: Set<Int> = emptySet()
     private var config = SessionConfig()
+    private var graded = 0
+    private var reached = -1
+    private var pendingBoss: BossLine? = null
 
     init {
         viewModelScope.launch { begin() }
@@ -102,8 +114,13 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         config = c.sessionConfig()
         unlockedTiers = c.progressRepository.refreshUnlockedTiers(letters, states, now)
         val unlocked = letters.filter { it.unlockTier in unlockedTiers }
-        planned = SessionComposer.compose(unlocked, states, now, c.random, config.maxCards)
-        if (planned.isEmpty()) {
+        val produceAllowed = !c.settingsRepository.current().micDeclined
+        planned = SessionComposer.compose(unlocked, states, now, c.random, config.maxCards, produceAllowed)
+        val attempted = c.progressRepository.bossAttemptedTiers()
+        pendingBoss = c.contentRepository.bossLines().firstOrNull { line ->
+            line.tier !in attempted && Progression.tierComplete(line.tier, letters, states, unlockedTiers, now)
+        }
+        if (planned.isEmpty() && pendingBoss == null) {
             _state.value = SessionUiState.NothingDue
             return
         }
@@ -113,10 +130,16 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
             CardFactory.build(p.item.cardType, target, catalog, p.isIntro, Levels.of(states[p.item], now), lastVoice[target.id], c.random)
                 .also { card -> card.revealClips.firstOrNull()?.let { lastVoice[target.id] = it.voiceId } }
         }
-        c.playback.preload(cards.flatMap { card -> card.clips.map { it.file } })
+        c.playback.preload(cards.flatMap { card -> card.clips.map { it.file } } + listOfNotNull(pendingBoss?.audio))
         sessionId = c.progressRepository.startSession(now)
         startedAt = now
-        show(0)
+        val boss = pendingBoss
+        if (boss != null) {
+            val ref = boss.audio?.let { AudioClip(it, "boss") }
+            _state.value = SessionUiState.Boss(boss, ProduceController(c, viewModelScope, ref), ref != null)
+        } else {
+            show(0)
+        }
         ticker = viewModelScope.launch {
             while (isActive) {
                 delay(TICK_MS)
@@ -127,13 +150,19 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
 
     private fun show(index: Int) {
         val card = cards[index]
+        reached = index
         cardShownAt = c.clock()
+        val speak = card.prompt as? Prompt.Speak
         _state.value = SessionUiState.Card(
             index, card, progressAt(index), feedback = null,
             playsLeft = Levels.maxPlays(card.level), selectedKey = null, spentOptions = emptySet(),
+            produce = speak?.let { ProduceController(c, viewModelScope, it.reference) },
         )
         // Level 1 plays the prompt (or, for a reading card, the letter's sound) without being asked.
-        if (Levels.autoplay(card.level)) playPrompt()
+        when {
+            speak != null -> c.playback.play(speak.reference.file)
+            Levels.autoplay(card.level) -> playPrompt()
+        }
     }
 
     private fun progressAt(index: Int): Float {
@@ -150,6 +179,7 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         when (val p = card.prompt) {
             is Prompt.Listen -> c.playback.playSequence(p.clips.map { it.file }, volume = Levels.volume(card.level))
             is Prompt.Read -> card.hintClip?.let { c.playback.play(it.file, Levels.volume(card.level)) } ?: return
+            is Prompt.Speak -> c.playback.play(p.reference.file)
         }
         _state.value = s.copy(playsLeft = s.playsLeft?.minus(1))
     }
@@ -183,6 +213,7 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         val next = Scheduler.onAnswer(states[item] ?: ReviewState(), correct, now)
         states[item] = next
         answered++
+        graded++
         if (correct) correctCount++
         viewModelScope.launch {
             c.progressRepository.recordGraded(sessionId, item, next, correct, now - cardShownAt, now)
@@ -204,6 +235,41 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
     // The reveal ignores play limits and volume scaffolds: it is the teaching moment.
     private fun reveal(clips: List<AudioClip>) = c.playback.playSequence(clips.map { it.file })
 
+    /** PRODUCE: the learner's own rating feeds the scheduler; the app never grades the recording. */
+    fun rateProduce(rating: SelfRating) {
+        val s = _state.value as? SessionUiState.Card ?: return
+        val produce = s.produce ?: return
+        val now = c.clock()
+        val item = planned[s.index].item
+        val next = Scheduler.onSelfRating(states[item] ?: ReviewState(), rating, now)
+        states[item] = next
+        answered++
+        val distance = produce.state.value.analysis?.takeIf { it.confidence == Confidence.OK }?.alignmentDistance
+        viewModelScope.launch {
+            c.progressRepository.recordSelfRated(sessionId, item, next, rating, distance, now - cardShownAt, now)
+        }
+        advance()
+    }
+
+    /** Leaves a PRODUCE card unscheduled and moves on. */
+    fun skipProduce() {
+        if ((_state.value as? SessionUiState.Card)?.produce != null) advance()
+    }
+
+    /** The learner declined the microphone: no speaking cards until they allow it. */
+    fun micDeclined() {
+        viewModelScope.launch { c.settingsRepository.update { it.copy(micDeclined = true) } }
+        skipProduce()
+    }
+
+    /** Boss line: marking it read turns the tier gold for good. */
+    fun bossDone(attempted: Boolean) {
+        val s = _state.value as? SessionUiState.Boss ?: return
+        if (attempted) viewModelScope.launch { c.progressRepository.markBossAttempted(s.line.tier, c.clock()) }
+        c.playback.stop()
+        if (cards.isEmpty()) finish() else show(0)
+    }
+
     /** Tap to continue after an incorrect answer. */
     fun continueAfterIncorrect() {
         val s = _state.value as? SessionUiState.Card ?: return
@@ -221,9 +287,12 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         ticker?.cancel()
         c.playback.stop()
         val now = c.clock()
-        viewModelScope.launch { c.progressRepository.endSession(sessionId, now) }
+        viewModelScope.launch {
+            c.progressRepository.endSession(sessionId, now)
+            c.recorder.prune()
+        }
 
-        val letters = planned.take(answered).map { it.item.letterId }.distinct()
+        val letters = planned.take(reached + 1).map { it.item.letterId }.distinct()
         val moved = letters.mapNotNull { id ->
             val from = Progression.weakest(id, startStates, now)?.let { Scheduler.mastery(it, now) } ?: Mastery.NEW
             val to = Progression.weakest(id, states, now)?.let { Scheduler.mastery(it, now) } ?: Mastery.NEW
@@ -231,7 +300,7 @@ class SessionViewModel(private val c: AppContainer) : ViewModel() {
         }
         val watch = letters.minByOrNull { id -> Progression.weakest(id, states, now)?.let { Scheduler.recall(it, now) } ?: 0.0 }
             ?.let { catalog.getValue(it) }
-        _state.value = SessionUiState.Summary(correctCount, answered, moved, watch, newTier = false)
+        _state.value = SessionUiState.Summary(correctCount, graded, moved, watch, newTier = false)
         viewModelScope.launch {
             val nowOpen = c.progressRepository.refreshUnlockedTiers(catalog.values.toList(), states, now)
             if ((nowOpen - unlockedTiers).isNotEmpty()) {

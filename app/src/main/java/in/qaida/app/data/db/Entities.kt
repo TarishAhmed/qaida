@@ -53,6 +53,13 @@ data class MakhrajEntity(
     val labelMl: String,
 )
 
+@Entity(tableName = "boss_line")
+data class BossLineEntity(
+    @PrimaryKey val tier: Int,
+    val text: String,
+    val audio: String?,
+)
+
 @Entity(tableName = "content_meta")
 data class ContentMetaEntity(
     @PrimaryKey val key: String,

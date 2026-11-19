@@ -77,6 +77,22 @@ object AssetValidator {
             set.letterIds.filter { it !in letterIds }.forEach { errors += "$at: '$it' is not a letter" }
         }
 
+        val tierSet = pack.letters.map { it.unlockTier }.toSet()
+        duplicates(pack.bossLines.map { it.tier.toString() }).forEach { errors += "boss.json: tier $it has more than one line" }
+        for (b in pack.bossLines) {
+            val at = "boss.json tier ${b.tier}"
+            if (b.tier !in tierSet) errors += "$at: no such tier"
+            if (b.text.isBlank()) errors += "$at: text is blank"
+            b.audio?.let { if (!source.exists(ContentPaths.audio(it))) errors += "$at: audio file missing: ${ContentPaths.audio(it)}" }
+            // Every base letter in the line must already be taught by this tier. Marks and spaces are ignored;
+            // Indo-Pak text may use code points the glyph table does not, so this is a warning for review.
+            val taught = pack.letters.filter { it.unlockTier <= b.tier }.flatMap { l -> listOf(l.glyph) + listOf(l.forms.isolated) }
+                .flatMap { it.toList() }.toSet()
+            val untaught = b.text.filter { Character.getType(it) != Character.NON_SPACING_MARK.toInt() && !it.isWhitespace() && it != '\u0640' }
+                .toSet() - taught
+            if (untaught.isNotEmpty()) warnings += "$at: characters not taught by this tier: ${untaught.joinToString(" ") { "U+%04X".format(it.code) }}"
+        }
+
         for (m in pack.makhraj) {
             if (!source.exists(m.diagram)) errors += "makhraj '${m.id}': diagram missing: ${m.diagram}"
         }

@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- No network permissions of any kind. RECORD_AUDIO arrives in milestone 6 and POST_NOTIFICATIONS
-         with the optional reminder in milestone 7; app/build.gradle.kts fails the build on anything else. -->
+    <!-- No network permissions of any kind. app/build.gradle.kts fails the build on anything not allowlisted. -->
+
+    <!-- Requested only when the learner first taps record; everything else works without it. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- Added by media3 for streaming bandwidth estimates; this app only plays bundled clips. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />

@@ -26,6 +26,8 @@ data class Settings(
     val reminderEnabled: Boolean = false,
     /** Minutes after midnight, local time. */
     val reminderMinuteOfDay: Int = 19 * 60,
+    /** The learner declined the microphone: sessions leave out PRODUCE cards until it is granted. */
+    val micDeclined: Boolean = false,
 ) {
     companion object {
         val SESSION_LENGTHS = listOf(60, 90, 180)
@@ -44,6 +46,7 @@ class SettingsRepository(private val context: Context) {
         val textScale = floatPreferencesKey("text_scale")
         val reminderEnabled = booleanPreferencesKey("reminder_enabled")
         val reminderMinute = intPreferencesKey("reminder_minute")
+        val micDeclined = booleanPreferencesKey("mic_declined")
     }
 
     val settings: Flow<Settings> = context.dataStore.data.map { it.toSettings() }
@@ -60,6 +63,7 @@ class SettingsRepository(private val context: Context) {
             textScale = this[Keys.textScale]?.takeIf { it in Settings.TEXT_SCALES } ?: d.textScale,
             reminderEnabled = this[Keys.reminderEnabled] ?: d.reminderEnabled,
             reminderMinuteOfDay = this[Keys.reminderMinute]?.coerceIn(0, 24 * 60 - 1) ?: d.reminderMinuteOfDay,
+            micDeclined = this[Keys.micDeclined] ?: d.micDeclined,
         )
     }
 
@@ -73,6 +77,7 @@ class SettingsRepository(private val context: Context) {
             prefs[Keys.textScale] = s.textScale
             prefs[Keys.reminderEnabled] = s.reminderEnabled
             prefs[Keys.reminderMinute] = s.reminderMinuteOfDay
+            prefs[Keys.micDeclined] = s.micDeclined
         }
     }
 }

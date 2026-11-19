@@ -71,6 +71,8 @@ def main() -> None:
     dump("letters.json", letters)
     dump("confusion_sets.json", tiers)
     dump("makhraj.json", makhraj)
+    dump("boss.json", [{"tier": t + 1, "text": " ".join([GLYPH * 3, GLYPH * 2, GLYPH * 4]), "note": "PLACEHOLDER"}
+                       for t in range(len(tiers))])
 
     svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">'
            '<!-- PLACEHOLDER --><rect x="5" y="5" width="90" height="90" fill="none" stroke="#888"/></svg>\n')

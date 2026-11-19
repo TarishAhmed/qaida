@@ -12,6 +12,9 @@ sealed interface Prompt {
 
     /** Text to read: a glyph (SEE_PICK) or a positional form (FORM_PICK). */
     data class Read(val text: String) : Prompt
+
+    /** PRODUCE: say [text] after hearing [reference]; self-rated, never graded. */
+    data class Speak(val text: String, val reference: AudioClip) : Prompt
 }
 
 /** One answer tile. Exactly one of [text] / [clip] is set, or neither for SAME / DIFFERENT. */
@@ -79,8 +82,11 @@ object CardTypes {
      */
     const val OTHER_TYPES_AFTER_HOURS = 8.0
 
-    /** Graded card types this letter can be drilled with now. */
-    fun available(letter: CatalogLetter, states: Map<ItemKey, ReviewState>): List<CardType> {
+    /**
+     * Card types this letter can be drilled with now. PRODUCE joins the graded types only when speaking
+     * practice is allowed (the learner has not declined the microphone).
+     */
+    fun available(letter: CatalogLetter, states: Map<ItemKey, ReviewState>, produceAllowed: Boolean = false): List<CardType> {
         val hear = states[ItemKey(letter.id, CardType.HEAR_PICK)]
         val established = hear?.lastReviewedAt != null && hear.stabilityHours >= OTHER_TYPES_AFTER_HOURS
         if (!established || letter.confusableWith.isEmpty()) return listOf(CardType.HEAR_PICK)
@@ -90,6 +96,7 @@ object CardTypes {
             add(CardType.AB_SAME_DIFF)
             add(CardType.FORM_PICK)
             if (letter.harakatClips.isNotEmpty()) add(CardType.HARAKAH_PICK)
+            if (produceAllowed && letter.isolatedClips.isNotEmpty()) add(CardType.PRODUCE)
         }
     }
 }
@@ -175,7 +182,10 @@ object CardFactory {
                     reveal = listOf(clip),
                 )
             }
-            CardType.PRODUCE -> error("PRODUCE is not a graded card")
+            CardType.PRODUCE -> SessionCard(
+                item, target, level, isIntro, Prompt.Speak(target.glyph, voice), options = emptyList(), correctKey = "",
+                hintGlyph = null, hintClip = null, revealClips = listOf(voice),
+            )
         }
     }
 

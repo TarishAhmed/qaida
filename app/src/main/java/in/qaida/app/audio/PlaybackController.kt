@@ -59,6 +59,12 @@ class PlaybackController(private val context: Context) {
         }
     }
 
+    /** Adds an in-memory clip (a recording, or a trimmed reference) under [name] for playback. */
+    fun putClip(name: String, bytes: ByteArray) {
+        clips[name] = bytes
+        if (current == name) current = null
+    }
+
     /** Prepares [file] without playing it, so the first play of a card starts immediately. */
     fun cue(file: String) {
         if (current == file) return

@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDirection
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import `in`.qaida.app.R
 
 enum class ScriptFace { NASTALEEQ, NASKH }
@@ -58,6 +59,25 @@ fun ArabicText(
             platformStyle = PlatformTextStyle(includeFontPadding = !compact),
             textDirection = TextDirection.Rtl,
             textAlign = textAlign,
+            hyphens = Hyphens.None,
+        ),
+    )
+}
+
+/** A line of mushaf text: wraps, centred, with room for the marks above and below. */
+@Composable
+fun ArabicLine(text: String, face: ScriptFace, modifier: Modifier = Modifier, size: TextUnit = 34.sp) {
+    Text(
+        text = text,
+        modifier = modifier,
+        style = TextStyle(
+            fontFamily = face.family(),
+            fontSize = size,
+            lineHeight = 2.1.em,
+            lineHeightStyle = LineHeightStyle(LineHeightStyle.Alignment.Center, LineHeightStyle.Trim.None),
+            platformStyle = PlatformTextStyle(includeFontPadding = true),
+            textDirection = TextDirection.Rtl,
+            textAlign = TextAlign.Center,
             hyphens = Hyphens.None,
         ),
     )

@@ -151,6 +151,24 @@ class VadTest {
     }
 
     @Test
+    fun `VAD durations are within 10 percent on hand-labelled real clips, when present`() {
+        val dir = javaClass.classLoader!!.getResource("vad")?.let { java.io.File(it.toURI()) }
+        val labels = dir?.resolve("labels.json")?.takeIf { it.exists() }
+        org.junit.jupiter.api.Assumptions.assumeTrue(labels != null, "no hand-labelled clips in test resources/vad")
+        val json = org.json.JSONObject(labels!!.readText())
+        for (name in json.keys()) {
+            val label = json.getJSONObject(name)
+            val (pcm, rate) = Wav.decode(dir.resolve(name).readBytes())
+            val seg = Vad.detect(Resampler.resample(pcm, rate, Framing.SAMPLE_RATE)).segment
+            assertNotNull(seg, name)
+            val trueMs = label.getInt("offsetMs") - label.getInt("onsetMs")
+            val err = abs(seg!!.durationMs - trueMs).toDouble() / trueMs
+            println("vad real $name: truth $trueMs ms got ${seg.durationMs} ms err ${"%.1f".format(err * 100)}%")
+            assertTrue(err <= 0.10, "$name: ${seg.durationMs} ms vs $trueMs ms")
+        }
+    }
+
+    @Test
     fun `silence and steady noise contain no speech`() {
         assertNull(Vad.detect(ShortArray(16_000)).segment)
         assertNull(Vad.detect(Synthetic.mix(2000, emptyList(), noiseAmp = 0.02)).segment)

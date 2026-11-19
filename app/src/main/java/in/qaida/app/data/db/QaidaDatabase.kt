@@ -7,8 +7,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    version = 2,
-    autoMigrations = [AutoMigration(from = 1, to = 2)],
+    version = 3,
+    autoMigrations = [AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3)],
     entities = [
         LetterEntity::class,
         LetterAudioEntity::class,
@@ -21,6 +21,7 @@ import androidx.room.RoomDatabase
         AnswerLogEntity::class,
         TierUnlockEntity::class,
         BossAttemptEntity::class,
+        BossLineEntity::class,
     ],
 )
 abstract class QaidaDatabase : RoomDatabase() {

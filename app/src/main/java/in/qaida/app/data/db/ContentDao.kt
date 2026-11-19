@@ -23,6 +23,12 @@ abstract class ContentDao {
     @Query("SELECT * FROM confusion_set_member")
     abstract suspend fun allSetMembers(): List<ConfusionSetMemberEntity>
 
+    @Query("SELECT * FROM makhraj")
+    abstract suspend fun allMakhraj(): List<MakhrajEntity>
+
+    @Query("SELECT * FROM boss_line ORDER BY tier")
+    abstract suspend fun bossLines(): List<BossLineEntity>
+
     @Query("SELECT value FROM content_meta WHERE `key` = :key")
     abstract suspend fun meta(key: String): String?
 
@@ -33,9 +39,11 @@ abstract class ContentDao {
         confusables: List<LetterConfusableEntity>,
         setMembers: List<ConfusionSetMemberEntity>,
         makhraj: List<MakhrajEntity>,
+        bossLines: List<BossLineEntity>,
         meta: List<ContentMetaEntity>,
     ) {
-        clearLetters(); clearAudio(); clearConfusables(); clearSetMembers(); clearMakhraj()
+        clearLetters(); clearAudio(); clearConfusables(); clearSetMembers(); clearMakhraj(); clearBossLines()
+        insertBossLines(bossLines)
         insertLetters(letters)
         insertAudio(audio)
         insertConfusables(confusables)
@@ -49,6 +57,8 @@ abstract class ContentDao {
     @Query("DELETE FROM letter_confusable") protected abstract suspend fun clearConfusables()
     @Query("DELETE FROM confusion_set_member") protected abstract suspend fun clearSetMembers()
     @Query("DELETE FROM makhraj") protected abstract suspend fun clearMakhraj()
+    @Query("DELETE FROM boss_line") protected abstract suspend fun clearBossLines()
+    @Insert protected abstract suspend fun insertBossLines(rows: List<BossLineEntity>)
 
     @Insert protected abstract suspend fun insertLetters(rows: List<LetterEntity>)
     @Insert protected abstract suspend fun insertAudio(rows: List<LetterAudioEntity>)

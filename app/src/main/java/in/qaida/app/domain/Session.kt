@@ -17,7 +17,13 @@ data class CatalogLetter(
     val forms: LetterForms = LetterForms(glyph, glyph, glyph, glyph),
     /** Clips per haraka context ("fatha", "kasra", "damma"); empty if the pack has none for this letter. */
     val harakatClips: Map<String, List<AudioClip>> = emptyMap(),
+    val makhraj: MakhrajInfo? = null,
+    val nameEn: String = id,
+    val nameMl: String = id,
 )
+
+/** Articulation diagram and the letter's one-line note, in both languages. */
+data class MakhrajInfo(val diagram: String, val labelEn: String, val labelMl: String, val noteEn: String, val noteMl: String)
 
 data class AudioClip(val file: String, val voiceId: String)
 
@@ -51,6 +57,7 @@ object SessionComposer {
 
     /** Other card types may take at most this share of a session, keeping HEAR_PICK the backbone (~60%). */
     const val MAX_OTHER_SHARE = 0.4
+    const val MAX_PRODUCE = 1
 
     fun compose(
         unlocked: List<CatalogLetter>,
@@ -58,8 +65,9 @@ object SessionComposer {
         now: Long,
         rng: Random,
         maxCards: Int,
+        produceAllowed: Boolean = false,
     ): List<PlannedCard> {
-        val items = unlocked.flatMap { l -> CardTypes.available(l, states).map { ItemKey(l.id, it) } }
+        val items = unlocked.flatMap { l -> CardTypes.available(l, states, produceAllowed).map { ItemKey(l.id, it) } }
         val reviewed = items.filter { states[it]?.lastReviewedAt != null }
         val recall = reviewed.associateWith { Scheduler.recall(states.getValue(it), now) }
 
@@ -98,13 +106,17 @@ object SessionComposer {
     private fun capOtherTypes(planned: List<PlannedCard>, maxCards: Int): List<PlannedCard> {
         val maxOther = (maxCards * MAX_OTHER_SHARE).toInt()
         var others = 0
+        var produce = 0
         val out = ArrayList<PlannedCard>(maxCards)
         for (c in planned) {
             if (out.size == maxCards) break
-            if (c.item.cardType != CardType.HEAR_PICK) {
-                if (others == maxOther) continue
-                others++
-            }
+            val isOther = c.item.cardType != CardType.HEAR_PICK
+            // Recording takes much of a 90 second session; one speaking card is enough.
+            val isProduce = c.item.cardType == CardType.PRODUCE
+            if (isOther && others == maxOther) continue
+            if (isProduce && produce == MAX_PRODUCE) continue
+            if (isOther) others++
+            if (isProduce) produce++
             out += c
         }
         return out

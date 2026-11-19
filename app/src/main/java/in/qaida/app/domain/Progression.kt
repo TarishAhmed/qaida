@@ -75,4 +75,21 @@ object Progression {
         }
         return listOfNotNull(1.takeIf { it !in unlockedTiers }) + added
     }
+
+    /**
+     * A tier is complete once the next tier has opened, or, for the last tier, once all its letters are
+     * ready. Completing a tier is what earns its boss line.
+     */
+    fun tierComplete(
+        tier: Int,
+        catalog: List<CatalogLetter>,
+        states: Map<ItemKey, ReviewState>,
+        unlockedTiers: Set<Int>,
+        now: Long,
+    ): Boolean {
+        if (tier + 1 in unlockedTiers) return true
+        val last = catalog.maxOfOrNull { it.unlockTier } ?: return false
+        return tier == last && tier in unlockedTiers &&
+            catalog.filter { it.unlockTier == tier }.all { ready(it.id, states, now) }
+    }
 }

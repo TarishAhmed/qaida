@@ -37,6 +37,25 @@
     <string name="session_tap_to_continue">Tap to continue</string>
     <string name="session_nothing_due">Nothing needs review right now.</string>
 
+    <string name="produce_record">Record</string>
+    <string name="produce_stop">Stop</string>
+    <string name="produce_reference">Hear the reference</string>
+    <string name="produce_play_yours">Play yours</string>
+    <string name="produce_play_reference">Play the reference</string>
+    <string name="produce_recording">Recording… tap to stop</string>
+    <string name="produce_listening">Listening…</string>
+    <string name="produce_low_confidence">Couldn\'t hear that clearly — try again somewhere quieter.</string>
+    <string name="produce_held">You held it for %1$s s. The reference holds it for %2$s s.</string>
+    <string name="produce_waveforms">Your recording above, the reference below, lined up in time</string>
+    <string name="produce_needs_work">Needs work</string>
+    <string name="produce_getting_there">Getting there</string>
+    <string name="produce_sounds_right">Sounds right</string>
+    <string name="produce_skip">Skip</string>
+
+    <string name="boss_title">You can now read this</string>
+    <string name="boss_done">I read it</string>
+    <string name="boss_later">Later</string>
+
     <string name="summary_correct">%1$d of %2$d correct</string>
     <string name="summary_moved">Moved</string>
     <string name="summary_watch">One to watch</string>

@@ -78,6 +78,16 @@ class SchedulerTest {
         assertEquals(Mastery.GREEN, bucketAt(0.94, s = 500.0)) // gold fades back to green as p falls
     }
 
+    @Test
+    fun `self-ratings map to lapse, hold and success`() {
+        val st = reviewed(10.0, 10.0) // p = 0.5
+        assertEquals(4.0, Scheduler.onSelfRating(st, SelfRating.NEEDS_WORK, t0).stabilityHours, 1e-9)
+        val held = Scheduler.onSelfRating(st, SelfRating.GETTING_THERE, t0)
+        assertEquals(10.0, held.stabilityHours, 1e-9)
+        assertEquals(t0, held.lastReviewedAt)
+        assertEquals(19.0, Scheduler.onSelfRating(st, SelfRating.SOUNDS_RIGHT, t0).stabilityHours, 1e-9)
+    }
+
     // --- Gate: a 90%-accurate learner should reach gold on a letter in roughly 8-14 sessions. ---
 
     /**

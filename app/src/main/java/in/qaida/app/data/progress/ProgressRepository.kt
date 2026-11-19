@@ -1,6 +1,7 @@
 package `in`.qaida.app.data.progress
 
 import `in`.qaida.app.data.db.AnswerLogEntity
+import `in`.qaida.app.data.db.BossAttemptEntity
 import `in`.qaida.app.data.db.ProgressDao
 import `in`.qaida.app.data.db.ReviewStateEntity
 import `in`.qaida.app.data.db.SessionEntity
@@ -10,6 +11,7 @@ import `in`.qaida.app.domain.Progression
 import `in`.qaida.app.domain.CardType
 import `in`.qaida.app.domain.ItemKey
 import `in`.qaida.app.domain.ReviewState
+import `in`.qaida.app.domain.SelfRating
 
 class ProgressRepository(private val dao: ProgressDao) {
 
@@ -28,6 +30,29 @@ class ProgressRepository(private val dao: ProgressDao) {
     }
 
     suspend fun bossAttemptedTiers(): Set<Int> = dao.bossAttemptedTiers().toSet()
+
+    suspend fun markBossAttempted(tier: Int, now: Long) = dao.insertBossAttempt(BossAttemptEntity(tier, now))
+
+    /** Persists a PRODUCE self-rating. alignmentDistance is kept for tuning only and never shown. */
+    suspend fun recordSelfRated(
+        sessionId: Long,
+        item: ItemKey,
+        newState: ReviewState,
+        rating: SelfRating,
+        alignmentDistance: Double?,
+        responseMs: Long,
+        now: Long,
+    ) {
+        dao.upsertReviewState(
+            ReviewStateEntity(item.letterId, item.cardType.name, newState.stabilityHours, newState.lastReviewedAt ?: now),
+        )
+        dao.insertAnswer(
+            AnswerLogEntity(
+                sessionId = sessionId, answeredAt = now, letterId = item.letterId, cardType = item.cardType.name,
+                correct = null, selfRating = rating.code, responseMs = responseMs, alignmentDistance = alignmentDistance,
+            ),
+        )
+    }
 
     suspend fun startSession(now: Long): Long = dao.insertSession(SessionEntity(startedAt = now, endedAt = null))
 

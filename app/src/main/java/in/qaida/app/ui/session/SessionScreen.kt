@@ -53,6 +53,14 @@ import `in`.qaida.app.domain.Prompt
 import `in`.qaida.app.ui.theme.ArabicText
 import `in`.qaida.app.ui.theme.LocalStatusColors
 import `in`.qaida.app.ui.theme.ScriptFace
+import `in`.qaida.app.ui.theme.ArabicLine
+import `in`.qaida.app.ui.common.SvgDiagram
+import `in`.qaida.app.ui.produce.ProduceController
+import `in`.qaida.app.ui.produce.ProduceControls
+import `in`.qaida.app.ui.produce.ProducePhase
+import `in`.qaida.app.ui.produce.ProduceResult
+import `in`.qaida.app.ui.produce.SelfRatingRow
+import androidx.compose.ui.platform.LocalContext
 import kotlinx.coroutines.delay
 
 @Composable
@@ -62,7 +70,8 @@ fun SessionScreen(viewModel: SessionViewModel, face: ScriptFace, onDone: () -> U
         when (val s = state) {
             SessionUiState.Loading -> Box(Modifier.fillMaxSize(), Alignment.Center) { CircularProgressIndicator() }
             SessionUiState.NothingDue -> NothingDue(onDone)
-            is SessionUiState.Card -> CardView(s, viewModel, face)
+            is SessionUiState.Boss -> BossView(s, viewModel, face)
+            is SessionUiState.Card -> if (s.produce != null) ProduceCardView(s, s.produce, viewModel, face) else CardView(s, viewModel, face)
             is SessionUiState.Summary -> SummaryView(s, face, onDone)
         }
     }
@@ -113,6 +122,7 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptF
                 when (val p = card.prompt) {
                     is Prompt.Read -> ArabicText(p.text, 120.sp, face = face, modifier = Modifier.testTag("prompt_text"))
                     is Prompt.Listen -> card.hintGlyph?.let { ArabicText(it, 120.sp, face = face, modifier = Modifier.testTag("hint")) }
+                    is Prompt.Speak -> ArabicText(p.text, 120.sp, face = face)
                 }
             }
         }
@@ -147,6 +157,69 @@ private fun CardView(s: SessionUiState.Card, vm: SessionViewModel, face: ScriptF
                     modifier = Modifier.fillMaxWidth().height(56.dp).testTag("confirm"),
                 ) { Text(stringResource(R.string.session_choose)) }
             }
+        }
+    }
+}
+
+/**
+ * PRODUCE: hear the reference, say it, and compare. What can appear: the glyph, the articulation diagram,
+ * two aligned waveforms and a plain statement of durations. What never appears: a score, a pass/fail,
+ * a red mark, a buzzer, or the word wrong. The learner rates their own attempt.
+ */
+@Composable
+private fun ProduceCardView(s: SessionUiState.Card, produce: ProduceController, vm: SessionViewModel, face: ScriptFace) {
+    val ps by produce.state.collectAsStateWithLifecycle()
+    val language = LocalContext.current.resources.configuration.locales[0].language
+    Column(Modifier.fillMaxSize().systemBarsPadding()) {
+        LinearProgressIndicator(progress = { s.progress }, modifier = Modifier.fillMaxWidth().height(2.dp), drawStopIndicator = {}, gapSize = 0.dp)
+        Column(
+            Modifier.fillMaxWidth().weight(1f).padding(horizontal = 16.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(instruction(CardType.PRODUCE), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.testTag("instruction"))
+            ArabicText(s.card.target.glyph, 96.sp, face = face)
+            if (ps.phase == ProducePhase.IDLE) {
+                s.card.target.makhraj?.let { m ->
+                    SvgDiagram(m.diagram, Modifier.size(120.dp))
+                    Text(if (language == "ml") m.noteMl else m.noteEn, style = MaterialTheme.typography.bodySmall, textAlign = TextAlign.Center)
+                }
+            } else {
+                ProduceResult(ps, Modifier.fillMaxWidth())
+            }
+        }
+        Column(
+            Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            ProduceControls(produce, hasReference = true, onMicDeclined = vm::micDeclined, modifier = Modifier.fillMaxWidth())
+            if (ps.phase == ProducePhase.DONE) SelfRatingRow(vm::rateProduce, Modifier.fillMaxWidth())
+            TextButton(onClick = vm::skipProduce, modifier = Modifier.testTag("produce_skip")) { Text(stringResource(R.string.produce_skip)) }
+        }
+    }
+}
+
+/** A completed tier's line of mushaf text: the payoff. Recording is optional and nothing is measured against it. */
+@Composable
+private fun BossView(s: SessionUiState.Boss, vm: SessionViewModel, face: ScriptFace) {
+    val ps by s.produce.state.collectAsStateWithLifecycle()
+    Column(Modifier.fillMaxSize().systemBarsPadding().padding(16.dp).testTag("boss")) {
+        Column(
+            Modifier.fillMaxWidth().weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+        ) {
+            Text(stringResource(R.string.boss_title), style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.primary)
+            ArabicLine(s.line.text, face)
+            if (ps.phase == ProducePhase.RECORDING || ps.phase == ProducePhase.ANALYSING) ProduceResult(ps.copy(analysis = null))
+        }
+        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
+            ProduceControls(s.produce, hasReference = s.hasReference, onMicDeclined = {}, modifier = Modifier.fillMaxWidth())
+            Button(onClick = { vm.bossDone(attempted = true) }, modifier = Modifier.fillMaxWidth().height(56.dp).testTag("boss_done")) {
+                Text(stringResource(R.string.boss_done))
+            }
+            TextButton(onClick = { vm.bossDone(attempted = false) }) { Text(stringResource(R.string.boss_later)) }
         }
     }
 }

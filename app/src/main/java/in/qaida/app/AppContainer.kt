@@ -3,6 +3,8 @@ package `in`.qaida.app
 import android.content.Context
 import android.util.Log
 import `in`.qaida.app.audio.PlaybackController
+import `in`.qaida.app.audio.Recorder
+import `in`.qaida.app.audio.ReferenceDecoder
 import `in`.qaida.app.audio.UiSounds
 import `in`.qaida.app.data.content.AssetContentSource
 import `in`.qaida.app.data.content.ContentRepository
@@ -28,6 +30,8 @@ class AppContainer(context: Context) {
     val progressRepository = ProgressRepository(database.progressDao())
     val playback = PlaybackController(context)
     val uiSounds = UiSounds(context)
+    val recorder = Recorder(context)
+    val referenceDecoder = ReferenceDecoder(context)
 
     val settingsRepository = SettingsRepository(context)
 

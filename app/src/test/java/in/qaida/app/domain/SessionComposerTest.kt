@@ -162,4 +162,17 @@ class SessionComposerTest {
             assertNoConsecutiveSameLetter(cards)
         }
     }
+
+    @Test
+    fun `at most one PRODUCE card per session, and none when speaking practice is off`() {
+        val ls = letters(8)
+        val states = ls.flatMap { l -> CardType.entries.map { ItemKey(l.id, it) } }
+            .associateWith { stateAt(0.4, s = 20.0) }
+        repeat(100) { seed ->
+            val with = SessionComposer.compose(ls, states, now, Random(seed), 12, produceAllowed = true)
+            assertTrue(with.count { it.item.cardType == CardType.PRODUCE } <= 1)
+            val without = SessionComposer.compose(ls, states, now, Random(seed), 12, produceAllowed = false)
+            assertTrue(without.none { it.item.cardType == CardType.PRODUCE })
+        }
+    }
 }

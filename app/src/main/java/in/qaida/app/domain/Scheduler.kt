@@ -10,6 +10,9 @@ data class ReviewState(
 
 enum class Mastery { NEW, RED, AMBER, GREEN, GOLD }
 
+/** The learner's own judgement of a PRODUCE attempt. The app never grades recitation. */
+enum class SelfRating(val code: Int) { NEEDS_WORK(0), GETTING_THERE(1), SOUNDS_RIGHT(2) }
+
 /**
  * Half-life scheduler. Recall probability after t hours is p = 2^(-t/s) for stability s.
  * Constants are fixed by the product spec; do not retune without sign-off.
@@ -46,6 +49,16 @@ object Scheduler {
             else -> s * EASY_GROWTH // answered while still fresh: no learning happened
         }
         return ReviewState(next.coerceIn(MIN_STABILITY, MAX_STABILITY), now)
+    }
+
+    /**
+     * PRODUCE items are scheduled from the learner's self-rating: needs work is a lapse, sounds right a
+     * success, and getting there keeps the stability where it is and restarts the clock.
+     */
+    fun onSelfRating(state: ReviewState, rating: SelfRating, now: Long): ReviewState = when (rating) {
+        SelfRating.NEEDS_WORK -> onAnswer(state, correct = false, now)
+        SelfRating.GETTING_THERE -> ReviewState(state.stabilityHours, now)
+        SelfRating.SOUNDS_RIGHT -> onAnswer(state, correct = true, now)
     }
 
     fun mastery(state: ReviewState, now: Long): Mastery {

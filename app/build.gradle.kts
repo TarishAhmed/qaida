@@ -102,6 +102,7 @@ tasks.matching { it.name in setOf("assembleRelease", "bundleRelease", "packageRe
 // manifest silently, so every variant's merged manifest is checked against this allowlist.
 fun allowedPermissions(applicationId: String) = setOf(
     "$applicationId.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", // androidx.core, app-private, signature-level
+    "android.permission.RECORD_AUDIO", // pronunciation practice; requested lazily, optional
 )
 androidComponents {
     onVariants { variant ->

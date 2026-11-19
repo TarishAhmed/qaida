@@ -35,10 +35,20 @@ data class Makhraj(
     val labelMl: String,
 )
 
+/** A real line of Indo-Pak mushaf text using only letters up to [tier]: the payoff for completing it. */
+data class BossLine(
+    val tier: Int,
+    val text: String,
+    /** Optional recitation of the line, in the audio folder. */
+    val audio: String?,
+)
+
 data class ContentPack(
     val letters: List<Letter>,
     val confusionSets: List<ConfusionSet>,
     val makhraj: List<Makhraj>,
+    /** From the optional boss.json; empty when the pack has none. */
+    val bossLines: List<BossLine> = emptyList(),
 )
 
 enum class CardType { HEAR_PICK, SEE_PICK, AB_SAME_DIFF, FORM_PICK, HARAKAH_PICK, PRODUCE }

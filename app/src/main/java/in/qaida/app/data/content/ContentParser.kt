@@ -1,5 +1,6 @@
 package `in`.qaida.app.data.content
 
+import `in`.qaida.app.domain.BossLine
 import `in`.qaida.app.domain.ConfusionSet
 import `in`.qaida.app.domain.ContentPack
 import `in`.qaida.app.domain.Letter
@@ -17,10 +18,17 @@ class ContentFormatException(message: String) : Exception(message)
  */
 object ContentParser {
 
-    fun parse(lettersJson: String, confusionSetsJson: String, makhrajJson: String) = ContentPack(
+    fun parse(lettersJson: String, confusionSetsJson: String, makhrajJson: String, bossJson: String? = null) = ContentPack(
         letters = parseArray(lettersJson, "letters.json") { obj, at -> parseLetter(obj, at) },
         confusionSets = parseConfusionSets(confusionSetsJson),
         makhraj = parseArray(makhrajJson, "makhraj.json") { obj, at -> parseMakhraj(obj, at) },
+        bossLines = bossJson?.let { json -> parseArray(json, "boss.json") { obj, at -> parseBoss(obj, at) } }.orEmpty(),
+    )
+
+    private fun parseBoss(o: JSONObject, at: String) = BossLine(
+        tier = o.int("tier", at),
+        text = o.str("text", at),
+        audio = if (o.has("audio")) o.str("audio", at) else null,
     )
 
     private fun parseLetter(o: JSONObject, at: String): Letter {

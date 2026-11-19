@@ -1,5 +1,6 @@
 package `in`.qaida.app.data.content
 
+import `in`.qaida.app.data.db.BossLineEntity
 import `in`.qaida.app.data.db.ConfusionSetMemberEntity
 import `in`.qaida.app.data.db.ContentDao
 import `in`.qaida.app.data.db.ContentMetaEntity
@@ -11,6 +12,8 @@ import `in`.qaida.app.domain.AudioClip
 import `in`.qaida.app.domain.CatalogLetter
 import `in`.qaida.app.domain.ContentPack
 import `in`.qaida.app.domain.LetterForms
+import `in`.qaida.app.domain.MakhrajInfo
+import `in`.qaida.app.domain.BossLine
 import java.security.MessageDigest
 
 /**
@@ -23,7 +26,8 @@ class ContentRepository(
 ) {
     /** Returns the number of letters imported, or null if the stored content was already current. */
     suspend fun importIfChanged(): Int? {
-        val hash = sha256(ContentPaths.LETTERS, ContentPaths.CONFUSION_SETS, ContentPaths.MAKHRAJ)
+        val hash = sha256(*listOfNotNull(ContentPaths.LETTERS, ContentPaths.CONFUSION_SETS, ContentPaths.MAKHRAJ,
+            ContentPaths.BOSS.takeIf(source::exists)).toTypedArray())
         if (dao.meta(META_HASH) == hash) return null
         val pack = source.loadPack()
         write(pack, hash)
@@ -35,6 +39,7 @@ class ContentRepository(
         val audio = dao.allAudio().groupBy { it.letterId }
         val confusables = dao.allConfusables().groupBy({ it.letterId }, { it.otherId })
         val sets = dao.allSetMembers().groupBy({ it.letterId }, { it.setIndex })
+        val makhraj = dao.allMakhraj().associateBy { it.id }
         return dao.letters().map { l ->
             CatalogLetter(
                 id = l.id,
@@ -46,9 +51,14 @@ class ContentRepository(
                 isolatedClips = clips(audio[l.id], AssetValidator.ISOLATED),
                 forms = LetterForms(l.formIsolated, l.formInitial, l.formMedial, l.formFinal),
                 harakatClips = AssetValidator.HARAKAT.associateWith { clips(audio[l.id], it) }.filterValues { it.isNotEmpty() },
+                makhraj = makhraj[l.makhrajId]?.let { m -> MakhrajInfo(m.diagram, m.labelEn, m.labelMl, l.makhrajNoteEn, l.makhrajNoteMl) },
+                nameEn = l.nameEn,
+                nameMl = l.nameMl,
             )
         }
     }
+
+    suspend fun bossLines(): List<BossLine> = dao.bossLines().map { BossLine(it.tier, it.text, it.audio) }
 
     private fun clips(rows: List<LetterAudioEntity>?, context: String) =
         rows.orEmpty().filter { it.context == context }.sortedBy { it.file }.map { AudioClip(it.file, it.voiceId) }
@@ -77,6 +87,7 @@ class ContentRepository(
                 set.letterIds.distinct().map { ConfusionSetMemberEntity(i, it) }
             },
             makhraj = pack.makhraj.map { MakhrajEntity(it.id, it.diagram, it.labelEn, it.labelMl) },
+            bossLines = pack.bossLines.map { BossLineEntity(it.tier, it.text, it.audio) },
             meta = listOf(ContentMetaEntity(META_HASH, hash)),
         )
     }

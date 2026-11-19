@@ -13,6 +13,8 @@ object ContentPaths {
     const val LETTERS = "content/letters.json"
     const val CONFUSION_SETS = "content/confusion_sets.json"
     const val MAKHRAJ = "content/makhraj.json"
+    /** Optional: one boss line per tier. */
+    const val BOSS = "content/boss.json"
     const val AUDIO_DIR = "audio"
 
     fun audio(file: String) = "$AUDIO_DIR/$file"
@@ -36,6 +38,7 @@ fun ContentSource.loadPack() = try {
         lettersJson = readText(ContentPaths.LETTERS),
         confusionSetsJson = readText(ContentPaths.CONFUSION_SETS),
         makhrajJson = readText(ContentPaths.MAKHRAJ),
+        bossJson = if (exists(ContentPaths.BOSS)) readText(ContentPaths.BOSS) else null,
     )
 } catch (e: FileNotFoundException) {
     throw ContentFormatException("missing content file: ${e.message}")
