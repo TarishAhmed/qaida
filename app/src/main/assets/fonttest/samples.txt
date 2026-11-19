@@ -1,3 +1,16 @@
-# Milestone 0 font test strings. One sample per line; lines starting with # are ignored.
-# Replace the line below with the known Indo-Pak string(s) supplied by the content owner.
-PLACEHOLDER — supply Indo-Pak test string
+# Milestone 0 font test strings. Lines starting with # are ignored.
+# Source: api.quran.com/api/v4/quran/verses/indopak (chapters 1 and 112), fetched 2026-11-19.
+# Final line: Arabic letters U+0627-U+063A, U+0641-U+064A generated mechanically from Unicode.
+# Throwaway: this file is deleted with FontTestScreen once the milestone 0 gate passes.
+بِسۡمِ اللهِ الرَّحۡمٰنِ الرَّحِيۡمِ
+اَلۡحَمۡدُ لِلّٰهِ رَبِّ الۡعٰلَمِيۡنَۙ‏
+الرَّحۡمٰنِ الرَّحِيۡمِۙ‏
+مٰلِكِ يَوۡمِ الدِّيۡنِؕ‏
+اِيَّاكَ نَعۡبُدُ وَاِيَّاكَ نَسۡتَعِيۡنُؕ‏
+اِهۡدِنَا الصِّرَاطَ الۡمُسۡتَقِيۡمَۙ‏
+صِرَاطَ الَّذِيۡنَ اَنۡعَمۡتَ عَلَيۡهِمۡ ۙ‏ غَيۡرِ الۡمَغۡضُوۡبِ عَلَيۡهِمۡ وَلَا الضَّآلِّيۡنَ‏
+قُلۡ هُوَ اللّٰهُ اَحَدٌ​ ۚ‏
+اَللّٰهُ الصَّمَدُ​ ۚ‏
+لَمۡ يَلِدۡ   ۙ وَلَمۡ يُوۡلَدۡ ۙ‏
+وَلَمۡ يَكُنۡ لَّهٗ كُفُوًا اَحَدٌ‏
+ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي

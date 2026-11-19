@@ -11,11 +11,22 @@ Creative Commons Attribution-ShareAlike 4.0 International licence
 Third-party components
 ----------------------
 
-Fonts (res/font/): TO BE FILLED IN when the font files are supplied. Each font
-must be listed here with its source URL, copyright holder and licence, and the
-licence must be compatible with GPL-3.0 redistribution (e.g. OFL-1.1).
+Fonts (res/font/). Each font must be listed here with its source, copyright
+holder and a licence compatible with GPL-3.0 redistribution (e.g. OFL-1.1).
 
-  indopak_nastaleeq.ttf  - source: TBD  licence: TBD
-  indopak_naskh.ttf      - source: TBD  licence: TBD
+  indopak_nastaleeq.ttf
+    "AlQuran IndoPak by QuranWBW", Version 2.100 (2022-11-26), unmodified.
+    Source: https://qul.tarteel.ai/resources/font/242
+            https://static-cdn.tarteel.ai/qul/fonts/nastaleeq/Hanafi/normal-v4.2.2/with-waqf-lazmi/font.ttf
+    Copyright (embedded): Al Qalam, Ghandhara, KFGQPC, Ayman Siddiqui; credits
+    Abdul Majeed Khan, Arif Karim, Shakir-ul-Qadree, Jawad. quranwbw.com
+    LICENCE: UNKNOWN. Neither QUL nor the font states one. RELEASE BLOCKER until
+    a redistribution licence is confirmed with the authors.
+
+  indopak_naskh.ttf
+    Noto Naskh Arabic, Version 2.021, Copyright 2022 The Noto Project Authors
+    (https://github.com/notofonts/arabic). Static Regular (wght=400) instance
+    generated from the variable font with fontTools.varLib.instancer.
+    Licence: SIL Open Font License 1.1 (see LICENSE-OFL-NotoNaskhArabic.txt).
 
 AndroidX / Jetpack libraries - Apache License 2.0, The Android Open Source Project.
